@@ -1,0 +1,42 @@
+Intermediate
+
+Determine the smallest integer, such that the product of its (decimal) digits is 216.
+
+Consider the number $111112222200000$ consisting of five ones, five twos and five zeros. Is it possible to rearrange the digits to form a perfect square? (You may move a zero to the front. That has the effect of reducing the total number of digits.)
+
+Write down the sequence obtained by writing all the digits of odd integers in sequence: 1357911131517192123\ldots Find the 2018-th digit in this sequence.
+
+What number is directly above the number 222 in the array:
+\[ \begin{array}{ccccccc}
+&&&1\\
+&&2&3&4\\
+&5&6&7&8&9\\
+10&11&12&\cdots
+\end{array} \]
+
+Show that for any positive integer $n$, the number $3^n+7^n$ ends on a 0.
+
+Find the last digit of $2^{1+2+\cdots+ 2018}$ (last two digits?)
+
+If the numbers $a,b,c$ are all prime numbers, solve the equation
+\begin{align*}
+	a+b &= 108\\
+	a-b-c &= 32.
+\end{align*}
+
+Solve the equation
+\[ 4a+5b+15c = 75\]
+in prime numbers. 
+
+Given any two-digit number $n$, let $S(n)$ be the sum of the digits of $99n$. Show that you always get the same answer, no matter which two-digit number $n$ is chosen.
+
+Prove that for any integer $n$, one has
+\[ \frac{1}{1+2} + \frac{1}{1+2+3} + \frac{1}{1+2+3+4} + \codts +  \frac{1}{1+2+\cdots+n} = 1 - \frac{2}{n+1}.\]
+
+A polygon has six times as many diagonals as it has sides. How many sides does it have?
+
+Find the two largest primes whose squares divide $95!+96!+97!$.
+
+How many scalene triangles with integer side lengths are there, whose largest side has length 19?
+
+$N$ is a six-digit number whose sum of its digits is 37, and the sum of the digits of $N+1$ is 2. Find $N$.
