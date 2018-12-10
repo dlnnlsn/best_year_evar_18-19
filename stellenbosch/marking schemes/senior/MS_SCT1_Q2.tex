@@ -1,0 +1,40 @@
+%-----------------begin---preamble-------------------
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
+\usepackage[margin=0.8in]{geometry}
+% \usepackage{enumerate}
+
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\def\deg{^{\circ}}
+\newcommand\heading[1]{\ \\\large{\textbf{#1}}}
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+\title{Stellenbosch Camp Test 1\\ Senior Question 2 Marking Scheme}
+\date{}
+%------------------end---preamble--------------------
+
+\begin{document}
+	\maketitle
+	\section{Question}
+	Find all functions $f:\mathbb{R}\rightarrow \mathbb{R}$ such that
+	\begin{flalign}
+		f(f(x+y))=x+f(y) \nonumber
+	\end{flalign}
+	for all $x,y \in \mathbb{R}$
+	\section{Partials awarded if the problem was not solved completely}
+	\begin{itemize}
+		\item {1 mark: Showing $f(f(x))=f(x) $}
+		\item {1 mark: Showing $f(x)=x+c$}
+		\item {2 marks: Showing $f$ is either surjective \textbf{or} injective. 3 marks if both.}
+		\item {1 mark: Guessing that $f(x)=x$ is a solution \textbf{and} checking that it is valid.}
+	\end{itemize}
+	\section{Marks deducted if the problem is essentially solved.}
+	\begin{itemize}
+		\item {-1 mark: Claiming a non-trivial fact without proof.}
+		\item {-1 mark: Failing to check that $f(x)=x$ is a valid solution}
+	\end{itemize}
+\end{document}

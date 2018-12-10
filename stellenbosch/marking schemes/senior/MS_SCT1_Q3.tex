@@ -1,0 +1,78 @@
+%-----------------begin---preamble-------------------
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
+\usepackage[margin=0.8in]{geometry}
+% \usepackage{enumerate}
+
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\def\deg{^{\circ}}
+\newcommand\heading[1]{\ \\\large{\textbf{#1}}}
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+\title{Stellenbosch Camp Test 1\\ Question 3 Marking Scheme}
+\date{}
+%------------------end---preamble--------------------
+
+\begin{document}
+	\maketitle
+	\section{Question}
+	$ABC$ is an acute angled triangle. The circle with diameter $AB$ intersects the altitude from $C$ at $M$ and $N$. The circle with diameter $AC$ intersects the altitude from $B$ at $P$ and $Q$. Prove $M$, $N$, $P$, and $Q$ all lie on a common circle.
+	\section{Solution}
+	\begin{figure}[htb!]
+	\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+		\useasboundingbox (-2,-1) rectangle  (2,2.5);
+		\coordinate (B) at (-2,-1);
+		\coordinate (A) at (0,2);
+		\coordinate (C) at (1,-1);
+		\tkzDefLine[orthogonal=through C](B,A) \tkzGetPoint{h1};
+		\tkzDefLine[orthogonal=through B](C,A) \tkzGetPoint{h2};
+		\draw[-] (A)--(B)--(C)--(A);
+		\tkzDrawLine[thin,add=0 and 0.3](C,h1);
+		\tkzDrawLine[thin,add=1.5 and -1](B,h2);
+		\coordinate (m1) at (-1,0.5);
+		\coordinate (m2) at (0.5,0.5);
+		\tkzDrawCircle[thin](m1,A);
+		\tkzDrawCircle[thin](m2,A);
+		\tkzInterLC(C,h1)(m1,A)\tkzGetPoints{M}{N};
+		\tkzInterLC(B,h2)(m2,A)\tkzGetPoints{P}{Q};
+		\tkzInterLL(C,h1)(A,B)\tkzGetPoint{F};
+		\tkzInterLL(B,h2)(A,C)\tkzGetPoint{E};
+		\node at (A) [above]{$A$};
+		\node at (B) [below]{$B$};
+		\node at (C) [below]{$C$};
+		\node at (E) [above left=0.2]{$E$};
+		\node at (F) [right=0.2]{$F$};
+		\node at (M) [above]{$M$};
+		\node at (N) [above]{$N$};
+		\node at (P) [above left]{$P$};
+		\node at (Q) [above]{$Q$};
+		\tkzDefCircle[circum](M,N,P)\tkzGetPoint{O};
+		\tkzDrawArc[thin,dashed](O,N)(P);
+		\fill[color=black!100] (A) circle (0.02) ;
+		\fill[color=black!100] (B) circle (0.02) ;
+		\fill[color=black!100] (C) circle (0.02) ;
+		\fill[color=black!100] (E) circle (0.02) ;
+		\fill[color=black!100] (F) circle (0.02) ;
+		\fill[color=black!100] (M) circle (0.02) ;
+		\fill[color=black!100] (N) circle (0.02) ;
+		\fill[color=black!100] (P) circle (0.02) ;
+		\fill[color=black!100] (Q) circle (0.02) ;
+		\end{tikzpicture}
+	\end{center}		
+	\end{figure}
+	\section{Partials awarded if the problem was not solved completely}
+	\begin{itemize}
+		\item {1 mark: Noting $AM=AN$, $AP=AQ$; and making the deduction that it is sufficient to prove $AM=AP$ or similar.}
+		\item {1 mark: Any useful application of power of a point.}
+		\item {1 mark: Attempting inversion centred at $A$ with correct radius.}
+	\end{itemize}
+	\section{Marks deducted if the problem is essentially solved.}
+	\begin{itemize}
+		\item {-1 mark: Claiming a non-trivial fact without proof.}
+	\end{itemize}
+\end{document}
