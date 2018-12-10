@@ -1,0 +1,47 @@
+%-----------------begin---preamble-------------------
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
+% \usepackage{enumerate}
+
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+
+%------------------end---preamble--------------------
+
+\begin{document}
+	\begin{figure}[htb!]
+	\begin{center}
+	\begin{tikzpicture}[scale=1.7]
+		% \useasboundingbox (-2,-2) rectangle  (2,2);
+		\coordinate (A) at (-2,-1);
+		\coordinate (B) at (0,2);
+		\coordinate (C) at (1,-1);
+		\tkzDefCircle[circum](A,B,C)\tkzGetPoint{O};
+		\tkzDrawCircle[thin,dashed](O,A);
+		\draw[-] (A)--(B)--(C)--(A);
+		\tkzDefLine[bisector](A,B,C) \tkzGetPoint{b};
+		\tkzDefLine[mediator](A,C) \tkzGetPoints{m1}{m2}
+		\tkzInterLL(B,b)(m1,m2)\tkzGetPoint{S};
+		\tkzInterLL(A,C)(m1,m2)\tkzGetPoint{M};
+		\node at (A) [below left]{$A$};
+		\node at (B) [above]{$B$};
+		\node at (C) [below right]{$C$};
+		\node at (S) [below right]{$S$};
+		\tkzMarkAngle[size=0.45](A,B,S);
+		\tkzMarkAngle[size=0.45](S,B,C);
+		\tkzMarkRightAngle[arc=ll](m1,M,C);
+		\tkzMarkSegment[mark=|](A,M);
+		\tkzMarkSegment[mark=|](M,C);
+		\tkzDrawLine[thin,add=0 and 0.2](B,S);
+		\tkzDrawLine[thin,add=-0.5 and 0.2](m1,S)
+		\fill[color=black!100] (A) circle (0.02) ;
+		\fill[color=black!100] (B) circle (0.02) ;
+		\fill[color=black!100] (C) circle (0.02) ;
+		\fill[color=black!100] (S) circle (0.02) ;
+		\end{tikzpicture}
+	\end{center}		
+	\end{figure}
+\end{document}
