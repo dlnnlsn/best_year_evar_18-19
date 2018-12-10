@@ -4,12 +4,18 @@
 \usepackage{verbatim}
 \usepackage{amsmath,amsfonts}
 \usepackage{enumerate}
+\usepackage{tikz,tkz-euclide}
 
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\DeclareMathOperator{\lcm}{lcm}
 \newcommand{\ds}{\ensuremath{\displaystyle}}
 
 \title{Intermediate Test 1 -- Solutions}
 \author{Stellenbosch Camp 2018}
-
+\date{\vspace{-12pt}}
 
 \begin{document}
 
@@ -18,7 +24,7 @@
 \begin{enumerate}[1.]
 
 \item %The Aether
-\textit{Lets $x$ be a real number such that \[ x +\frac{1}{x} = 3. \] Find the value of \[ x^5 +\frac{1}{x^5}. \]}
+\textit{Let $x$ be a real number such that \[ x +\frac{1}{x} = 3. \] Find the value of \[ x^5 +\frac{1}{x^5}. \]}
 
 Since $x+\frac{1}{x} = 3$, cubing both sides yields \[ 27 = 3^3 = \left(x+\frac{1}{x}\right)^3 = x^3 +3x +\frac{3}{x} +\frac{1}{x^3} = x^3 +\frac{1}{x^3} +3\left(x+\frac{1}{x}\right) \]
 \[ \iff x^3+\frac{1}{x^3} = 27 -3\left(x+\frac{1}{x}\right) = 27 -3\times3 = 18. \]
@@ -37,17 +43,50 @@ The word INTERCONNECTION consists of 15 letters, so there are $15! = 15\times14\
 \item %South Pole Theorem
 \textit{Let $ABC$ be a triangle. Prove that the internal angle bisector of the angle $\angle ABC$ and the perpendicular bisector of the line segment $AC$ intersect on the circumcircle of triangle $ABC$.}
 
-Let the perpendicular bisector of $AC$ intersect the circumcircle $\Gamma$ of $\Delta ABC$ at $X$, and let $D$ be the midpoint of $AC$. Then $XD \perp AC$ and $AD = DC$, so by Pythagoras' Theorem \[ AX = \sqrt{AD^2+XD^2} = \sqrt{CD^2+XD^2} = CX. \]
-Then $AX$ and $XC$ have the same length as chords in $\Gamma$, and so they subtend equal angles $\angle ABX$ and $\angle XBC$. Hence $X$ lies on the angle bisector of angle $\angle ABC$, and so it is the intersection of that angle bisector with the perpendicular bisector of $AC$. Hence the aforementioned intersection lies on $\Gamma$.
+Let the perpendicular bisector of $AC$ intersect the circumcircle $\Gamma$ of $\Delta ABC$ at $S$, and let $M$ be the midpoint of $AC$. Then $SM \perp AC$ and $AM = MC$, so by Pythagoras' Theorem \[ AX = \sqrt{AM^2+SM^2} = \sqrt{CM^2+SM^2} = CS. \]
+Then $AS$ and $SC$ have the same length as chords in $\Gamma$, and so they subtend equal angles $\angle ABS$ and $\angle SBC$. Hence $S$ lies on the angle bisector of angle $\angle ABC$, and so it is the intersection of that angle bisector with the perpendicular bisector of $AC$. Hence the aforementioned intersection lies on $\Gamma$.
+
+\begin{figure}[htb!] \begin{center}
+\begin{tikzpicture}[scale=1.5]
+  \useasboundingbox (-2,-2) rectangle  (2,2);
+  \coordinate (A) at (-2,-1);
+  \coordinate (B) at (0,2);
+  \coordinate (C) at (1,-1);
+  \tkzDefCircle[circum](A,B,C)\tkzGetPoint{O};
+  \tkzDrawCircle[thin,dashed](O,A);
+  \draw[-] (A)--(B)--(C)--(A);
+  \tkzDefLine[bisector](A,B,C) \tkzGetPoint{b};
+  \tkzDefLine[mediator](A,C) \tkzGetPoints{m1}{m2}
+  \tkzInterLL(B,b)(m1,m2)\tkzGetPoint{S};
+  \tkzInterLL(A,C)(m1,m2)\tkzGetPoint{M};
+  \node at (A) [below left]{$A$};
+  \node at (B) [above]{$B$};
+  \node at (C) [below right]{$C$};
+  \node at (S) [below right]{$S$};
+  \node at (M) [below left]{$M$};
+  \tkzMarkAngle[size=0.45](A,B,S);
+  \tkzMarkAngle[size=0.45](S,B,C);
+  \tkzMarkRightAngle[arc=ll,size=0.2,thin](A,M,m1);
+  \tkzMarkSegment[mark=|](A,M);
+  \tkzMarkSegment[mark=|](M,C);
+  \tkzDrawLine[thin,add=0 and 0.2](B,S);
+  \tkzDrawLine[thin,add=-0.5 and 0.2](m1,S)
+  \fill[color=black!100] (A) circle (0.02) ;
+  \fill[color=black!100] (B) circle (0.02) ;
+  \fill[color=black!100] (C) circle (0.02) ;
+  \fill[color=black!100] (S) circle (0.02) ;
+  \end{tikzpicture}
+\end{center} \end{figure}
 
 {\footnotesize \textit{There's a little problem/feature with this proof. What is it?}}
 
 
 \vspace{12pt}
-\item %
+\item %Damian Wayne
 \textit{Prove that $m + n \leq \textrm{gcd}(m, n) + \textrm{lcm}(m, n)$ for all positive integers $m, n$. When does equality occur?}
 
-
+Let $g = \gcd(m,n)$; since $g | m$ and $g | n$ we can let $m = ga$ and $n = gb$ for positive integers $a,b$; also $\lcm(m,n) = gab$ since $\lcm(m,n) \gcd(m,n) = mn$. So what we are required to prove is that \[ m+n \leq \gcd(m,n)+\lcm(m,n) \iff ga +gb \leq g +gab \]
+\[ \iff 0 \leq g +gab -ga -gb = g(a-1)(b-1), \] which is true since $g$, $a$ and $b$ are positive integers.
 
 
 \vspace{12pt}
@@ -59,19 +98,5 @@ for all $x, y \in \mathbb{R}$.}
 
 
 \end{enumerate}
-
-
-\begin{center}
-\begin{verbatim}
-                                 /^-----^\
-                                 V  o o  V
-                                  |  Y  |
-                                   \ Q /
-                                   / - \
-                                   |    \
-                                   |     \     )
-                                   || (___\====
-\end{verbatim}
-\end{center}
 
 \end{document}
