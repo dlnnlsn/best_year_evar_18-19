@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\usepackage{verbatim}
+\usepackage{amsmath,amsfonts}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{fancyvrb}
+
+\newcommand{\ds}{\ensuremath{\displaystyle}}
+
+\title{Intermediate Test 2 -- Solutions}
+\author{Stellenbosch Camp 2018}
+\date{\vspace{-12pt}}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+\item %The Aether
+\textit{The magical country of Vertexia, there are a certain number of cities. Each pair of cities is connected by exactly one magical portal, and it turns out that there are 5050 portals in total. How many cities are there in this wonderful land?}
+
+Let the number of cities in Vertexia be $c$. Then since each pair of cities is connected by exactly one portal, the number of portals is equal to the number of pairs of cities, which is $\binom{c}{2} = \frac{c(c-1)}{2}$. Thus \[ \frac{c(c-1)}{2} = 5050 \iff c^2 -c = 2\times5050 = 10100 \iff 0 = c^2 -c -10100 = (c-101)(c+100) \]
+\[ \iff c = 101 \quad \mathrm{since} \quad c > 0. \]
+
+
+\vspace{12pt}
+\item 
+\textit{Let $M$ be the midpoint of side $AB$ of equilateral triangle $ABC$, and let points $N$, $S$ and $K$ divide side $BC$ into four equal segments. Given that $P$ is the midpoint of $CM$, prove that $\angle MNB = \angle KPN = 90^\circ$.}
+
+
+
+
+\vspace{12pt}
+\item %The Phil
+\textit{Find all real numbers $x$ such that \[ (x-2)(x+1)(x+4)(x+7) = 19. \]}
+
+\vspace{-36pt}
+\begin{align*}
+  19 &= (x+1)(x+4)(x-2)(x+7) = (x^2+5x+4)(x^2+5x-14) \\
+  &= (x^2+5x-5+9)(x^2+5x-5-9) = (x^2+5x-5)^2-9^2 \\
+  \iff (x^2+5x-5)^2 &= 19+81 = 100 \\
+  \iff x^2+5x-5 &= \pm_1 10 \\
+  \iff (2x+5)^2 &= 4x^2+20x+25 = 4(x^2+5x)+25 = 4(5\pm_1 10)+25 = 45 \pm_1 40 \\
+  \iff 2x+5 &= \pm_2\sqrt{45\pm_1 40} \\
+  \iff x &= \frac{1}{2} \left(\pm_2\sqrt{45\pm_1 40} -5\right) \\
+  \iff x &= \frac{1}{2}(\sqrt{5}-5),\quad x = \frac{1}{2}(-\sqrt{5}-5),\quad x = \frac{1}{2}(\sqrt{85}-5),\quad \mathrm{or}\quad x = \frac{1}{2}(-\sqrt{85}-5).
+\end{align*}
+
+
+\item %
+\textit{Find all positive integers $m, n$ such that \[ 1 + 5 \cdot 2^m = n^2. \]}
+
+
+
+
+\vspace{12pt}
+\item % Problem 2.17 (Russia 1972)
+\textit{Show that if we are given 50 segments on the real line, then either there are 8 of them which are pairwise disjoint or 8 of them with a common point.}
+
+\textit{A segment is defined as a closed interval $[a, b] = \{x \in \mathbb{R} \;:\; a \leq x \leq b \}$.}
+
+
+
+
+\end{enumerate}
+
+
+\vspace{12pt}
+\begin{center}
+\begin{BVerbatim}
+  __
+  (\,--------'()'--o
+   (_    ___    /~"
+    (_)_)  (_)_)
+\end{BVerbatim}
+\end{center}
+
+\end{document}
