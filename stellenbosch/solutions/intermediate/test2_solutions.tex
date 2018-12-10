@@ -53,8 +53,14 @@ Let the number of cities in Vertexia be $c$. Then since each pair of cities is c
 \item %
 \textit{Find all positive integers $m, n$ such that \[ 1 + 5 \cdot 2^m = n^2. \]}
 
-
-
+\[ 5 \cdot 2^m = (n+1)(n-1) \]
+Let m = p + q. We have two cases to consider.
+ \[ \mathrm{Case} \enskip 1: \quad n + 1 = 5 \cdot 2^p \enskip \mathrm{and} \enskip n - 1 = 2^q
+ \iff n = 5 \cdot 2^p - 1 = 2^q + 1
+ \iff 5 \cdot 2^{p-1} - 1 = 2^{q-1} \]
+Since $5 \cdot 2^{p-1} - 1$ is odd and $2^{q-1}$ is even for all $p, q > 1$, the only potential solutions are when $p = 1$ or $q = 1$. Checking these, $p = 1$, $q = 3$ and thus $(m, n) = (4, 9)$ is a solution. Similarly,
+\[ \mathrm{Case} \enskip 2: \quad n - 1 = 5 \cdot 2^p \enskip \mathrm{and} \enskip n + 1 = 2^q 
+\iff 5 \cdot 2^{p-1} = 2^{q-1} - 1, \] yields no solutions for $p = 1$ or $q = 1$. Thus the only solution is $(m, n) = (4, 9)$.
 
 \vspace{12pt}
 \item % Problem 2.17 (Russia 1972)
