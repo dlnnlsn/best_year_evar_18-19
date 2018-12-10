@@ -1,0 +1,77 @@
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage{verbatim}
+\usepackage{amsmath,amsfonts}
+\usepackage{enumerate}
+
+\newcommand{\ds}{\ensuremath{\displaystyle}}
+
+\title{Intermediate Test 1 -- Solutions}
+\author{Stellenbosch Camp 2018}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[1.]
+
+\item %The Aether
+\textit{Lets $x$ be a real number such that \[ x +\frac{1}{x} = 3. \] Find the value of \[ x^5 +\frac{1}{x^5}. \]}
+
+Since $x+\frac{1}{x} = 3$, cubing both sides yields \[ 27 = 3^3 = \left(x+\frac{1}{x}\right)^3 = x^3 +3x +\frac{3}{x} +\frac{1}{x^3} = x^3 +\frac{1}{x^3} +3\left(x+\frac{1}{x}\right) \]
+\[ \iff x^3+\frac{1}{x^3} = 27 -3\left(x+\frac{1}{x}\right) = 27 -3\times3 = 18. \]
+Similarly, taking both sides of the original equation to the fifth power yields \[ 243 = 3^5 = \left(x+\frac{1}{x}\right)^5 = x^5 +5x^3 +10x +\frac{10}{x} +\frac{5}{x^3} +\frac{1}{x^5} = x^5 +\frac{1}{x^5} +5\left(x^3 +\frac{1}{x^3}\right) +10\left(x+\frac{1}{x}\right) \]
+\[ \iff x^5 +\frac{1}{x^5} = 243 -5\left(x^3 +\frac{1}{x^3}\right) -10\left(x+\frac{1}{x}\right) = 243 -5\times18 -10\times3 = 123. \]
+
+
+\vspace{12pt}
+\item %The Aether
+\textit{How many different permutations of the word INTERCONNECTION are there? (Interchanging two letters that are the same does not count as a different word.)}
+
+The word INTERCONNECTION consists of 15 letters, so there are $15! = 15\times14\times\dotsm\times2\times1$ ways to permute these letters. However, some of these letters are repeated, these being the letter I repeated twice, N repeated four times, T repeated twice, E repeated twice, C repeated twice and O repeated twice. When a letter is repeated $k$ times, the $15!$ counted above counts premutations of these $k$ same letters multiple times -- $k! = k\times(k-1)\times\dotsm\times2\times1$ to be exact, since that is the number of ways of permuting $k$ letters. Since we need to divide out those repetitions from our original number, and we need to do so for each of the repeated letters. Hence the actual number of permutations is \[\frac{15!}{2!4!2!2!2!2!} = 1702701000. \]
+
+
+\vspace{12pt}
+\item %South Pole Theorem
+\textit{Let $ABC$ be a triangle. Prove that the internal angle bisector of the angle $\angle ABC$ and the perpendicular bisector of the line segment $AC$ intersect on the circumcircle of triangle $ABC$.}
+
+Let the perpendicular bisector of $AC$ intersect the circumcircle $\Gamma$ of $\Delta ABC$ at $X$, and let $D$ be the midpoint of $AC$. Then $XD \perp AC$ and $AD = DC$, so by Pythagoras' Theorem \[ AX = \sqrt{AD^2+XD^2} = \sqrt{CD^2+XD^2} = CX. \]
+Then $AX$ and $XC$ have the same length as chords in $\Gamma$, and so they subtend equal angles $\angle ABX$ and $\angle XBC$. Hence $X$ lies on the angle bisector of angle $\angle ABC$, and so it is the intersection of that angle bisector with the perpendicular bisector of $AC$. Hence the aforementioned intersection lies on $\Gamma$.
+
+{\footnotesize \textit{There's a little problem/feature with this proof. What is it?}}
+
+
+\vspace{12pt}
+\item %
+\textit{Prove that $m + n \leq \textrm{gcd}(m, n) + \textrm{lcm}(m, n)$ for all positive integers $m, n$. When does equality occur?}
+
+
+
+
+\vspace{12pt}
+\item %AoPS
+\textit{Find all functions $f : \mathbb{R} \to \mathbb{R}$ such that
+$$ f(f(x+y)) = x + f(y) $$
+for all $x, y \in \mathbb{R}$.}
+
+
+
+\end{enumerate}
+
+
+\begin{center}
+\begin{verbatim}
+                                 /^-----^\
+                                 V  o o  V
+                                  |  Y  |
+                                   \ Q /
+                                   / - \
+                                   |    \
+                                   |     \     )
+                                   || (___\====
+\end{verbatim}
+\end{center}
+
+\end{document}
