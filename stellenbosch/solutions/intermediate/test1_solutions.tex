@@ -2,7 +2,7 @@
 
 \usepackage{fullpage}
 \usepackage{verbatim}
-\usepackage{amsmath,amsfonts}
+\usepackage{amsmath,amsthm,amsfonts}
 \usepackage{enumerate}
 \usepackage{tikz,tkz-euclide}
 
@@ -16,6 +16,7 @@
 \title{Intermediate Test 1 -- Solutions}
 \author{Stellenbosch Camp 2018}
 \date{\vspace{-12pt}}
+
 
 \begin{document}
 
@@ -86,7 +87,7 @@ Then $AS$ and $SC$ have the same length as chords in $\Gamma$, and so they subte
 \textit{Prove that $m + n \leq \textrm{gcd}(m, n) + \textrm{lcm}(m, n)$ for all positive integers $m, n$. When does equality occur?}
 
 Let $g = \gcd(m,n)$; since $g | m$ and $g | n$ we can let $m = ga$ and $n = gb$ for positive integers $a,b$; also $\lcm(m,n) = gab$ since $\lcm(m,n) \gcd(m,n) = mn$. So what we are required to prove is that \[ m+n \leq \gcd(m,n)+\lcm(m,n) \iff ga +gb \leq g +gab \]
-\[ \iff 0 \leq g +gab -ga -gb = g(a-1)(b-1), \] which is true since $g$, $a$ and $b$ are positive integers.
+\[ \iff 0 \leq g +gab -ga -gb = g(a-1)(b-1), \] which is true since $g$, $a$ and $b$ are positive integers. Note that equality occurs if and only if $a$ and $b$ are both equal to $1$, whereupon $m = ga = gb = n$; it is easily checked that when $m = n$ we have equality.
 
 
 \vspace{12pt}
@@ -95,6 +96,14 @@ Let $g = \gcd(m,n)$; since $g | m$ and $g | n$ we can let $m = ga$ and $n = gb$ 
 $$ f(f(x+y)) = x + f(y) $$
 for all $x, y \in \mathbb{R}$.}
 
+We first prove injectivity. That is, if $f(a) = f(b)$ for some $a, b \in \mathbb{R}$, then $a = b$. We have
+\begin{align*}
+    f(a) &= f(b) \\
+    \implies \quad f(f(a + 0)) &= f(f(b + 0)) \\
+    \implies \quad \hspace{5.5mm} a + f(0) &= b + f(0) \\
+    \implies \quad \hspace{16mm} a &= b 
+\end{align*}
+thus proving injectivity. Now substituting $y = 0$ yields $f(f(x)) = f(x)$, which, by injectivity, implies $f(x) = x$ as the only solution. One easily checks that this solution satisfies the functional equation. \qed 
 
 
 \end{enumerate}
