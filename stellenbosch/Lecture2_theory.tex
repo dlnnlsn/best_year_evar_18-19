@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumerate}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{notate}{Notation}
+
+
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+
+\title{Stellenbosch Camp 2018: Senior Geometry\\ \centering Lecture 2: Inversion Basics}
+\date{}
+\begin{document}
+	\maketitle
+	\hrulefill
+	\begin{definition}[Circle Inversion]
+		Let $\Omega$ be a circle with circumcentre $O$ and radius $r$. We say that $T$ is an inversion in the circle $\Omega$ if for any point $A \neq O$ in the plane the following is true:
+		\begin{enumerate}
+			\item $T$ is a map that sends $A$ to a point $A'$
+			\item $A'$ is on the ray $OA$
+			\item $OA \cdot OA' = r^{2}$
+		\end{enumerate}
+		We say that $A'$ is the image of $A$.
+	\end{definition}
+	\begin{notate}
+		When referencing a circle inversion called $T$, in a circle $\Omega$, with centre $O$ and radius $r$. There are a few accepted notations for short:
+		\begin{itemize}
+			\item $T(\Omega)$
+			\item $T(O,r)$
+		\end{itemize}
+	\end{notate}
+	\begin{theorem}
+		If $A'$ is the image of $A$ with respect to a circle $\Omega$, then $A$ is the image of $A'$ with respect to $\Omega$.
+	\end{theorem}
+	\begin{theorem}
+		Let $A$ be a point on the circumference of a circle $\Omega$. Then $A$ is the image of $A$ with respect to the circle $\Omega$.
+	\end{theorem}
+	\begin{theorem}
+		Let $\Omega$ be a circle, and let $A$,$B$ be 2 points. Let $A'$ and $B'$ be the images of $A$ and $B$, with respect to $\Omega$, respectively. Then $A$, $A'$, $B$, and $B'$ all lie on a common circle.
+	\end{theorem}
+	\begin{definition}[Inverting a Set of Points]
+		Let $S$ be a set of points (E.g. a line, a circle, etc). Then the image of $S$ with respect to a circle $\Omega$, denoted $S'$, is the set containing the image of every point in $S$.\\
+		In symbols:
+		$$ S' := \{ P' \in  \ora{OP} : OP \cdot OP' = r^{2},  \forall P \in S  \} $$
+	\end{definition}
+	\begin{theorem}
+		Let $\Omega$ be a circle with circumcentre $O$, and let $\ell$ be a line not passing through $O$. Then the image of $\ell$ with respect to $\Omega$ is a circle passing through $O$.\\
+		Conversely, if $\Gamma$ is a circle passing through $O$, then the image of $\Gamma$ with respect to $\Omega$ is a line not passing through $O$.\\
+	\end{theorem}
+	\begin{theorem}
+		Let $\Omega$ be a circle with circumcentre $O$, and let $\Gamma$ be a circle not passing through $O$. Then the image of $\Gamma$ with respect to $\Omega$ is also a circle not passing through $O$.
+	\end{theorem}
+	\begin{theorem}
+		Let $\Omega$ be a circle with circumcentre $O$, and let $\ell$ be a line passing through $O$. Then the image of $\ell$ with respect to $\Omega$ is itself.
+	\end{theorem}
+	\begin{theorem}
+		Let $\Omega$ be a circle with circumcentre $O$, and let $\Gamma$ be a circle that is orthogonal to $\Omega$ (intersecting at right angles). Then the image of $\Gamma$ with respect to $\Omega$ is itself.
+	\end{theorem}
+	\begin{theorem}
+		Let $T(O,r)$ be an inversion, and let $\alpha$ and $\beta$ be 2 circles in the plane. Then the angles between the intersections of of the circles is invariant under $T$.
+	\end{theorem}
+\end{document}
