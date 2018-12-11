@@ -1,0 +1,60 @@
+%-----------------begin---preamble-------------------
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
+\usepackage{marginnote}
+\usepackage{float}
+\usepackage[margin=0.8in]{geometry}
+% \usepackage{enumerate}
+
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\def\deg{^{\circ}}
+\def\thm{Th\textsuperscript{\underline{m}}}
+\newcommand\heading[1]{\ \\\large{\textbf{#1}}}
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+\newtheorem*{problem}{Problem}
+%------------------end---preamble--------------------
+
+\begin{document}
+	\begin{problem}[BMO Round 2, 2018]
+		Consider triangle $ABC$. Let $M$ be the midpoint of $AC$. The circle tangent to $BC$ at $B$ and passing through $M$ meets the line $AB$ again at $P$. Prove that $AB \cdot BP =2BM^2$.
+	\end{problem}
+	\begin{proof}
+		\begin{figure}[htb!]
+		\begin{center}
+		\begin{tikzpicture}[scale=3]
+			% \useasboundingbox (-2,-2) rectangle  (2,2);
+			\tkzDefPoint(-1.5,2){A}
+			\tkzDefPoint(0,0){B}
+			\tkzDefPoint(2.1,0){C}
+			\tkzDefBarycentricPoint(C=1,A=1)\tkzGetPoint{M}
+			\tkzDefLine[orthogonal=through B](B,C)\tkzGetPoint{h1}
+			\tkzDefLine[mediator](B,M)\tkzGetPoints{m1}{m2}
+			\tkzInterLL(m1,m2)(B,h1)\tkzGetPoint{O}
+			\tkzInterLC(A,B)(O,B)\tkzGetSecondPoint{P}
+			\tkzDefBarycentricPoint(B=1,A=1)\tkzGetPoint{N}
+			\tkzDrawSegments(A,B B,C C,A M,P M,N B,M)
+			\tkzDrawCircle(O,B)
+			\tkzDrawPoints[fill=black!100](A,B,C,M,N,P)
+			\tkzLabelPoints[below](B,C)
+			\tkzLabelPoints[left](A,P,N)
+			\tkzLabelPoints[right](M)
+			\tkzMarkSegments[mark=>>](N,M B,C)
+			\end{tikzpicture}
+		\end{center}		
+		\end{figure}
+
+	Construct point $N$, the midpoint of $AB$. By midpoint \thm, $NM||BC$. Using this and Tan-Chord \thm, we get: $\angle BMN=\angle MBC=\angle MPB$. Since we also have that $\angle PBM=\angle MBN$, we have that $\triangle BMN \sim \triangle BPM$. So
+	\begin{flalign}
+		\frac{BM}{BP}&=\frac{BN}{BM}\nonumber\\
+		\Rightarrow BM^2&=BN \cdot BP=\left(\frac{1}{2}AB\right)\cdot BP\nonumber
+	\end{flalign}
+	\end{proof}
+
+	
+	
+\end{document}
