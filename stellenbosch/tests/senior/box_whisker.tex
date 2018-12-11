@@ -1,0 +1,24 @@
+%-----------------begin---preamble-------------------
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
+\usepackage{marginnote}
+\usepackage{float}
+\usepackage[margin=0.8in]{geometry}
+% \usepackage{enumerate}
+
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\begin{document}
+\begin{figure}[H]
+	\centering
+\begin{tikzpicture}[scale=0.7]
+\tkzDefPoints{-8/3/o1, -8/-3/o2, 8/3/o3, 8/-3/o4, -3/1.8/o5, -3/-1.8/o6, 3/1.8/o7, 3/-1.8/o8,-3/0/w1, 3/0/w2, -8/0/w3, 8/0/w4}
+\tkzDrawSegments[thick](o1,o2 o3,o4 o5,o6 o7,o8 o5,o7 o6,o8 w1,w3 w2,w4)
+
+\end{tikzpicture}
+\caption{This is \textbf{not} real math.}
+\end{figure}
+\end{document}
