@@ -1,8 +1,13 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage[margin=2cm]{geometry} 
 \usepackage{amsmath,amsfonts}
+\usepackage{amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
 \usepackage[cm]{fullpage}
 \usepackage{fancyvrb}
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
 
 \title{Senior Test 3}
 \author{Stellenbosch Camp 2018}
@@ -19,7 +24,7 @@
 \item[2.]
 Show that for all positive real numbers $x$ and $y$,
 \[ \frac{x^2}{x+2y} +\frac{y^2}{2x+y} \geq \frac{x+y}{3}. \]
-\vspace{7pt}
+\vspace{5pt}
 
 % (Iberoamerican Mathematical Olympiad shortlist 2009)
 \item[3.]
@@ -28,8 +33,9 @@ Consider an $8 \times 8$ grid of squares. On each square is a lightbulb which is
 
 % 2017/2018 British MO Round 2
 \item[4.]
-Determine whether or not there is a positive integer $m$ such that \[ (m+1)^3 +(m+2)^3 +\dotsb +(2m)^3 \] is a square.
-
+Determine whether or not there is a positive integer $m$ such that
+\[ (m+1)^3 +(m+2)^3 +\dotsb +(2m)^3 \]
+is a square.
 
 \vspace{7pt}
 
@@ -40,15 +46,16 @@ Determine whether or not there is a positive integer $m$ such that \[ (m+1)^3 +(
 
 \vfill
 
-%Razza - a mix of Lab and Chow
-\centering
-\begin{BVerbatim}
-   / \__
-  (    @\___
-  /         O
- /   (_____/
-/_____/   U
-\end{BVerbatim}
+%  Should be box and whiskers diagram here
+\begin{figure}[h]
+	\centering
+\begin{tikzpicture}[scale=0.25]
+\tkzDefPoints{-8/3/o1, -8/-3/o2, 8/3/o3, 8/-3/o4, -3/1.8/o5, -3/-1.8/o6, 3/1.8/o7, 3/-1.8/o8,-3/0/w1, 3/0/w2, -8/0/w3, 8/0/w4}
+\tkzDrawSegments[thick](o1,o2 o3,o4 o5,o6 o7,o8 o5,o7 o6,o8 w1,w3 w2,w4)
+
+\end{tikzpicture}
+\caption{This is \textbf{not} real math.}
+\end{figure}
 
 \vspace{12mm}
 
