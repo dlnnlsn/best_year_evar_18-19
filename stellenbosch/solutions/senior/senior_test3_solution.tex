@@ -1,0 +1,177 @@
+\documentclass[a4paper, 12pt]{article}
+%\documentclass{book}
+
+% Important Packages:
+ \usepackage{amsmath}    % need for subequations
+ \usepackage{amsfonts}
+ \usepackage{amsthm}
+ \usepackage{graphicx}   % need for figures
+ \usepackage{verbatim}   % useful for program listings
+ %\usepackage{subfig}  % use for side-by-side figures
+ %\usepackage{wrapfig}
+ \usepackage{float}
+ %\usepackage{listings}	 % creates code blocks
+ %\usepackage[colorlinks=true]{hyperref}   % use for hypertext links, including
+                     % those to external documents and URLs
+ %\usepackage{multirow}
+ %\usepackage{enumerate}
+ %\usetikzlibrary{decorations.pathreplacing,decorations.pathmorphing}
+ %\usetikzlibrary{calc}
+ %\usepackage[colorinlistoftodos]{todonotes}
+ \usepackage{tikz,tkz-euclide}
+ 
+ \usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\def\deg{^{\circ}}
+\newcommand\heading[1]{\ \\\large{\textbf{#1}}}
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+\def\thm{Th\textsuperscript{\underline{m}}}
+
+%------------------end---preamble--------------------
+ 
+ % Useful macros 
+ \def\tcb#1{\color{blue}{#1}}
+ \def\tcr#1{\color{red}{#1}}	
+ \def\tcg#1{\color{green}{#1}}
+ \def\be{\begin{eqnarray}}	 	\def\ee{\end{eqnarray}}
+ \def\bea{\begin{eqnarray}}	 	\def\eea{\end{eqnarray}}
+ \def\bean{\begin{eqnarray*}}	\def\eean{\end{eqnarray*}}
+ 
+ \def\D{\displaystyle}
+ \def\T{\textstyle}
+ \def\l{\left}
+ \def\r{\right}
+ \def\nf{n_{\!f}} % quark flavours
+ \def\pa{\partial}
+ \def\eg{e.\,g.}
+ \def\ie{i.\,e.}
+
+ \def\be{\begin{equation}}
+ \def\ee{\end{equation}}
+ \def\bea{\begin{eqnarray}}
+ \def\eea{\end{eqnarray}}
+ \def\bean{\begin{eqnarray*}}
+ \def\eean{\end{eqnarray*}}
+ \def\gsim{\mathrel{\rlap{\lower0.2em\hbox{$\sim$}}\raise0.2em\hbox{$>$}}}
+ \def\ksim{\mathrel{\rlap{\lower0.2em\hbox{$\sim$}}\raise0.2em\hbox{$<$}}}
+ \def\kg{\mathrel{\rlap{\lower0.25em\hbox{$>$}}\raise0.25em\hbox{$<$}}}
+ 
+ \def\AA{${\buildrel_{\circ} \over {\mathrm{A}}}$}
+ \def\bm#1{\mbox{\boldmath$#1$}}
+ \newcommand{\eq}[1]{(\ref{#1})} 
+ \def\pd{\partial}
+ \def\d{\textrm{d}} 
+ \def\T{\textstyle}
+ \def\eg{e.\,g.}	% exempli gratia (for the sake of example)
+ \def\ie{i.\,e.}	% id est (that is)
+
+
+ % Page configuration:
+ \topmargin -2.0cm
+ \oddsidemargin -0.85cm
+ \evensidemargin -0.85cm
+ \textwidth 18cm
+ \textheight 24cm
+ 
+\begin{document}
+\begin{center}
+\textbf{Stellenbosch Camp December 2018 \\ Senior Test 2} \\
+\textbf{Solutions}
+\end{center}
+\vspace{5mm}
+
+\begin{enumerate}
+
+% 2017/2018 British MO Round 2 Q1
+\item[1.] Construct point $N$, the midpoint of $AB$.
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[scale=3.5]
+	% \useasboundingbox (-2,-2) rectangle  (2,2);
+	\tkzDefPoint(-1.5,2){A}
+	\tkzDefPoint(0,0){B}
+	\tkzDefPoint(2.1,0){C}
+	\tkzDefBarycentricPoint(C=1,A=1)\tkzGetPoint{M}
+	\tkzDefLine[orthogonal=through B](B,C)\tkzGetPoint{h1}
+	\tkzDefLine[mediator](B,M)\tkzGetPoints{m1}{m2}
+	\tkzInterLL(m1,m2)(B,h1)\tkzGetPoint{O}
+	\tkzInterLC(A,B)(O,B)\tkzGetSecondPoint{P}
+	\tkzDefBarycentricPoint(B=1,A=1)\tkzGetPoint{N}
+	\tkzDrawSegments(A,B B,C C,A M,P M,N B,M)
+	\tkzDrawCircle(O,B)
+	\tkzDrawPoints[fill=black!100](A,B,C,M,N,P)
+	\tkzLabelPoints[below](B,C)
+	\tkzLabelPoints[left](A,P,N)
+	\tkzLabelPoints[right](M)
+	\tkzMarkSegments[mark=>>](N,M B,C)
+	\end{tikzpicture}
+\end{center}		
+\end{figure}
+
+ By midpoint \thm, $NM||BC$. Using this and Tan-Chord \thm, we get: $\angle BMN=\angle MBC=\angle MPB$. Since we also have that $\angle PBM=\angle MBN$, we have that $\triangle BMN \sim \triangle BPM$. So
+\begin{flalign}
+\frac{BM}{BP}&=\frac{BN}{BM}\nonumber\\
+\Rightarrow BM^2&=BN \cdot BP=\left(\frac{1}{2}AB\right)\cdot BP\nonumber
+\end{flalign}
+
+% The Aether
+\item[2.]
+By the Cauchy-Schwarz inequality (in ``Engel Form'') we have that
+\[
+	\frac{x^2}{x + 2y} + \frac{y^2}{2x + y} \geq \frac{{(x + y)}^2}{(x + 2y) + (2y + x)} = \frac{x + y}{3}.
+\]
+
+\clearpage
+
+% (Iberoamerican Mathematical Olympiad shortlist 2009)
+\item[3.]
+Consider the following colouring:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{senior_test3_question3_1.mps}
+\end{figure}
+
+Note that when we do any change, we are changing an even number of lamps in the coloured squares, so the number of lamps turned on in those squares remains even. Thus, if only one lamp remains on, it must be in a white square. To see that these can be changed it is sufficient to notice that they are at distance $2$ from the edge. If $X$ is the square at distance $2$ from the edge and $S, T$ are the squares separating it from the edge, we have the following situation:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.2\textwidth]{senior_test3_question3_2.mps}
+\end{figure}
+
+We can use $T$ and change the state of $S, T, X$, and then use $S$ and change the state of $S, T$. With this only $X$ is turned on. When we used this pair of movements we have not affected any other lamp. As we wanted, $X$ is the only lamp turned on in the whole board.
+
+% 2017/2018 British MO Round 2
+\item[4.]
+It is well known that the sum of the first $n$ cubes is given by
+\[
+	1^3 + 2^3 + \dots + n^3 = \frac{n^2 {(n + 1)}^2}{4},
+\]
+and thus we wish to determine whether
+\[
+	\frac{{(2m)}^2 {(2m + 1)}^2}{4} - \frac{m^2 {(m + 1)}^2}{4}
+\]
+can be a square.
+
+Suppose that this quantity is a square. Then we have that
+\[
+	{(4m^2 + 2m)}^2 - {(m^2 + m)}^2 = (3m^2 + m)(5m^2 + 3m) = m^2 (3m + 1)(5m + 3)
+\]
+is a square. It follows that $(3m + 1)(5m + 3)$ must be a square. Since the greatest common divisor of $3m + 1$ and $5m + 3$ is a divisor of $3(5m + 3) - 5(3m + 1) = 4$, this implies that either $(3m + 1)$ and $(5m + 3)$ are both squares, or are both twice a square.
+
+If $3m + 1 = x^2$ and $5m + 3 = y^2$, then we have that $4 = 3y^2 - 5x^2$. Modulo $5$ this becomes $y^2 \equiv 3 \pmod 5$, which is a contradiction.
+
+Similarly, if $3m + 1 = 2x^2$ and $5m + 3 = 2y^2$, then we have that $3y^2 - 5x^2 = 2$. Modulo $3$ we get $x^2 \equiv 2 \pmod 3$, which is again a contradiction.
+
+Thus $m^3 + {(m + 1)}^3 + \cdots + {(2m)}^3$ is never a square for positive integers $m$.
+
+% Hong Kong Team Selection Test 2, 21 October 2017
+\item[5.]
+
+\end{enumerate}
+\end{document}
+
+
+
+
