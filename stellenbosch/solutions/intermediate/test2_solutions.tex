@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \usepackage{verbatim}
-\usepackage{amsmath,amsfonts}
+\usepackage{amsmath,amsthm,amsfonts}
 \usepackage{enumerate}
 \usepackage{fullpage}
 \usepackage{fancyvrb}
@@ -54,6 +54,7 @@ Using the binomial formula, we find that
 Since $y$ is real, $y^2$ is a positive real number, and so $y^2 = -3 + \sqrt{10}$, giving us that $x = \sqrt{-3 + \sqrt{10}} - 4$, or $x = -\sqrt{-3 + \sqrt{10}} - 4$.
 
 
+\vspace{12pt}
 \item %
 \textit{Find all positive integers $m, n$ such that \[ 1 + 5 \cdot 2^m = n^2. \]}
 
@@ -66,13 +67,16 @@ Since $5 \cdot 2^{p-1} - 1$ is odd and $2^{q-1}$ is even for all $p, q > 1$, the
 \[ \mathrm{Case} \enskip 2: \quad n - 1 = 5 \cdot 2^p \enskip \mathrm{and} \enskip n + 1 = 2^q 
 \iff 5 \cdot 2^{p-1} = 2^{q-1} - 1, \] yields no solutions for $p = 1$ or $q = 1$. Thus the only solution is $(m, n) = (4, 9)$.
 
+
 \vspace{12pt}
 \item % Problem 2.17 (Russia 1972)
 \textit{Show that if we are given 50 segments on the real line, then either there are 8 of them which are pairwise disjoint or 8 of them with a common point.}
 
 \textit{A segment is defined as a closed interval $[a, b] = \{x \in \mathbb{R} \;:\; a \leq x \leq b \}$.}
 
+Let $[a_1, b_1]$ be the segment with the smallest right endpoint. If more than 7 segments contain $b_1$, then we are finished. If this number is $\leq 7$, then at least 43 segments lie completely to the right of $b_1$. From these segments, select $[a_2, b_2]$ with the smallest right endpoint. Then either $b_2$ belongs to 8 segments, or there exist 36 segments to the right of $b_2$.
 
+Continuing in this way, either we find a point belonging to eight segments, or we find seven pairwise disjoint segments $[a_1, b_1], [a_2, b_2], \dots, [a_7, b_7]$ such that to the right of $[a_k, b_k]$ lie at least $(50-7k)$ segments, i.e. to the right of $[a_7, b_7]$ lies at least one segment $[a_8, b_8]$. \qed 
 
 
 \end{enumerate}
