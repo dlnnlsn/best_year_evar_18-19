@@ -52,6 +52,22 @@ and so $\angle RPQ = 36^\circ$.
 \item %Melissa
 \textit{Let $n$ be a positive integer. Find the last digit of \[ n^{2018} +(n+1)^{2018} +\dotsb +(n+99)^{2018}. \]}
 
+Let
+\[
+	S = n^{2018} + {(n + 1)}^{2018} + \cdots + {(n + 99)}^{2018}.
+\]
+
+Note that among any $10$ consecutive integers, we have one integer with each possible remainder modulo $10$. We thus have that
+\[
+	k^{2018} + {(k + 1)}^{2018} + \cdots + {(k + 9)}^{2018} \equiv 0^{2018} + 1^{2018} + \cdots + 9^{2018} \pmod{10}.
+\]
+The numbers $n, (n + 1), (n + 2), \dots, (n + 99)$ consists of $10$ groups of $10$ consecutive positive integers, and so we have that
+\begin{align*}
+	S & \equiv \underbrace{\left( 0^{2018} + 1^{2018} + \cdots + 9^{2018} \right) + \left( 0^{2018} + 1^{2018} + \cdots + 9^{2018} \right) + \cdots + \left( 0^{2018} + 1^{2018} + \cdots + 9^{2018} \right)}_{10 \text{ times}} \\
+	& \equiv 10 \left( 0^{2018} + 1^{2018} + \cdots + 9^{2018} \right) \\
+	& \equiv 0 \pmod{10},
+\end{align*}
+and so the last digit of $S$ is always a $0$.
 
 \vspace{12pt}
 \item %2017/2018 British MO Round 2 Q1
