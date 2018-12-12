@@ -1,0 +1,129 @@
+\documentclass{article}
+
+\usepackage{verbatim}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{enumerate}
+\usepackage{fullpage}
+\usepackage{fancyvrb}
+\usepackage{tikz,tkz-euclide}
+\usepackage{float}
+
+\newcommand{\ds}{\ensuremath{\displaystyle}}
+\newcommand{\floor}[1]{\ensuremath{\left\lfloor#1\right\rfloor}}
+\newcommand{\fracpart}[1]{\ensuremath{\left\{#1\right\}}}
+\def\thm{Th\textsuperscript{\underline{m}}}
+
+\title{Intermediate Test 2 -- Solutions}
+\author{Stellenbosch Camp 2018}
+\date{\vspace{-12pt}}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+\item %The Phil
+\textit{For any real number $x$, let $\floor{x}$ denote the greatest integer less than or equal to $x$, and let $\fracpart{x} = x -\floor{x}$ be the fractional part of $x$. Find all real numbers $a$, $b$, and $c$ such that
+\begin{align*}
+  \floor{a} +\fracpart{b} &= -2.3, \\
+  \floor{b} +\fracpart{c} &= 8.9, \qquad \mathrm{and}\\
+  \floor{c} +\fracpart{a} &= 23.4.
+\end{align*}}
+
+The first equation gives us that $\floor{a} = -3$ and $\fracpart{b} = 0.7$. The second equation gives us tht $\floor{b} = 8$ and $\fracpart{c} = 0.9$. The last equation implies that $\floor{c} = 23$ and $\fracpart{a} = 0.4$. It follows that $a = -2.6$, $b = 8.7$ and $c = 23.9$.
+
+
+\vspace{12pt}
+\item %Past SA Matric paper
+\textit{Lets $PQRS$ be a cyclic quadrilateral such that $PQ = QR$, $PR = SR$ and $PQ \parallel SR$. Let $ASB$ be a tangent at $S$ where $A$ lies on $PQ$. If $\angle BSR = 72^{\circ}$, find the value of $\angle RPQ$.}
+
+By the tan-chord theorem, we have that $\angle SPR = \angle BSR = 72^\circ$. Since $PR = SR$, we find that $\angle RSP = \angle SPR = 72^\circ$. Since $PQRS$ is a cyclic quadrilateral, we have that $\angle PQR = 180^\circ - \angle RSP = 180^\circ - 72^\circ = 108^\circ$.
+
+Now note that $\angle PQR + \angle RPQ + \angle QRP = 180^\circ$. However, $PQR$ is an isosceles triangle, so $\angle RPQ = \angle QRP$, and so we have that
+\[
+	2\angle RPQ + 108^\circ = \angle RPQ + \angle QRP + \angle PQR = 180^\circ,
+\]
+and so $\angle RPQ = 36^\circ$.
+
+
+\vspace{12pt}
+\item %Melissa
+\textit{Let $n$ be a positive integer. Find the last digit of \[ n^{2018} +(n+1)^{2018} +\dotsb +(n+99)^{2018}. \]}
+
+Let
+\[
+	S = n^{2018} + {(n + 1)}^{2018} + \cdots + {(n + 99)}^{2018}.
+\]
+
+Note that among any $10$ consecutive integers, we have one integer with each possible remainder modulo $10$. We thus have that
+\[
+	k^{2018} + {(k + 1)}^{2018} + \cdots + {(k + 9)}^{2018} \equiv 0^{2018} + 1^{2018} + \cdots + 9^{2018} \pmod{10}.
+\]
+The numbers $n, (n + 1), (n + 2), \dots, (n + 99)$ consists of $10$ groups of $10$ consecutive positive integers, and so we have that
+\begin{align*}
+	S & \equiv \underbrace{\left( 0^{2018} + 1^{2018} + \cdots + 9^{2018} \right) + \left( 0^{2018} + 1^{2018} + \cdots + 9^{2018} \right) + \cdots + \left( 0^{2018} + 1^{2018} + \cdots + 9^{2018} \right)}_{10 \text{ times}} \\
+	& \equiv 10 \left( 0^{2018} + 1^{2018} + \cdots + 9^{2018} \right) \\
+	& \equiv 0 \pmod{10},
+\end{align*}
+and so the last digit of $S$ is always a $0$.
+
+\vspace{12pt}
+\item %2017/2018 British MO Round 2 Q1
+\textit{Let $ABC$ be a triangle, and let the midpoint of $AC$ be $M$. The circle tangent to $BC$ at $B$ and passing through $M$ meets the line $AB$ again at $P$. Prove that $AB \times BP = 2 BM^2$.}
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[scale=3.5]
+	% \useasboundingbox (-2,-2) rectangle  (2,2);
+	\tkzDefPoint(-1.5,2){A}
+	\tkzDefPoint(0,0){B}
+	\tkzDefPoint(2.1,0){C}
+	\tkzDefBarycentricPoint(C=1,A=1)\tkzGetPoint{M}
+	\tkzDefLine[orthogonal=through B](B,C)\tkzGetPoint{h1}
+	\tkzDefLine[mediator](B,M)\tkzGetPoints{m1}{m2}
+	\tkzInterLL(m1,m2)(B,h1)\tkzGetPoint{O}
+	\tkzInterLC(A,B)(O,B)\tkzGetSecondPoint{P}
+	\tkzDefBarycentricPoint(B=1,A=1)\tkzGetPoint{N}
+	\tkzDrawSegments(A,B B,C C,A M,P M,N B,M)
+	\tkzDrawCircle(O,B)
+	\tkzDrawPoints[fill=black!100](A,B,C,M,N,P)
+	\tkzLabelPoints[below](B,C)
+	\tkzLabelPoints[left](A,P,N)
+	\tkzLabelPoints[right](M)
+	\tkzMarkSegments[mark=>>](N,M B,C)
+	\end{tikzpicture}
+\end{center}		
+\end{figure}
+
+Construct point $N$, the midpoint of $AB$. By midpoint \thm, $NM||BC$. Using this and Tan-Chord \thm, we get: $\angle BMN=\angle MBC=\angle MPB$. Since we also have that $\angle PBM=\angle MBN$, we have that $\triangle BMN \sim \triangle BPM$. So
+\begin{flalign}
+\frac{BM}{BP}&=\frac{BN}{BM}\nonumber\\
+\Rightarrow BM^2&=BN \cdot BP=\left(\frac{1}{2}AB\right)\cdot BP\nonumber
+\end{flalign}
+
+\vspace{12pt}
+\item %The Aether
+\textit{Show that for all positive real numbers $x$ and $y$, \[ \frac{x^2}{x+2y} +\frac{y^2}{2x+y} \geq \frac{x+y}{3}. \] }
+
+By the Cauchy-Schwarz inequality (in ``Engel Form'') we have that
+\[
+	\frac{x^2}{x + 2y} + \frac{y^2}{2x + y} \geq \frac{{(x + y)}^2}{(x + 2y) + (2y + x)} = \frac{x + y}{3}.
+\]
+
+
+\end{enumerate}
+
+
+\vfill
+\centering
+\begin{BVerbatim}
+             .--~~,__
+:-....,-------`~~'._.'
+ `-,,,  ,_      ;'~U'
+  _,-' ,'`-__; '--.
+ (_/'~~      ''''(;
+\end{BVerbatim}
+
+\end{document}
