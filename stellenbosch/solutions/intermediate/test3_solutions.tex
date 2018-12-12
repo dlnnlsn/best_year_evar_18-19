@@ -17,6 +17,9 @@
 \author{Stellenbosch Camp 2018}
 \date{\vspace{-12pt}}
 
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+\def\deg{^{\circ}}
 
 \begin{document}
 
@@ -38,6 +41,35 @@ The first equation gives us that $\floor{a} = -3$ and $\fracpart{b} = 0.7$. The 
 \vspace{12pt}
 \item %Past SA Matric paper
 \textit{Lets $PQRS$ be a cyclic quadrilateral such that $PQ = QR$, $PR = SR$ and $PQ \parallel SR$. Let $ASB$ be a tangent at $S$ where $A$ lies on $PQ$. If $\angle BSR = 72^{\circ}$, find the value of $\angle RPQ$.}
+
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[scale=2]
+	% \useasboundingbox (-2,-2) rectangle  (2,2);
+	\tkzDefPoint(0,0){O}
+	\tkzDefPoint(120:1){P}
+	\tkzDefPoint(60:1){Q}
+	\tkzDefPoint(-40:1){R}
+	\tkzDefPoint(220:1){S}
+	\tkzTangent[at=S](O)\tkzGetPoint{t}
+	\tkzInterLL(S,t)(P,Q)\tkzGetPoint{A}
+	\tkzDefBarycentricPoint(A=-0.5,S=1.5) \tkzGetPoint{B}
+	\begin{scope}[decoration={markings,	mark=at position .5 with {\arrow[scale=2]{>}};}]
+	\tkzDrawSegments[postaction={decorate}](P,Q S,R)
+	\end{scope}
+	\tkzDrawSegments(S,P P,R R,Q A,B)
+	\tkzDrawPoints(A,P,Q,S,R,B)
+	\tkzLabelPoints[above](A,P,Q)
+	\tkzLabelPoints[left](S,B)
+	\tkzLabelPoints[right](R)
+	\tkzDrawCircle(O,P)
+	\tkzMarkSegments[mark=|](P,Q Q,R)
+	\tkzMarkSegments[mark=|](P,R S,R)
+	\tkzMarkAngle[size=0.5](B,S,R)
+	\tkzLabelAngle[below right=-0.6 and -0.8](B,S,R){$72\deg$}
+	\end{tikzpicture}
+\end{center}		
+\end{figure}
 
 By the tan-chord theorem, we have that $\angle SPR = \angle BSR = 72^\circ$. Since $PR = SR$, we find that $\angle RSP = \angle SPR = 72^\circ$. Since $PQRS$ is a cyclic quadrilateral, we have that $\angle PQR = 180^\circ - \angle RSP = 180^\circ - 72^\circ = 108^\circ$.
 
