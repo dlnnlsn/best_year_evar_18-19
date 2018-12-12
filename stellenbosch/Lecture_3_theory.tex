@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumerate}
+\usepackage{tikz,tkz-euclide}
+\usepackage{rotating}
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{notate}{Notation}
+\newtheorem{cor}{Corollary}
+
+
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+
+\title{Stellenbosch Camp 2018: Senior Geometry\\ \centering Lecture 3: Inversion}
+\date{}
+\begin{document}
+	\maketitle
+	\hrulefill
+	\begin{definition}[Cross Ratio]
+		Let $A$, $B$, $C$, and $D$ be 4 points in the plane. Then the Cross Ratio on these points is defined as follows:
+		\begin{flalign}
+			(A,B:C,D)=\left. \frac{AC}{AD} \middle/ \frac{BC}{BD} \right. =\frac{AC \cdot BD}{AD \cdot BC}\nonumber
+		\end{flalign}
+	\end{definition}
+	\begin{theorem}
+			Let $A$, $B$, $C$, and $D$ be 4 points lying on a line $\ell$, in that order. Let $P$ be a point not lying on $\ell$, and let $k \neq \ell$ be a line not passing through $P$. Let $A'$, $B'$, $C'$, and $D'$ be the intersections of $k$ with $PA$, $PB$, $PC$, and $PD$ respectively. Then:
+			\begin{flalign}
+				(A',B':C',D')=(A,B:C,D)\nonumber
+			\end{flalign}
+	\end{theorem}
+	\begin{theorem}
+		Let $\Omega$ be a circle with centre $O$, and let $A$, $B$, $C$, and $D$ be 4 points in the plane, all distinct from $O$. Let $A'$, $B'$, $C'$, and $D'$ be the images of $A$, $B$, $C$, and $D$ with respect to an inversion $T(\Omega)$, respectively. Then:
+		\begin{flalign}
+			(A',B':C',D')=(A,B:C,D)\nonumber
+		\end{flalign}
+	\end{theorem}
+	\begin{theorem}[Apollonius' Circle Definition]
+		Let $A$ and $B$ be 2 points in the plane, and let $r$ be a fixed positive real number. Let $P$ be a point such that $\frac{AP}{BP}=r$. Then the locus of $P$ is a circle.
+	\end{theorem}
+	\begin{cor}[1]
+		Let $A$ and $B$ be 2 points in the plane, and let $\Omega$ be an Apollonius Circle defined by $A,B$, and some arbitrary real number $r$. The inversion $T(\Omega)$ sends point $A$ to point $B$.
+	\end{cor}
+	\begin{cor}[2]
+		Let $A$ and $B$ be 2 points in the plane, and let $\Omega$ be an Apollonius Circle defined by $A,B$, and some arbitrary real number $r$. Any circle that passes through both $A$ and $B$ is \textbf{orthogonal} to $\Omega.$
+	\end{cor}
+	\pagebreak
+	\begin{sidewaysfigure}[!htb]
+	\centering
+	\begin{tikzpicture}[scale=3.5,baseline=(X.base)]
+		\useasboundingbox (-3,-3) rectangle  (1.5,2.2);
+		\coordinate (A) at (-4,0);
+		\coordinate (C) at (-1,0);
+		\coordinate (B) at (150:2);
+		\coordinate (D) at (-120:2);
+		\tkzInterLL(A,B)(C,D)\tkzGetPoint{E};
+		\tkzInterLL(A,D)(B,C)\tkzGetPoint{F};			
+		\node at (A) [left]{$A$};
+		\node at (B) [above left]{$B$};
+		\node at (C) [above right]{$C$};
+		\node at (D) [below]{$D$};
+		\fill[color=black!100] (A) circle (0.02) ;
+		\fill[color=black!100] (B) circle (0.02) ;
+		\fill[color=black!100] (C) circle (0.02) ;
+		\fill[color=black!100] (D) circle (0.02) ;
+		\draw[-] (A)--(B)--(C)--(D)--(A);
+		\tkzDefCircle[circum](A,C,E) \tkzGetPoint{O1};
+		\tkzDefCircle[circum](B,D,F) \tkzGetPoint{O2};
+		\tkzInterCC(O1,A)(O2,B)\tkzGetPoints{Y}{X};
+		\node at (X) [above left]{$X$};
+		\draw[fill,use as bounding box] (X) circle (0.02);
+		\tkzDrawSegments[thin](X,A X,B X,C X,D);
+		\tkzMarkAngle[size=0.7, mark=|](X,A,B);
+		\tkzMarkAngle[size=0.7, mark=|](X,C,D);
+		\tkzMarkAngle[size=0.7, mark=||](X,B,C);
+		\tkzMarkAngle[size=0.7, mark=||](X,D,A);
+
+		\node at (E) [right]{$E$};
+		\node at (F) [above right]{$F$};
+		\fill[color=black!100] (E) circle (0.02) ;
+		\fill[color=black!100] (F) circle (0.02) ;
+		\draw[-] (D)--(F)--(C)--(E)--(B);
+		
+
+		\coordinate (O) at (0,0);
+		\draw[-] (A)--(C)--(O);
+		\draw[-] (B)--(D);
+		\tkzDrawCircle[dashed](O,B);
+		\node at (O) [right]{$O$};
+		\fill[color=black!100] (O) circle (0.02) ;
+		\node at (60:2) [above right]{$\Omega$};
+		
+		\tkzDrawCircle[dashed](O1,A);
+		\tkzInterLC(O,E)(O1,A)\tkzGetFirstPoint{E1};
+		\node at (E1) [above]{$E'$};
+		\fill[color=black!100] (E1) circle (0.02) ;
+		\draw[-] (O)--(E)--(E1)--(X);
+		\tkzDefCircle[circum](B,C,O) \tkzGetPoint{O3};
+		\tkzDefCircle[circum](A,D,O) \tkzGetPoint{O4};
+		\tkzDrawCircle[thin,dashed](O3,O);
+		\tkzDrawCircle[thin,dashed](O4,O);
+		\draw[-] (B)--(E1)--(D);
+		
+	\end{tikzpicture}
+	\end{sidewaysfigure}
+\end{document}
