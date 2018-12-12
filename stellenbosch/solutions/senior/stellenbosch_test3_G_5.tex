@@ -1,0 +1,98 @@
+%-----------------begin---preamble-------------------
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
+\usepackage{marginnote}
+\usepackage{float}
+\usepackage[margin=0.8in]{geometry}
+% \usepackage{enumerate}
+
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\def\deg{^{\circ}}
+\def\thm{Th\textsuperscript{\underline{m}}}
+\newcommand\heading[1]{\ \\\large{\textbf{#1}}}
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+\newtheorem*{problem}{Problem}
+%------------------end---preamble--------------------
+
+\begin{document}
+	\begin{problem}[Hong Kong TST, 2018]
+		In triangle $ABC$ with incentre $I$, let $M_A$, $M_B$, and $M_C$ be the midpoints of $BC$, $CA$, and $AB$ respectively, and let $H_A$, $H_B$, and $H_C$ be the feet of the altitudes from $A$, $B$, and $C$ to the respective sides. Denote by $\ell_b$ the line being tangent to the circumcircle of triangle $ABC$ and passing through $B$. and denote by $\ell_b^{\prime}$ the reflection of $\ell_b$ in $BI$. Let $P_B$ be the intersection of $M_A M_B$ and $\ell_b$ and let $P_B$ be the intersection of $H_A H_B$ and $\ell_b^{\prime}$. Define $\ell_c$, $\ell_b^{\prime}$, $P_C$ and $Q_C$ analogously. If $R$ is the intersection of $P_B Q_B$ and $P_C Q_C$, prove that $RB=RC$.
+	\end{problem}
+	\begin{proof}
+		\ \\By using Midpoint \thm, Tan-Chord \thm, properties of reflection and the Nine Point Circle 9hence forth denoted as $\omega_9$, we get that the following angles are equal.
+		\begin{flalign}
+			\angle A C B=\angle A B P_B=\angle B H_C H_A=\angle M_C M_A B=\angle Q_B B C\nonumber
+		\end{flalign}
+		\begin{figure}[H]
+		\begin{center}
+		\begin{tikzpicture}[scale=1.7]
+			\useasboundingbox (-4,-3.3) rectangle  (4,3);
+			\coordinate (A) at (-0.2,1.8);
+			\coordinate (B) at (-2,-1);
+			\coordinate (C) at (2.5,-1);
+			\tkzDefCircle[in](A,B,C)\tkzGetPoint{I}\tkzGetLength{rABC}
+			\tkzDefCircle[circum](A,B,C)\tkzGetPoint{O};
+			\tkzDefLine[orthogonal=through A](B,C) \tkzGetPoint{ha};
+			\tkzDefLine[orthogonal=through B](C,A) \tkzGetPoint{hb};
+			\tkzDefLine[orthogonal=through C](B,A) \tkzGetPoint{hc};
+			\tkzInterLL(A,ha)(B,hb)\tkzGetPoint{H};
+			\tkzInterLL(A,ha)(B,C)\tkzGetPoint{HA};
+			\tkzInterLL(B,hb)(A,C)\tkzGetPoint{HB};
+			\tkzInterLL(C,hc)(B,A)\tkzGetPoint{HC};
+			\tkzTangent[at=B](O)\tkzGetPoint{lb}
+			\tkzTangent[at=C](O)\tkzGetPoint{lc}
+			\tkzDefPointsBy[reflection=over B--I](lb){lb1}
+			\tkzDefPointsBy[reflection=over C--I](lc){lc1}
+			\coordinate (MA) at ($(B)!0.5!(C)$);
+			\coordinate (MB) at ($(A)!0.5!(C)$);
+			\coordinate (MC) at ($(A)!0.5!(B)$);
+			\coordinate (EA) at ($(A)!0.5!(H)$);
+			\coordinate (EB) at ($(B)!0.5!(H)$);
+			\coordinate (EC) at ($(C)!0.5!(H)$);
+			\tkzDefCircle[circum](HA,HB,HC)\tkzGetPoint{N};
+			\tkzDrawSegments(A,B B,C C,A);
+			\node at (A) [above]{$A$};
+			\node at (B) [below]{$B$};
+			\node at (C) [below]{$C$};
+			\node at (MB) [above right]{$M_B$};
+			\node at (MC) [left]{$M_C$};
+			\node at (HB) [above right]{$H_B$};
+			\node at (HC) [left]{$H_C$};
+			\node at (MA) [below right]{$M_A$};
+			\node at (HA) [below left]{$H_A$};
+			% \tkzDrawSegments[thin](A,HA B,HB C,HC);
+			\tkzDrawCircle[thin,dashed](N,HA);
+			% \tkzMarkRightAngles[arc=lll,thin,size=0.1](A,HA,B B,HB,C C,HC,A);
+
+			\tkzInterLL(MA,MC)(B,lb)\tkzGetPoint{PB}
+			\tkzInterLL(HA,HC)(B,lb1)\tkzGetPoint{QB}
+			\tkzInterLL(MA,MB)(C,lc)\tkzGetPoint{PC}
+			\tkzInterLL(HA,HB)(C,lc1)\tkzGetPoint{QC}
+			\tkzInterLL(PB,QB)(PC,QC)\tkzGetPoint{R}
+			\tkzDrawPoints[fill=black](A,B,C,HA,HB,HC,MA,MB,MC,I,PB,QB,R)
+			\tkzDrawSegments[thin](B,PB B,QB PB,QB MA,PB HC,QB)
+			\tkzLabelPoints[above=0.2](R,I)
+			\tkzLabelPoint[above](PB){$P_B$}
+			\tkzLabelPoint[right](QB){$Q_B$}
+			\tkzLabelLine[left](PB,B){$\ell_b$};
+			\tkzLabelLine[left](QB,B){$\ell_b '$};
+			\tkzMarkAngles[size=0.5](QB,B,C A,B,PB B,HC,HA MC,MA,B A,C,B)
+		\end{tikzpicture}
+		\end{center}		
+		\end{figure}
+	
+	So $\ell_b$ is tangent to the circumcircle of $M_C B M_A$ and So $\ell_b '$ is tangent to the circumcircle of $H_A B H_C$. So, by power of a point:
+	\begin{flalign}
+		BP_B^2= M_A P_B \cdot M_C P_B \ \text{and} \ BQ_B^2= H_A Q_B \cdot H_C Q_B \nonumber
+	\end{flalign}
+	So the power of $P_B$ with respect to the point circle at $B$ is equal to the power of $P_B$ with respect to $\Omega_9$. Similarly the power of $Q_B$ with respect to the point circle at $B$ is equal to the power of $Q_B$ with respect to $\Omega_9$. So $P_B Q_B$ is the radical axis with respect to the point circle at $B$ and $\Omega_9$. Similarly we get that $P_C Q_C$ is the radical axis with respect to the point circle at $C$ and $\Omega_9$. Thus $R$ is the radical centre of the 3 circles, and so it lies on the radical axis of the 2 point circles at $B$ and $C$. Since both circles have the same radius (0) we have that $R$ is equidistant from $B$ and $C$, as required.
+	\end{proof}
+
+	
+	
+\end{document}
