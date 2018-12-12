@@ -9,11 +9,11 @@
  \usepackage{verbatim}   % useful for program listings
  %\usepackage{subfig}  % use for side-by-side figures
  %\usepackage{wrapfig}
- \usepackage{float}
  %\usepackage{listings}	 % creates code blocks
  %\usepackage[colorlinks=true]{hyperref}   % use for hypertext links, including
                      % those to external documents and URLs
  %\usepackage{multirow}
+ %\usepackage{tikz}
  %\usepackage{enumerate}
  %\usetikzlibrary{decorations.pathreplacing,decorations.pathmorphing}
  %\usetikzlibrary{calc}
@@ -77,18 +77,19 @@
  
 \begin{document}
 \begin{center}
-\textbf{Stellenbosch Camp December 2018 \\ Senior Test 2} \\
+\textbf{Stellenbosch Camp December 2018 \\ Senior Test 3} \\
 \textbf{Solutions}
 \end{center}
 \vspace{5mm}
 
 \begin{enumerate}
-
+    
 % 2017/2018 British MO Round 2 Q1
 \item[1.] Construct point $N$, the midpoint of $AB$.
-\begin{figure}[H]
+\vspace{3mm}
+\begin{figure}[h]
 \begin{center}
-\begin{tikzpicture}[scale=3.5]
+\begin{tikzpicture}[scale=2.5]
 	% \useasboundingbox (-2,-2) rectangle  (2,2);
 	\tkzDefPoint(-1.5,2){A}
 	\tkzDefPoint(0,0){B}
@@ -112,35 +113,39 @@
 
  By midpoint \thm, $NM||BC$. Using this and Tan-Chord \thm, we get: $\angle BMN=\angle MBC=\angle MPB$. Since we also have that $\angle PBM=\angle MBN$, we have that $\triangle BMN \sim \triangle BPM$. So
 \begin{flalign}
-\frac{BM}{BP}&=\frac{BN}{BM}\nonumber\\
-\Rightarrow BM^2&=BN \cdot BP=\left(\frac{1}{2}AB\right)\cdot BP\nonumber
+\frac{BM}{BP} &= \frac{BN}{BM} \nonumber\\
+\implies \quad  BM^2&=BN \cdot BP=\left(\frac{1}{2}AB\right)\cdot BP\nonumber
 \end{flalign}
+\qed
+\vspace{5mm}
+
 
 % The Aether
 \item[2.]
 By the Cauchy-Schwarz inequality (in ``Engel Form'') we have that
 \[
 	\frac{x^2}{x + 2y} + \frac{y^2}{2x + y} \geq \frac{{(x + y)}^2}{(x + 2y) + (2y + x)} = \frac{x + y}{3}.
-\]
+\] \qed
 
 \clearpage
 
 % (Iberoamerican Mathematical Olympiad shortlist 2009)
 \item[3.]
 Consider the following colouring:
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.4\textwidth]{senior_test3_question3_1.mps}
+\includegraphics[width=0.3\textwidth]{senior_test3_question3_1.mps}
 \end{figure}
 
 Note that when we do any change, we are changing an even number of lamps in the coloured squares, so the number of lamps turned on in those squares remains even. Thus, if only one lamp remains on, it must be in a white square. To see that these can be changed it is sufficient to notice that they are at distance $2$ from the edge. If $X$ is the square at distance $2$ from the edge and $S, T$ are the squares separating it from the edge, we have the following situation:
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.2\textwidth]{senior_test3_question3_2.mps}
 \end{figure}
 
-We can use $T$ and change the state of $S, T, X$, and then use $S$ and change the state of $S, T$. With this only $X$ is turned on. When we used this pair of movements we have not affected any other lamp. As we wanted, $X$ is the only lamp turned on in the whole board.
+We can use $T$ and change the state of $S, T, X$, and then use $S$ and change the state of $S, T$. With this only $X$ is turned on. When we used this pair of movements we have not affected any other lamp. As we wanted, $X$ is the only lamp turned on in the whole board. \qed
+\vspace{5mm}
 
 % 2017/2018 British MO Round 2
 \item[4.]
@@ -164,10 +169,81 @@ If $3m + 1 = x^2$ and $5m + 3 = y^2$, then we have that $4 = 3y^2 - 5x^2$. Modul
 
 Similarly, if $3m + 1 = 2x^2$ and $5m + 3 = 2y^2$, then we have that $3y^2 - 5x^2 = 2$. Modulo $3$ we get $x^2 \equiv 2 \pmod 3$, which is again a contradiction.
 
-Thus ${(m + 1)}^3 + \cdots + {(2m)}^3$ is never a square for positive integers $m$.
+Thus ${(m + 1)}^3 + \cdots + {(2m)}^3$ is never a square for positive integers $m$. \qed
+\vspace{5mm}
 
 % Hong Kong Team Selection Test 2, 21 October 2017
 \item[5.]
+ By using Midpoint \thm, Tan-Chord \thm, properties of reflection and the Nine Point Circle hence forth denoted as $\omega_9$, we get that the following angles are equal.
+		\begin{flalign}
+			\angle A C B=\angle A B P_B=\angle B H_C H_A=\angle M_C M_A B=\angle Q_B B C\nonumber
+		\end{flalign}
+		\vspace{-6mm}
+		\begin{figure}[h]
+		\begin{center}
+		\begin{tikzpicture}[scale=1.7]
+			\useasboundingbox (-4,-3.3) rectangle  (4,3);
+			\coordinate (A) at (-0.2,1.8);
+			\coordinate (B) at (-2,-1);
+			\coordinate (C) at (2.5,-1);
+			\tkzDefCircle[in](A,B,C)\tkzGetPoint{I}\tkzGetLength{rABC}
+			\tkzDefCircle[circum](A,B,C)\tkzGetPoint{O};
+			\tkzDefLine[orthogonal=through A](B,C) \tkzGetPoint{ha};
+			\tkzDefLine[orthogonal=through B](C,A) \tkzGetPoint{hb};
+			\tkzDefLine[orthogonal=through C](B,A) \tkzGetPoint{hc};
+			\tkzInterLL(A,ha)(B,hb)\tkzGetPoint{H};
+			\tkzInterLL(A,ha)(B,C)\tkzGetPoint{HA};
+			\tkzInterLL(B,hb)(A,C)\tkzGetPoint{HB};
+			\tkzInterLL(C,hc)(B,A)\tkzGetPoint{HC};
+			\tkzTangent[at=B](O)\tkzGetPoint{lb}
+			\tkzTangent[at=C](O)\tkzGetPoint{lc}
+			\tkzDefPointsBy[reflection=over B--I](lb){lb1}
+			\tkzDefPointsBy[reflection=over C--I](lc){lc1}
+			\coordinate (MA) at ($(B)!0.5!(C)$);
+			\coordinate (MB) at ($(A)!0.5!(C)$);
+			\coordinate (MC) at ($(A)!0.5!(B)$);
+			\coordinate (EA) at ($(A)!0.5!(H)$);
+			\coordinate (EB) at ($(B)!0.5!(H)$);
+			\coordinate (EC) at ($(C)!0.5!(H)$);
+			\tkzDefCircle[circum](HA,HB,HC)\tkzGetPoint{N};
+			\tkzDrawSegments(A,B B,C C,A);
+			\node at (A) [above]{$A$};
+			\node at (B) [below]{$B$};
+			\node at (C) [below]{$C$};
+			\node at (MB) [above right]{$M_B$};
+			\node at (MC) [left]{$M_C$};
+			\node at (HB) [above right]{$H_B$};
+			\node at (HC) [left]{$H_C$};
+			\node at (MA) [below right]{$M_A$};
+			\node at (HA) [below left]{$H_A$};
+			% \tkzDrawSegments[thin](A,HA B,HB C,HC);
+			\tkzDrawCircle[thin,dashed](N,HA);
+			% \tkzMarkRightAngles[arc=lll,thin,size=0.1](A,HA,B B,HB,C C,HC,A);
+
+			\tkzInterLL(MA,MC)(B,lb)\tkzGetPoint{PB}
+			\tkzInterLL(HA,HC)(B,lb1)\tkzGetPoint{QB}
+			\tkzInterLL(MA,MB)(C,lc)\tkzGetPoint{PC}
+			\tkzInterLL(HA,HB)(C,lc1)\tkzGetPoint{QC}
+			\tkzInterLL(PB,QB)(PC,QC)\tkzGetPoint{R}
+			\tkzDrawPoints[fill=black](A,B,C,HA,HB,HC,MA,MB,MC,I,PB,QB,R)
+			\tkzDrawSegments[thin](B,PB B,QB PB,QB MA,PB HC,QB)
+			\tkzLabelPoints[above=0.2](R,I)
+			\tkzLabelPoint[above](PB){$P_B$}
+			\tkzLabelPoint[right](QB){$Q_B$}
+			\tkzLabelLine[left](PB,B){$\ell_b$};
+			\tkzLabelLine[left](QB,B){$\ell_b '$};
+			\tkzMarkAngles[size=0.5](QB,B,C A,B,PB B,HC,HA MC,MA,B A,C,B)
+		\end{tikzpicture}
+		\end{center}		
+		\end{figure}
+	
+	So $\ell_b$ is tangent to the circumcircle of $M_C B M_A$ and So $\ell_b '$ is tangent to the circumcircle of $H_A B H_C$. So, by power of a point:
+	\begin{flalign}
+		BP_B^2= M_A P_B \cdot M_C P_B \ \text{and} \ BQ_B^2= H_A Q_B \cdot H_C Q_B \nonumber
+	\end{flalign}
+	So the power of $P_B$ with respect to the point circle at $B$ is equal to the power of $P_B$ with respect to $\Omega_9$. Similarly the power of $Q_B$ with respect to the point circle at $B$ is equal to the power of $Q_B$ with respect to $\Omega_9$. So $P_B Q_B$ is the radical axis with respect to the point circle at $B$ and $\Omega_9$. Similarly we get that $P_C Q_C$ is the radical axis with respect to the point circle at $C$ and $\Omega_9$. Thus $R$ is the radical centre of the 3 circles, and so it lies on the radical axis of the 2 point circles at $B$ and $C$. Since both circles have the same radius (0) we have that $R$ is equidistant from $B$ and $C$, as required.
+
+    
 
 \end{enumerate}
 \end{document}
