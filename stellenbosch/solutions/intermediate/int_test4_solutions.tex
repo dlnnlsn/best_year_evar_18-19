@@ -5,7 +5,7 @@
 \usepackage{enumerate}
 \usepackage{fancyvrb}
 \usepackage{graphicx}
-\usepackage{fullpage}
+\usepackage[cm]{fullpage}
 \usepackage{float}
 
 \newcommand{\ds}{\ensuremath{\displaystyle}}
@@ -51,9 +51,13 @@ Furthermore, since $\angle BFC$ = $\angle BEC$, $BFEC$ is a cyclic quadrilateral
 \end{equation}
 Solving equations $(1)$ and $(2)$ simultaneously, we find that $x = 9$ and $y = 5$.
 
+
 \vspace{6pt}
 \item % The Dylan
 \textit{Find all functions $f : \mathbb{R} -> \mathbb{R}$ such that for all real numbers $x$, \[ 2 f(x) +3 f(1-x) = x-4x^3. \]}
+
+We take the original equation: $2 f(x) +3 f(1-x) = x-4x^3$. We also take the original equation with $x$ replaced by $1-x$: $2 f(1-x) +3 f(x) = (1-x) -4(1-x)^3 = -3 +11x -12x^2 +4x^3$. Now we multiply the first equation by $2$, the second by $3$, and take the difference between the two, yielding \[ 4 f(x) +6f(1-x) -6 f(1-x) -9 f(x) = 2x -8x^3 +9 -33x +36x^2 -12x^3 = 9 -31x +36x^2 -20x^3. \]
+Plugging this back into the original equation, we see that this function satisfies our condition.
 
 
 \vspace{6pt}
