@@ -6,6 +6,7 @@
 \usepackage{fancyvrb}
 \usepackage{graphicx}
 \usepackage{fullpage}
+\usepackage{float}
 
 \newcommand{\ds}{\ensuremath{\displaystyle}}
 \newcommand{\floor}[1]{\ensuremath{\left\lfloor#1\right\rfloor}}
@@ -49,6 +50,17 @@ So to count the nice numbers from $1$ to $2018$, we take the total amount of num
 \item % AoPS:  https://artofproblemsolving.com/community/c6t309f6h455752_integers_in_infinite_chessboard
 \textit{Prove that it is impossible to write a positive integer in every cell of an infinite chessboard, in such a manner that, for all positive integers $m, n$, the sum of numbers in every $m\times n$ rectangle is divisible by $m + n$.}
 
+Suppose that it is possible. Let $n$ be a positive integer. The sum of the numbers in the $1 \times n$ rectangle with opposite corners at the coordinates $(0, 0)$ and $(n, 1)$ is divisible by $n + 1$. The sum of the numbers in the $1 \times n$ rectangle with opposite corners $(0, 1)$ and $(n, 2)$ is also divisible by $n + 1$. It follows that the sum of the numbers in the $2 \times n$ rectangle with opposite corners at $(0, 0)$ and $(n, 2)$ is divisible by $n + 1$.
+
+However, the sum of the numbers in the $2 \times (n - 1)$ rectangle with opposite corners at $(1, 0)$ and $(n, 2)$ is divisible by $n + 1$, and so we see that the sum of the numbers in the rectangle with opposite corners $(0, 0)$ and $(1, 2)$ is divisible by $n + 1$.
+
+This must be true for every positive integer $n$. It follows that the sum of the numbers in the rectangle with opposite corners $(0, 0)$ and $(1, 2)$ must be $0$. This is a contradiction since we assumed that each square is filled with a positive integer.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{senior_test4_question1_1.mps}
+\end{figure}
+
 
 \vspace{12pt}
 \item % Estonia 2007
@@ -61,6 +73,15 @@ So to count the nice numbers from $1$ to $2018$, we take the total amount of num
   \item[(b)] No student fails even though no question was easy.
 \end{enumerate}
 }
+
+Consider the total number of correct solutions submitted by all of the students. If all of the students fail, then each student submits strictly fewer that $\frac{k}{2}$ correct solutiona. There are therefore strictly fewer than $\frac{nk}{2}$ correct submissions. On the other hand, if every question is easy, then for each question there are strictly more than $\frac{n}{2}$ correct submissions, and there are thus strictly more than $\frac{nk}{2}$ correct submissions. It is thus not possible for every student to fail if all of the questions are easy.
+
+Similarly, if every students passes then each student has strictly more than $\frac{k}{2}$ correct submissions giving strictly more than $\frac{nk}{2}$ correct submissions. If every question is difficult we similarly find that there are strictly fewer than $\frac{nk}{2}$ correct submissions. Thus if every student passes even though all of the questions are difficult then we would have that
+\[
+	\frac{nk}{2} > \frac{nk}{2}
+\]
+which is a contradiction.
+
 
 \end{enumerate}
 
