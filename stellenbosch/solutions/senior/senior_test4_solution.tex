@@ -19,6 +19,7 @@
  %\usetikzlibrary{calc}
  %\usepackage[colorinlistoftodos]{todonotes}
  \usepackage{tikz,tkz-euclide}
+ \usepackage{float}
  
  \usetikzlibrary{calc,patterns,angles,quotes}
 \usetkzobj{all}
@@ -85,19 +86,92 @@
 \begin{enumerate}
     
 \item[1.] 
+Suppose that it is possible. Let $n$ be a positive integer. The sum of the numbers in the $1 \times n$ rectangle with opposite corners at the coordinates $(0, 0)$ and $(n, 1)$ is divisible by $n + 1$. The sum of the numbers in the $1 \times n$ rectangle with opposite corners $(0, 1)$ and $(n, 2)$ is also divisible by $n + 1$. It follows that the sum of the numbers in the $2 \times n$ rectangle with opposite corners at $(0, 0)$ and $(n, 2)$ is divisible by $n + 1$.
 
+However, the sum of the numbers in the $2 \times (n - 1)$ rectangle with opposite corners at $(1, 0)$ and $(n, 2)$ is divisible by $n + 1$, and so we see that the sum of the numbers in the rectangle with opposite corners $(0, 0)$ and $(1, 2)$ is divisible by $n + 1$.
+
+This must be true for every positive integer $n$. It follows that the sum of the numbers in the rectangle with opposite corners $(0, 0)$ and $(1, 2)$ must be $0$. This is a contradiction since we assumed that each square is filled with a positive integer.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{senior_test4_question1_1.mps}
+\end{figure}
 
 \qed
 \vspace{5mm}
 
 
 \item[2.]
+
+Consider the total number of correct solutions submitted by all of the students. If all of the students fail, then each student submits strictly fewer that $\frac{k}{2}$ correct solutiona. There are therefore strictly fewer than $\frac{nk}{2}$ correct submissions. On the other hand, if every question is easy, then for each question there are strictly more than $\frac{n}{2}$ correct submissions, and there are thus strictly more than $\frac{nk}{2}$ correct submissions. It is thus not possible for every student to fail if all of the questions are easy.
+
+Similarly, if every students passes then each student has strictly more than $\frac{k}{2}$ correct submissions giving strictly more than $\frac{nk}{2}$ correct submissions. If every question is difficult we similarly find that there are strictly fewer than $\frac{nk}{2}$ correct submissions. Thus if every student passes even though all of the questions are difficult then we would have that
+\[
+	\frac{nk}{2} > \frac{nk}{2}
+\]
+which is a contradiction.
+
 \qed
+\vspace{5mm}
 
 
 \item[3.]
- \qed
-\vspace{5mm}
+
+Let $G$ be the centroid of $A_1 A_2 A_3$.
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[scale=3]
+	% \useasboundingbox (-2,-2) rectangle  (2,2);
+	\tkzDefPoint(0,2){A_1}
+	\tkzDefPoint(-2,0){A_2}
+	\tkzDefPoint(3,0){A_3}
+	\tkzDefBarycentricPoint(A_1=1,A_2=1,A_3=1)\tkzGetPoint{G}
+	\tkzDefBarycentricPoint(A_1=1,A_2=1)\tkzGetPoint{B_1}
+	\tkzDefBarycentricPoint(A_2=1,A_3=1)\tkzGetPoint{B_2}
+	\tkzDefBarycentricPoint(A_3=1,A_1=1)\tkzGetPoint{B_3}
+	\tkzDefBarycentricPoint(A_1=1,B_1=1)\tkzGetPoint{C_1}
+	\tkzDefBarycentricPoint(A_2=1,B_2=1)\tkzGetPoint{C_2}
+	\tkzDefBarycentricPoint(A_3=1,B_3=1)\tkzGetPoint{C_3}
+	\tkzInterLL(A_1,C_2)(B_1,A_3)\tkzGetPoint{D_1}
+	\tkzInterLL(A_2,C_3)(B_2,A_1)\tkzGetPoint{D_2}
+	\tkzInterLL(A_3,C_1)(B_3,A_2)\tkzGetPoint{D_3}
+	\tkzInterLL(A_1,B_2)(C_1,A_3)\tkzGetPoint{E_1}
+	\tkzInterLL(A_2,B_3)(C_2,A_1)\tkzGetPoint{E_2}
+	\tkzInterLL(A_3,B_1)(C_3,A_2)\tkzGetPoint{E_3}
+	\tkzDrawSegments(A_1,A_2 A_2,A_3 A_3,A_1)
+	\tkzDrawSegments[dashed](A_1,C_2 A_2,C_3 A_3,C_1 A_1,B_2 A_2,B_3 A_3,B_1)
+	\tkzDrawSegments[dashed](B_1,A_3 B_2,A_1 B_3,A_2 C_1,A_3 C_2,A_1 C_3,A_2)
+	\tkzDrawSegments(D_1,D_2 D_2,D_3 D_3,D_1)
+	\tkzDrawSegments(E_1,E_2 E_2,E_3 E_3,E_1)
+	\tkzDrawPoints[fill=black](A_1,A_2,A_3,B_1,B_2,B_3,C_1,C_2,C_3,D_1,D_2,D_3,E_1,E_2,E_3,G)
+	\tkzLabelPoints[above](A_1,D_3)
+	\tkzLabelPoints[right=0.2](B_3,C_3)
+	\tkzLabelPoints[below](A_2,A_3,B_2,C_2,E_3)
+	\tkzLabelPoints[left=0.2](B_1,C_1)
+	\tkzLabelPoints[above left](E_2)
+	\tkzLabelPoints[above right](E_1,G)
+	\tkzLabelPoints[below left](D_2,D_1)
+	\end{tikzpicture}
+\end{center}		
+\end{figure}
+We use Menelause's \thm\ on the following sets of points $\left\{\{A_1 E_2 C_2\},\{A_2 E_3 C_3\},\{A_3 E_1 C_1\}\right\}$ to get that
+\begin{flalign}
+&&\frac{GE_1}{E_1 A_1}&=\frac{GE_2}{E_2 A_2}=\frac{GE_3}{E_3 A_3}=\frac{2}{3}&\nonumber\\
+&\Rightarrow&\frac{GE_1}{GA_1}&=\frac{GE_2}{GA_2}=\frac{GE_3}{GA_3}=\frac{2}{5}&\nonumber\\
+&\Rightarrow&\frac{|\triangle E_1 E_2 E_3|}{|\triangle A_1 A_2 A_3|}&=\left( \frac{2}{5} \right)^{2}=\frac{4}{25} &\nonumber
+\end{flalign}
+We then use Menelause's \thm\ on the sets of points $\left\{\{A_1 D_2 B_2\},\{A_2 D_3 B_3\},\{A_3 D_1 B_1\}\right\}$ and then on the sets of points $\left\{\{A_1 G C_2\},\{A_2 G C_3\},\{A_3 G C_1\}\right\}$ to get that
+\begin{flalign}
+&&\frac{D_1 C_2}{A_1 D_1}&=\frac{D_2 C_3}{A_2 D_2}=\frac{D_3 C_1}{A_3 D_3}=\frac{3}{4}&\nonumber\\
+&\Rightarrow&\frac{A_1 C_2}{A_1 D_1}&=\frac{A_2 C_3}{A_2 D_2}=\frac{A_3 C_1}{A_3 D_3}=\frac{7}{4}&\nonumber\\
+&\Rightarrow&\frac{D_1 G}{G A_3}&=\frac{D_2 G}{G A_1}=\frac{D_3 G}{G A_2}=\frac{2}{7}&\nonumber\\
+&\Rightarrow&\frac{|\triangle D_1 D_2 D_3|}{|\triangle A_1 A_2 A_3|}&=\left( \frac{2}{7} \right)^{2}=\frac{4}{49} &\nonumber\\
+&\Rightarrow&\frac{|\triangle D_1 D_2 D_3|}{|\triangle E_1 E_2 E_3|}&=\frac{25}{49} &\nonumber
+\end{flalign}
+
+\qed
+
+\clearpage
 
 \item[4.]  Let $x = a^{2/3}, y = b^{2/3}$ and $z = c^{2/3}$. By a well-known special case of Schur's inequality, we have
 \begin{equation*}
