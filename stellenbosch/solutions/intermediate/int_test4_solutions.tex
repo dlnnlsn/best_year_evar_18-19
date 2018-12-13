@@ -44,6 +44,9 @@ So to count the nice numbers from $1$ to $2018$, we take the total amount of num
 \item % The Dylan
 \textit{Find all functions $f : \mathbb{R} -> \mathbb{R}$ such that for all real numbers $x$, \[ 2 f(x) +3 f(1-x) = x-4x^3. \]}
 
+We take the original equation: $2 f(x) +3 f(1-x) = x-4x^3$. We also take the original equation with $x$ replaced by $1-x$: $2 f(1-x) +3 f(x) = (1-x) -4(1-x)^3 = -3 +11x -12x^2 +4x^3$. Now we multiply the first equation by $2$, the second by $3$, and take the difference between the two, yielding \[ 4 f(x) +6f(1-x) -6 f(1-x) -9 f(x) = 2x -8x^3 +9 -33x +36x^2 -12x^3 = 9 -31x +36x^2 -20x^3. \]
+Plugging this back into the original equation, we see that this function satisfies our condition.
+
 
 \vspace{6pt}
 \item % AoPS:  https://artofproblemsolving.com/community/c6t309f6h455752_integers_in_infinite_chessboard
