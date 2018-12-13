@@ -4,6 +4,8 @@
 \usepackage{fullpage}
 \usepackage{enumerate}
 
+\DeclareMathOperator{\lcm}{lcm}
+
 \begin{document}
 
 \begin{center}
@@ -13,6 +15,14 @@
 \end{center}
 
 \begin{enumerate}[1.]
+
+\vspace{5mm}
+\item
+Find all functions $f : \mathbb{N} \to \mathbb{N}$ such that
+\[
+	f(mn) = f(\gcd(m, n)) f(\lcm(m, n))
+\]
+for all $m, n \in \mathbb{N}$.
 
 
 \vspace{5mm}
