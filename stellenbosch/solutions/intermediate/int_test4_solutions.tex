@@ -84,13 +84,14 @@ This must be true for every positive integer $n$. It follows that the sum of the
 \end{enumerate}
 }
 
-Consider the total number of correct solutions submitted by all of the students. If all of the students fail, then each student submits strictly fewer that $\frac{k}{2}$ correct solutiona. There are therefore strictly fewer than $\frac{nk}{2}$ correct submissions. On the other hand, if every question is easy, then for each question there are strictly more than $\frac{n}{2}$ correct submissions, and there are thus strictly more than $\frac{nk}{2}$ correct submissions. It is thus not possible for every student to fail if all of the questions are easy.
+\begin{enumerate}
+\item[(a)] Consider the total number of correct solutions submitted by all of the students. If all of the students fail, then each student submits strictly fewer that $\frac{k}{2}$ correct solutiona. There are therefore strictly fewer than $\frac{nk}{2}$ correct submissions. On the other hand, if every question is easy, then for each question there are strictly more than $\frac{n}{2}$ correct submissions, and there are thus strictly more than $\frac{nk}{2}$ correct submissions. It is thus not possible for every student to fail if all of the questions are easy.
 
-Similarly, if every students passes then each student has strictly more than $\frac{k}{2}$ correct submissions giving strictly more than $\frac{nk}{2}$ correct submissions. If every question is difficult we similarly find that there are strictly fewer than $\frac{nk}{2}$ correct submissions. Thus if every student passes even though all of the questions are difficult then we would have that
-\[
-	\frac{nk}{2} > \frac{nk}{2}
-\]
-which is a contradiction.
+\item[(b)] We first demonstrate that if either $n$ is odd or $k$ is odd then this is not possible. As before, consider the total number of correct submissions from all of the students. If no students fail then each student solves at least $\frac{k}{2}$ questions and so there are at least $\frac{nk}{2}$ correct submissions in total. Note however that each student solves an integer number of questions, and so if $k$ is odd then this inequality is strict. A similar argument shows that if no question is easy then there are at most $\frac{nk}{2}$ correct submissions, and the inequality is strict if $n$ is odd. Thus if either $n$ or $k$ is odd then these considerations imply that $\frac{nk}{2} > \frac{nk}{2}$, which is a contradiction.
+
+Now suppose that both $n$ and $k$ are even. Let there be $n$ students $S_1, S_2, \dots, S_n$, and $k$ questions $Q_1, Q_2, \dots, Q_k$. Let students $S_1, S_2, \dots, S_{n/2}$ solve questions $Q_1, Q_2, \dots, Q_{k/2}$ and let students $S_{n/2 + 1}, S_{n/2 + 2}, \dots, S_n$ solve $Q_{k/2 + 1}, Q_{k/2 + 2}, \dots, Q_k$. Then each student solves exactly half of the problems and hence no student fails. We also have that every problem is solved by exactly half of the students, and so no question is easy.
+
+\end{enumerate}
 
 
 \end{enumerate}
