@@ -1,0 +1,134 @@
+\documentclass[a4paper, 12pt]{article}
+%\documentclass{book}
+
+% Important Packages:
+ \usepackage{amsmath}    % need for subequations
+ \usepackage{amsfonts}
+ \usepackage{amsthm}
+ \usepackage{graphicx}   % need for figures
+ \usepackage{verbatim}   % useful for program listings
+ %\usepackage{subfig}  % use for side-by-side figures
+ %\usepackage{wrapfig}
+ %\usepackage{listings}	 % creates code blocks
+ %\usepackage[colorlinks=true]{hyperref}   % use for hypertext links, including
+                     % those to external documents and URLs
+ %\usepackage{multirow}
+ %\usepackage{tikz}
+ %\usepackage{enumerate}
+ %\usetikzlibrary{decorations.pathreplacing,decorations.pathmorphing}
+ %\usetikzlibrary{calc}
+ %\usepackage[colorinlistoftodos]{todonotes}
+ \usepackage{tikz,tkz-euclide}
+ 
+ \usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\def\deg{^{\circ}}
+\newcommand\heading[1]{\ \\\large{\textbf{#1}}}
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+\def\thm{Th\textsuperscript{\underline{m}}}
+
+%------------------end---preamble--------------------
+ 
+ % Useful macros 
+ \def\tcb#1{\color{blue}{#1}}
+ \def\tcr#1{\color{red}{#1}}	
+ \def\tcg#1{\color{green}{#1}}
+ \def\be{\begin{eqnarray}}	 	\def\ee{\end{eqnarray}}
+ \def\bea{\begin{eqnarray}}	 	\def\eea{\end{eqnarray}}
+ \def\bean{\begin{eqnarray*}}	\def\eean{\end{eqnarray*}}
+ 
+ \def\D{\displaystyle}
+ \def\T{\textstyle}
+ \def\l{\left}
+ \def\r{\right}
+ \def\nf{n_{\!f}} % quark flavours
+ \def\pa{\partial}
+ \def\eg{e.\,g.}
+ \def\ie{i.\,e.}
+
+ \def\be{\begin{equation}}
+ \def\ee{\end{equation}}
+ \def\bea{\begin{eqnarray}}
+ \def\eea{\end{eqnarray}}
+ \def\bean{\begin{eqnarray*}}
+ \def\eean{\end{eqnarray*}}
+ \def\gsim{\mathrel{\rlap{\lower0.2em\hbox{$\sim$}}\raise0.2em\hbox{$>$}}}
+ \def\ksim{\mathrel{\rlap{\lower0.2em\hbox{$\sim$}}\raise0.2em\hbox{$<$}}}
+ \def\kg{\mathrel{\rlap{\lower0.25em\hbox{$>$}}\raise0.25em\hbox{$<$}}}
+ 
+ \def\AA{${\buildrel_{\circ} \over {\mathrm{A}}}$}
+ \def\bm#1{\mbox{\boldmath$#1$}}
+ \newcommand{\eq}[1]{(\ref{#1})} 
+ \def\pd{\partial}
+ \def\d{\textrm{d}} 
+ \def\T{\textstyle}
+ \def\eg{e.\,g.}	% exempli gratia (for the sake of example)
+ \def\ie{i.\,e.}	% id est (that is)
+
+
+ % Page configuration:
+ \topmargin -2.0cm
+ \oddsidemargin -0.85cm
+ \evensidemargin -0.85cm
+ \textwidth 18cm
+ \textheight 24cm
+ 
+\begin{document}
+\begin{center}
+\textbf{Stellenbosch Camp December 2018 \\ Senior Test 4} \\
+\textbf{Solutions}
+\end{center}
+\vspace{5mm}
+
+\begin{enumerate}
+    
+\item[1.] 
+
+
+\qed
+\vspace{5mm}
+
+
+\item[2.]
+\qed
+
+
+\item[3.]
+ \qed
+\vspace{5mm}
+
+\item[4.]  Let $x = a^{2/3}, y = b^{2/3}$ and $z = c^{2/3}$. By a well-known special case of Schur's inequality, we have
+\begin{equation*}
+    x^3  + y^3 + z^2 + 3xyz \geq xy(x+y) + yz(y+z) + zx(z+x)
+\end{equation*}
+By AM-GM, we also have
+\begin{equation*}
+    xy(x+y) = x^2y + xy^2 \geq 2 \sqrt{x^2 y \cdot xy^2} = 2 x^{3/2} y^{3/2}
+\end{equation*}
+and similarly for $yz(y+z)$ and $zx(z+x)$. We therefore obtain
+\begin{align*}
+    a^2 + b^2 + c^2 + 3 &= x^3 + y^3 + z^3 + 3xyz \\
+    &\geq xy(x+y) + yz(y+z) + zx(z+x) \\
+    &\geq 2 x^{3/2} y^{3/2} + 2 y^{3/2} z^{3/2} + 2 z^{3/2} x^{3/2} \\
+    &= 2(ab + bc + ca)
+\end{align*}
+which proves the inequality. \qed
+\vspace{5mm}
+
+\item[5.]  Assume for contradiction the problem claim does not hold, and let $p$ be the smallest (odd) prime not appearing in the sequence. We thus have that $p$ is not the least prime factor of 
+$$1 + n \prod_{i=1}^n p_i^{i!}$$
+for all $i$. Let $C$ be the smallest integer such that all primes less than $p$ appear in $p_1, p_2, \dots, p_C$. Thus, if $p$ divides $1 + n \prod_{i=1}^n p_i^{i!}$ for some $n > C$, then it must be the smallest factor.
+
+Therefore, $p$ does not divide $1 + n \prod_{i=1}^n p_i^{i!}$ for all $i > C$. Now, define $T_m = \prod_{i=1}^m p_i^{i!}$. By Fermat's Little Theorem, we have for sufficiently high $i$ and $p_i$ (indeed, for $i > \textrm{max}(C, p-1)$), $p_i^{i!} \equiv 1$ (mod $p$). Thus, the residuce class of $T_m$ stays constant for sufficiently high $m$. Therefore, there exists an $m$ high enough such that $m T_m \equiv -1$ (mod $p$), noting that $T_m$ is not divisible by $p$. This proves that $p$ divides $1 + m T_m$, which is a contradiction. \qed
+
+
+    
+
+\end{enumerate}
+\end{document}
+
+
+
+
