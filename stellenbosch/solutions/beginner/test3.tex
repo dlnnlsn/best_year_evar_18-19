@@ -127,6 +127,13 @@ is $2017$. Equality occurs for any $k$ such that $2018$ leaves a remainder of $1
 \item % 
 \textit{The student lockers at Olympic High are numbered consecutively beginning with locker number 1. The plastic digits used to number the lockers cost $3$ cents per piece. Thus, it costs $3$ cents to number locker $9$ and $6$ cents to number locker $42$. If it costs R206.91 to label all the lockers, how many lockers are there at the school?}
 
+We claim there are 2001 lockers. Indeed, the total cost comes to:
+
+\begin{equation*}
+    3c \cdot (9 - 0) + 6c \cdot (99 - 9) + 9c \cdot (999 - 99) + 12c \cdot (2001 - 999) = 20691c
+\end{equation*}
+\qed
+\vspace{5mm}
 
 \vspace{6pt}
 \item 
@@ -149,6 +156,28 @@ and so on. Calculate the value of $f^{2018}(2018)$.}
 \end{enumerate}}
 
 \end{enumerate}
+
+
+\begin{enumerate}
+    \item[(a)]  If $x$ is prime, then the unique prime factorisation of $y$ can only consist of the prime $x$. Thus $y = x^k$ for some $k \geq 1$. This gives the equation
+    \begin{equation*}
+        x^{2018} = x^{kx}
+    \end{equation*}
+    which has solutions when $2018 = kx$. We note the prime factorisation of $2018$ is $2018 = 2 \cdot 1009$, which therefore yields two solutions: $(x, y) = (2, 2^{1009})$ and $(x, y) = (1009, 1009^2)$.
+    
+    \item[(b)]  Note that $(x, y) = (1, 1)$ yields a valid solution. Now, assume $x, y \geq 2$. Thus $x = a^m$ and $y = a^n$ where $a \geq 2$ and $m, n \geq 1$. Substituting this into the equation gives:
+    \begin{equation*}
+        2018m = a^m \cdot n
+    \end{equation*}
+    Considering the case $m = 1$, yields only one additional solution: $(x, y) = (2018, 2018)$. The case $m = 2$ yields $(x, y) = (2^2, 2^{1009})$. Note that $m \geq 3$ yields no further solutions, as the exponent grows faster than $2018m$. Thus the solutions are
+    \begin{equation*}
+        (x, y) \in \{(1, 1), (2, 2^{1009}), (1009, 1009^2), (2018, 2018), (2^2, 2^{1009}) \}
+    \end{equation*}
+    
+    
+\end{enumerate}
+
+\qed
 
 
 \vfill
