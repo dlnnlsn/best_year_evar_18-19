@@ -132,7 +132,7 @@ We claim there are 2001 lockers. Indeed, the total cost comes to:
 \begin{equation*}
     3c \cdot (9 - 0) + 6c \cdot (99 - 9) + 9c \cdot (999 - 99) + 12c \cdot (2001 - 999) = 20691c
 \end{equation*}
-\qed
+
 \vspace{5mm}
 
 \vspace{6pt}
@@ -146,6 +146,26 @@ We claim there are 2001 lockers. Indeed, the total cost comes to:
 \end{align*}
 and so on. Calculate the value of $f^{2018}(2018)$.}
 
+Note that
+\[
+	f^1(x) = \frac{1}{1 - x},
+\]
+\[
+	f^2(x) = \frac{1}{1 - \frac{1}{1 - x}} = \frac{x - 1}{x}
+\]
+and
+\[
+	f^3(x) = f^2(f(x)) = \frac{\frac{1}{1 - x} - 1}{\frac{1}{1 - x}} = x
+\]
+
+We thus have that 
+\[
+	f^{2018} = f^3(f^{2015}(x)) = f^{2015}(x) = f^3(f^{2012}(x)) = f^{2012}(x) = \cdots = f^2(x) = \frac{x-1}{x}
+\]
+and so
+\[
+	f^{2018}(2018) = \frac{2018 - 1}{2018} = \frac{2017}{2018}.
+\]
 
 \vspace{6pt}
 \item % UK IMO 2001 IMO training problem sheet
@@ -154,8 +174,6 @@ and so on. Calculate the value of $f^{2018}(2018)$.}
   \item find all pairs $(x,y)$ of solutions with $x$ prime and $y$ a positive integer;
   \item find all pairs $(x,y)$ of positive integers satisfying the equation.
 \end{enumerate}}
-
-\end{enumerate}
 
 
 \begin{enumerate}
@@ -177,8 +195,8 @@ and so on. Calculate the value of $f^{2018}(2018)$.}
     
 \end{enumerate}
 
-\qed
 
+\end{enumerate}
 
 \vfill
 \begin{center}
