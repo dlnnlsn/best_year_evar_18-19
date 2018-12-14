@@ -26,15 +26,38 @@
 \item 
 \textit{Let $AB$ be a chord in a circle with centre $O$, and let $C$ be a point on the larger arc $AB$. Show that $\angle AOB = 2\angle ACB$.}
 
+Proven in lectures; refer to lecture notes.
 
 \vspace{6pt}
 \item 
 \textit{Factorise the following polynomial completely: \[ (2x+3)^6 -(2x-1)^6. \]}
 
+Using the difference of squares factorisation, we have that
+\[
+	{(2x + 3)}^6 - {(2x - 1)}^6 = \left( {(2x + 3)}^3 - {(2x - 1)}^3 \right) \left( {(2x + 3)}^3 + {(2x - 1)}^3 \right).
+\]
+Using the factorisations for differences of cubes, we obtain that
+\begin{align*}
+	{(2x + 3)}^3 - {(2x - 1)}^3  & = \left( (2x + 3) - (2x - 1) \right) \left( {(2x + 3)}^2 + (2x + 3)(2x - 1) + {(2x - 1)}^2 \right) \\
+	 & = 4 \left( (4x^2 + 12x + 9) + (4x^2 + 4x - 3) + (4x^2 - 4x + 1) \right) \\
+	 & = 4 ( 12x^2 + 12x + 7 ).
+\end{align*}
+
+Similarly using the sum of cubes factorisation, we have that
+\[
+	{(2x + 3)}^3 + {(2x - 1)}^3 = (4x + 2) (4x^2 + 4x + 13).
+\]
+
+The factorisation is thus $8(2x + 1)(4x^2 + 4x + 13)(12x^2 + 12x + 7)$.
 
 \item 
 \textit{How many different rearrangments are there of the word TARTAGLIA?}
 
+There are
+\[
+	\frac{9!}{2! \times 3!}
+\]
+arrangements.
 
 \vspace{6pt}
 \item 
@@ -50,12 +73,27 @@
   \centering
   \includegraphics[width = 0.8\linewidth]{test3_geometry1.png}
 \end{figure}
-  
+ 
+\begin{enumerate}[a.]
+  \item We have that $G_1 = B_4$ (alternating angles) $= P_1$ (tan-chord).
+  \item Since $G_1 = P_1$ and $\angle GBP$ is common to both triangles, the two triangles have two pairs of angles equal and hence are similar.
+  \item Since $\triangle BGP$ is similar to $\triangle BEG$, we have that
+  \[
+		\frac{BG}{BE} = \frac{BP}{BG}
+  \]
+  which is equivalent to the desired result.
+  \item We know that
+  \[
+		\frac{{BG}^2}{{BP}^2} = \frac{BP \times BE}{{BP}^2} = \frac{BE}{BP} = \frac{BF}{FS}
+  \]
+  where the last equality follows because $\triangle BFE$ is similar to $\triangle BSP$.
+\end{enumerate}
 
 \vspace{6pt}
 \item 
 \textit{Consider a game wherein two players Emma and Dylan take turns to take between 1 and 7 stones, inclusive, from a pile which starts with 2018 stones. If Emma plays first, does one of the players have a winning strategy, and if so what is it?}
 
+Emma has a winning strategy. On her first turn, she takes $2$ stones. Thereafter, if Dylan takes $n$ stones on his turn then Emma responds by taking $8 - n$ stones on her turn. The number of stones is then always a multiple of $8$ after Emma's turn and is never a multiple of $8$ after Dylan's turn. In particular, the number of stones can never be $0$ after Dylan's turn. Since the game must eventually end, can not end in a draw, and can not be won by Dylan, it must be Emma who wins.
 
 \vspace{6pt}
 \item 
@@ -65,9 +103,24 @@
   \frac{3}{x} +\frac{7}{y^2} &= 22.
 \end{align*}}
 
+Subtracting $3$ times the first equation from $4$ times the second gives us that
+\[
+	\frac{13}{y^2} = 52
+\]
+and so $y^2 = 1/4$. Substituting this back into the equation gives us that $4/x = 12 - 20 = -8$ and so $x = -1/2$. The solutions are thus $(x, y) = (-1/2, -1/2)$ and $(x, y) = (-1/2, 1/2)$.
 
 \item 
 \textit{Suppose $k$ is a positive integer that does not divide $2008$. Let $[x]$ denote the greatest integer less than or equal to $x$. For example, $[11.75] = 11$ and $[\pi] = 3$. What is the maximum possible value of $k \times \left[\frac{2018}{k}\right]$?}
+
+Let $2018 = kq + r$ where $0 \leq r < k$. Since $k$ does not divide $2018$, we have that $0 < r$. Then we have that
+\[
+	\left[ \frac{2018}{k} \right] = \left[ \frac{kq + r}{k} \right] = \left[ q + \frac{r}{k} \right] = q.
+\]
+We thus want to find the largest possible value of $kq = 2018 - r$. This corresponds to the smallest possible value of $r$, which is equal to $1$, and so the maximum possible value of
+\[
+	k \left[ \frac{2018}{k} \right]
+\]
+is $2017$. Equality occurs for any $k$ such that $2018$ leaves a remainder of $1$ when divided by $k$, for example $k = 2017$.
 
 
 \vspace{6pt}
