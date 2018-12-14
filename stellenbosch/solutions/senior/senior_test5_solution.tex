@@ -1,0 +1,153 @@
+\documentclass[a4paper, 12pt]{article}
+%\documentclass{book}
+
+% Important Packages:
+ \usepackage{amsmath}    % need for subequations
+ \usepackage{amsfonts}
+ \usepackage{amsthm}
+ \usepackage{graphicx}   % need for figures
+ \usepackage{verbatim}   % useful for program listings
+ %\usepackage{subfig}  % use for side-by-side figures
+ %\usepackage{wrapfig}
+ %\usepackage{listings}	 % creates code blocks
+ %\usepackage[colorlinks=true]{hyperref}   % use for hypertext links, including
+                     % those to external documents and URLs
+ %\usepackage{multirow}
+ %\usepackage{tikz}
+ %\usepackage{enumerate}
+ %\usetikzlibrary{decorations.pathreplacing,decorations.pathmorphing}
+ %\usetikzlibrary{calc}
+ %\usepackage[colorinlistoftodos]{todonotes}
+ \usepackage{tikz,tkz-euclide}
+ 
+ \usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\def\deg{^{\circ}}
+\newcommand\heading[1]{\ \\\large{\textbf{#1}}}
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+\def\thm{Th\textsuperscript{\underline{m}}}
+
+%------------------end---preamble--------------------
+ 
+ % Useful macros 
+ \def\tcb#1{\color{blue}{#1}}
+ \def\tcr#1{\color{red}{#1}}	
+ \def\tcg#1{\color{green}{#1}}
+ \def\be{\begin{eqnarray}}	 	\def\ee{\end{eqnarray}}
+ \def\bea{\begin{eqnarray}}	 	\def\eea{\end{eqnarray}}
+ \def\bean{\begin{eqnarray*}}	\def\eean{\end{eqnarray*}}
+ 
+ \def\D{\displaystyle}
+ \def\T{\textstyle}
+ \def\l{\left}
+ \def\r{\right}
+ \def\nf{n_{\!f}} % quark flavours
+ \def\pa{\partial}
+ \def\eg{e.\,g.}
+ \def\ie{i.\,e.}
+
+ \def\be{\begin{equation}}
+ \def\ee{\end{equation}}
+ \def\bea{\begin{eqnarray}}
+ \def\eea{\end{eqnarray}}
+ \def\bean{\begin{eqnarray*}}
+ \def\eean{\end{eqnarray*}}
+ \def\gsim{\mathrel{\rlap{\lower0.2em\hbox{$\sim$}}\raise0.2em\hbox{$>$}}}
+ \def\ksim{\mathrel{\rlap{\lower0.2em\hbox{$\sim$}}\raise0.2em\hbox{$<$}}}
+ \def\kg{\mathrel{\rlap{\lower0.25em\hbox{$>$}}\raise0.25em\hbox{$<$}}}
+ 
+ \def\AA{${\buildrel_{\circ} \over {\mathrm{A}}}$}
+ \def\bm#1{\mbox{\boldmath$#1$}}
+ \newcommand{\eq}[1]{(\ref{#1})} 
+ \def\pd{\partial}
+ \def\d{\textrm{d}} 
+ \def\T{\textstyle}
+ \def\eg{e.\,g.}	% exempli gratia (for the sake of example)
+ \def\ie{i.\,e.}	% id est (that is)
+
+
+ % Page configuration:
+ \topmargin -2.0cm
+ \oddsidemargin -0.85cm
+ \evensidemargin -0.85cm
+ \textwidth 18cm
+ \textheight 24cm
+ 
+\begin{document}
+\begin{center}
+\textbf{Stellenbosch Camp December 2018 \\ Senior Test 5} \\
+\textbf{Solutions}
+\end{center}
+\vspace{5mm}
+
+\begin{enumerate}
+    
+\item[1.] 
+
+
+\qed
+\vspace{5mm}
+
+
+\item[2.]
+\qed
+
+
+\item[3.]
+ \qed
+\vspace{5mm}
+
+\item[4.]  If either $a$ or $b$ is 0, then both must be perfect squares. If $a = b$, then we must solve $a^2 + 4a = k^2$ where $k \in \mathbb{Z}$. This gives us $(a+2-k)(a+2+k) = 4$ which can easily be solved to give the solution $a = b = -4$. If $a = -b$, then we similarly obtain $(a-2-k)(a-2+k) = 4$ which yields no solutions. \\
+
+We can now assume $|a| > |b| \geq 1$.  If $|a| > 4$, we have
+\begin{equation*}
+    (|a| - 4)^2 = a^2 - 8|a| + 16 \leq a^2 - 4|a| \leq a^2 + 4b \leq a^2 + 4|a| < (|a| + 2)^2
+\end{equation*}
+This bounds $a^2 + 4b$ between two squares. Furthermore, noting that $a^2 + 4b$ and $b^2 + 4a$ have the same pairty, we thus have that either $a^2 + 4b = a^2$ or $a^2 + 4b = (|a| - 2)^2$. The former case yields $b = 0$ which has been covered, thus we assume $a^2 + 4b = (|a| - 2)^2$, which implies $b = 1 - |a|$.
+
+Therefore, $b^2 + 4a = a^2 - 2|a| + 1 + 4a$ is a perfect square. We consider two cases:
+
+\textbf{Case 1}: $a > 0$. Thus $b^2 + 4a = a^2 + 2a + 1 = (a+1)^2$ which is a square.
+
+\textbf{Case 2}: $a < 0$. Thus $b^2 + 4a = a^2 + 6a + 1 = (a + 3)^2 - 8$. Now, the only case which will give two squares a difference of 8 apart is $1, 9$, which yields $a = -6$ and $b = -5$.
+
+Finally, we consider the cases where $|a| \leq 4$. This only yields the solution $(-4, -4)$. We thus conclude the solutions are
+\begin{align*}
+    a = 0 &\textrm{ and } b = k^2, \quad k \geq 0 \\
+    \textrm{ or } \quad a = k^2 &\textrm{ and } b = 0, \quad k \geq 0 \\
+    \textrm{ or } \quad a = k &\textrm{ and } b = 1-k, \quad k \in \mathbb{Z} \\
+    \textrm{ or } \quad (a, b) &\in \{(-4, -4), (-5, -6), (-6, -5) \}
+\end{align*}
+
+\qed
+
+
+\vspace{5mm}
+
+% USAMO 1999 (official solution modified for 2018)
+\item[5.]   Suppose a square is such that if you play there then that allows your opponent to win on the following move. If you play an O, then your opponent must win by playing an adjacent S. So we must have S 1 2 3, where 1 and 2 are empty and you play O on square 1. But you also lose if you play S, so your opponent must then win by playing O on 2, which means that 3 must already contain an S. But now the situation is symmetrical, so that 2 is also a losing square. Thus, until someone plays on one of them, losing squares always occur in pairs.
+
+The board has an even number of squares, so the first player always faces a board with an even number of squares not yet occupied, whereas the second player always faces a board with an odd number of squares not yet occupied. Thus provided (1) there is at least one pair of losing squares, (2) he never plays on a losing square, and (3) he makes the obvious winning move if the first player ever creates the opportunity, then the second player is sure to win, because the first player will eventually face a board with only losing squares available for play. \\
+
+To make sure there is at least one pair of losing squares the second player must create it. He can always do this by placing an S on his first move well away from the first player's move and from the edges of the board. Then on his second move (assuming the first player has not been stupid enough to allow him an immediate win) he can always play another S three away from it, creating a pair of losing squares. Thereafter, he must simply take care to win if there is a winning move and otherwise to avoid losing plays.
+
+\qed
+
+
+
+\item[6.]  \qed
+
+
+
+
+
+    
+
+\end{enumerate}
+\end{document}
+
+
+
+
