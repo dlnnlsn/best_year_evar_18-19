@@ -67,7 +67,6 @@
  \def\eg{e.\,g.}	% exempli gratia (for the sake of example)
  \def\ie{i.\,e.}	% id est (that is)
 
- \newtheorem{lemma}{Lemma}
 
  % Page configuration:
  \topmargin -2.0cm
@@ -147,12 +146,11 @@ If we had $|R| > 2$, then w.l.o.g. $\{1, 2, 3\} \subseteq R$, which easily contr
 
 This contradiction yields $|R| \leq 1$ and, replacing the roles of Romeo and Juliet played in the argument just performed, we similarly infer $|J| \leq 1$. For these reasons, at least two of the four desired equalities hold, say $r_1 = j_1$ and $r_2 = j_2$. Now using $(3)$ and $(4)$, we easily get $r_3 = j_3$ and $r_4 = j_4$ as well.
 \qed
+\vspace{6mm}
 
-
-\vspace{5mm}
 \item[4.]  \textit{Determine all pairs $(a,b)$ of integers with the property that the numbers $a^2+4b$ and $b^2+4a$ are both perfect squares.}
 
-If either $a$ or $b$ is 0, then both must be perfect squares. If $a = b$, then we must solve $a^2 + 4a = k^2$ where $k \in \mathbb{Z}$. This gives us $(a+2-k)(a+2+k) = 4$ which can easily be solved to give the solution $a = b = -4$. If $a = -b$, then we similarly obtain $(a-2-k)(a-2+k) = 4$ which yields no solutions.
+ If either $a$ or $b$ is 0, then both must be perfect squares. If $a = b$, then we must solve $a^2 + 4a = k^2$ where $k \in \mathbb{Z}$. This gives us $(a+2-k)(a+2+k) = 4$ which can easily be solved to give the solution $a = b = -4$. If $a = -b$, then we similarly obtain $(a-2-k)(a-2+k) = 4$ which yields no solutions. \\
 
 We can now assume $|a| > |b| \geq 1$.  If $|a| > 4$, we have
 \begin{equation*}
@@ -170,31 +168,83 @@ Finally, we consider the cases where $|a| \leq 4$. This only yields the solution
 \begin{align*}
     a = 0 &\textrm{ and } b = k^2, \quad k \geq 0 \\
     \textrm{ or } \quad a = k^2 &\textrm{ and } b = 0, \quad k \geq 0 \\
-    \textrm{ or } \quad a = k &\textrm{ and } b = 1-k, \quad k \in \mathbb{Z} \\
-    \textrm{ or } \quad (a, b) &\in \{(-4, -4), (-5, -6), (-6, -5) \}
+    \textrm{ or } \quad \hspace{1.5mm} a = k &\textrm{ and } b = 1-k, \quad k \in \mathbb{Z} \\
+    \textrm{ or } \quad \hspace{2.5mm} (a, b) &\in \{(-4, -4), (-5, -6), (-6, -5) \}
 \end{align*}
 
 \qed
 
 
 \vspace{5mm}
+
 % USAMO 1999 (official solution modified for 2018)
-\item[5.]  \textit{Two players play a game on a line of 2018 squares. Each player in turn puts either S or O into an empty square. The game stops when three adjacent squares contain S, O, S in that order and the last player wins. If all the squares are filled without getting S, O, S, then the game is drawn. Show that the second player can always win.}
+\item[5.]   \textit{Two players play a game on a line of 2018 squares. Each player in turn puts either S or O into an empty square. The game stops when three adjacent squares contain S, O, S in that order and the last player wins. If all the squares are filled without getting S, O, S, then the game is drawn. Show that the second player can always win.}
 
-Suppose a square is such that if you play there then that allows your opponent to win on the following move. If you play an O, then your opponent must win by playing an adjacent S. So we must have S 1 2 3, where 1 and 2 are empty and you play O on square 1. But you also lose if you play S, so your opponent must then win by playing O on 2, which means that 3 must already contain an S. But now the situation is symmetrical, so that 2 is also a losing square. Thus, until someone plays on one of them, losing squares always occur in pairs.
+ Suppose a square is such that if you play there then that allows your opponent to win on the following move. If you play an O, then your opponent must win by playing an adjacent S. So we must have S 1 2 3, where 1 and 2 are empty and you play O on square 1. But you also lose if you play S, so your opponent must then win by playing O on 2, which means that 3 must already contain an S. But now the situation is symmetrical, so that 2 is also a losing square. Thus, until someone plays on one of them, losing squares always occur in pairs.
 
-The board has an even number of squares, so the first player always faces a board with an even number of squares not yet occupied, whereas the second player always faces a board with an odd number of squares not yet occupied. Thus provided (1) there is at least one pair of losing squares, (2) he never plays on a losing square, and (3) he makes the obvious winning move if the first player ever creates the opportunity, then the second player is sure to win, because the first player will eventually face a board with only losing squares available for play.
+The board has an even number of squares, so the first player always faces a board with an even number of squares not yet occupied, whereas the second player always faces a board with an odd number of squares not yet occupied. Thus provided (1) there is at least one pair of losing squares, (2) he never plays on a losing square, and (3) he makes the obvious winning move if the first player ever creates the opportunity, then the second player is sure to win, because the first player will eventually face a board with only losing squares available for play. \\
 
 To make sure there is at least one pair of losing squares the second player must create it. He can always do this by placing an S on his first move well away from the first player's move and from the edges of the board. Then on his second move (assuming the first player has not been stupid enough to allow him an immediate win) he can always play another S three away from it, creating a pair of losing squares. Thereafter, he must simply take care to win if there is a winning move and otherwise to avoid losing plays.
 
 \qed
 
 
-\vspace{5mm}
-\item[6.]  
+
+\item[6.]  \textit{Isosceles $\triangle ABC\ (AC=BC)$ is inscribed in a circle $k$. A point $M$ lies on the side $BC$. A point $N$ from the ray $AM$ ($M$ lies between $A$ and $N$) is such that $AN=AC$. The circumcircle of $\triangle MCN$ intersects $k$ at $C$ and $P$, where $P$ is from the arc $BC$ not containing $A$. The lines $AB$ and $CP$ intersect at $Q$. Prove that $\angle QMB = \angle QMN$.}
+
+
+	\\ Denote $\angle MAC=\alpha$ and $\angle ACB=\beta$. Let $J$ the incentre of $\triangle AMC$.
+	
+	    \vspace{10mm}
+		\begin{figure}[h]
+		\begin{center}
+		\begin{tikzpicture}[scale=3]
+			\useasboundingbox (-.5,-1) rectangle  (1.5,2);
+			\tkzDefPoint(-1,0){A}
+			\tkzDefPoint(1,0){B}
+			\tkzDefPoint(0,2){C}
+			\tkzDefCircle[circum](A,B,C)\tkzGetPoint{O}
+			\tkzDefBarycentricPoint(C=3,B=4)\tkzGetPoint{M}
+			\tkzInterLC(A,M)(A,C)\tkzGetSecondPoint{N}
+			\tkzDefCircle[circum](M,N,C)\tkzGetPoint{I}
+			\tkzInterCC(I,C)(O,C)\tkzGetFirstPoint{P}
+			\tkzInterLL(C,P)(A,B)\tkzGetPoint{Q}
+			\tkzDefCircle[in](A,M,C)\tkzGetPoint{J}
+
+			\tkzDrawPoints[fill=black](A,B,C,M,N,P,Q,J)
+			\tkzDrawSegments(A,Q B,C C,A A,N C,Q M,Q)
+			\tkzDrawSegments[dashed](A,J J,M)
+			\tkzMarkAngle[size=0.3](Q,M,N)
+			\tkzMarkAngle[size=0.4](B,M,Q)
+
+			\tkzDrawArc[rotate,dashed,color=black](I,C)(210)
+			\tkzDefCircle[circum](A,B,M)\tkzGetPoint{K}\tkzGetLength{r}
+			\tkzDrawArc[rotate,dashed,color=black](K,B)(185)
+			\tkzDrawCircle(O,A)
+			\tkzLabelPoints[above](C)
+			\tkzLabelPoints[below=0.2](M)
+			\tkzLabelPoints[below left](A,Q)
+			\tkzLabelPoints[below right](B)
+			\tkzLabelPoints[above right](J,P)
+			\tkzLabelPoints[above left](N)
+			
+			\end{tikzpicture}
+		\end{center}		
+		\end{figure}
+		\vspace{-5mm}
+		
+	 It follows that $\angle AJM=90\deg+\beta/2$ and $\angle ABM=90\deg- \beta/2$, which implies that the quadrilateral $ABMJ$ is inscribed in a circle $k_1$. Analogously we have that the quadrilateral $MNCJ$ is inscribed in a circle $k_2$ which is just the circumcircle of $\triangle MCN$. Therefore $P$ is a point on $k_2$. Since $QA \cdot QB =QC \cdot QP$ we conclude that $Q$ lies on $JM$, which is the angle bisector of $\angle BNC$. Thus $\angle QMB = \angle QMN$
+	
+
+
 
 \qed
 
+
+
+
+
+    
 
 \end{enumerate}
 \end{document}
