@@ -1,7 +1,8 @@
 
-Isaac writes down a three digit number. None of its diits is a zero. Isaac gives his sheet with the number to Dilara, and below Isaac's number, she writes down all three digit numbers that one can obtain by putting the digits of Isaac's number in a different order, Then she adds up all numbers on the sheet. 
+Isaac writes down a three digit number. None of its digits is a zero. Isaac gives his sheet with the number to Dilara, and below Isaac's number, she writes down all three digit numbers that one can obtain by putting the digits of Isaac's number in a different order, Then she adds up all numbers on the sheet. 
 
 What is the greatest number that Isaac could have written down? \source{Netherlands 2018} 
+
 
 Find all positive integers $a,b,c$ that satisfy
 \begin{align*}
@@ -10,13 +11,17 @@ Find all positive integers $a,b,c$ that satisfy
 \end{align*}
 \source{Netherlands 2018}
 
+
 A \emph{multi-square} is a number obtained by concatenating two or more square two-digit numbers. (A two-digit number is not allowed to start with the digit 0.) For  example, 1625 is a multi-square.  Determine all six-digit multi-squares that are themselves squares.
 \source{Netherlands 2018}
+
 
 (a) Let $n$ be a positive integer and let $a$ and $b$ be two positive integers smaller than $n$. Prove that if you divide $n$ by $a$ and get remainder $r$; and divide $n$ by $b$ and get remainder $s$; then $r+s\ne n$.
 (b) Find all positive integers $n>229$ with the property that if you divide it successively by 99, 132 and 229, the sum of the three remainders is equal to $n$.
 
+
 Six teams participte in a hockey tournament. Each team plays exactly once against each other team. A team is awarded 3 points for each game they win, 1 point for each game they draw, and 0 points for each game they lose. After the tournament a ranking is made and it is discovered that there were no ties and that each team (except the last) has exactly 2 more points than the team below them. 
 Prove that the team ranked fourth won exactly two of their games. \source{Netherlands 2018}
+
 
 Let $p$ be a prime number. Prove that it is possible to choose a permutation $a_1,\ldots, a_p$ of $1,\ldots, p$ such that the numbers $a_1,a_1a_2,\ldots, a_1a_2\cdots a_p$ al leave different remainder upon division by $p$. \source{Netherlands 2018 BxMO Selection Test}
