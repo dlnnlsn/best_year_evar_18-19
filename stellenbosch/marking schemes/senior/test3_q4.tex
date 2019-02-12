@@ -1,0 +1,33 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newcommand{\points}[1]{\quad\fbox{\textbf{#1 mark%
+\ifnum #1 = 1
+\else
+s%
+\fi}}}
+
+\begin{document}
+
+\textbf{\large Senior Test 3 Question 4}
+
+\begin{itemize}
+
+\item $\displaystyle 1^3 + 2^3 + \cdots + n^3 = \frac{n^2 {(n + 1)}^2}{4}$ \points{1}
+
+\item So we want
+$\displaystyle \frac{{(2m)}^2 {(2m + 1)}^2}{4} - \frac{m^2 {(m + 1)}^2}{4} = x^2$ \points{1}
+
+\item Equivalent to $m^2 (3m + 1)(5m + 3) = 4x^2$ and so $(3m + 1)(5m + 3)$ is a square \points{1}
+
+\item $\gcd \leq 4$, so both factors are squares or each is twice a squae \points{2}
+
+\item Both squares is impossible because $3$ is not a q.r.\ modulo $5$ \points{1}
+
+\item Both twice a square is impossible since $2$ is not a q.r.\ modulo $3$ \points{1}
+
+\end{itemize}
+
+\end{document}

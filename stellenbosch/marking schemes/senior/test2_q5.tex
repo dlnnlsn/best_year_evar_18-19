@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newcommand{\points}[1]{\quad\fbox{\textbf{#1 mark%
+\ifnum #1 = 1
+\else
+s%
+\fi}}}
+
+\begin{document}
+
+\textbf{\large Senior Test 2 Question 5}
+
+\begin{itemize}
+
+\item $f(0) = 0$ \points{1}
+
+\item Induction: $f(kx) = k^2 f(x)$. Must have both base cases. \points{2}
+
+\item Thus $f(n) = n^2 f(1)$ \points{1}
+
+\item $f \left( \frac{m}{n} \right) = \frac{m^2}{n^2} f(1)$ \points{1}
+
+\item $f(-x) = f(x)$ \points{1}
+
+\item $f(x) = kx^2$, and check. \points{1}
+
+\end{itemize}
+
+\end{document}

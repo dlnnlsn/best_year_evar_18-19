@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newcommand{\points}[1]{\quad\fbox{\textbf{#1 mark%
+\ifnum #1 = 1
+\else
+s%
+\fi}}}
+
+\DeclareMathOperator{\lcm}{lcm}
+
+\begin{document}
+
+\textbf{\large Junior Test 1 Question 1}
+
+\begin{itemize}
+
+\item $\displaystyle \lcm(m, n) = \frac{mn}{\gcd(m, n)}$ \points{1}
+
+\item Let $m = ax$ and $n = ay$ \points{1}
+
+\item The inequality becomes $a(x + y) \leq a(1 + xy)$ \points{1}
+
+\item $(x - 1)(y - 1) \geq 0$ \points{1}
+
+\item True because $x, y \geq 1$ \points{1}
+
+\item Equality iff $x = 1$ or $y = 1$ \points{1}
+
+\item Equality iff $m \mid n$ or $n \mid m$ \points{1}
+
+\end{itemize}
+
+\textbf{Alternative solution:}
+
+\begin{itemize}
+
+\item If $m \mid n$ or $n \mid m$ then equality \points{1}
+
+\item Otherwise $m \mid \lcm(m, n)$, so $\lcm(m, n) \geq 2m$ \points{2}
+
+\item $2m \geq m + n$ \points{1}
+
+\item $\lcm + \gcd > \lcm \geq 2m \geq m + n$ \points{2}
+
+\item Tying everything together \points{1}
+
+\end{itemize}
+
+\end{document}
