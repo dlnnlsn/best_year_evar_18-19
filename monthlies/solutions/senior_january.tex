@@ -126,6 +126,29 @@ By the Lifting the Exponent Lemma, we have that $p^k$ divides $a^5 - 1$. However
 \textit{The set $S$ of nonnegative integers has the property that every nonnegative integer $n$ can be uniquely written as $n = a+2b$ where $a,b \in S$ are not necessarily distinct. How many elements of $S$ are less than $2018$?
 }
 
+Let $T$ be the set of non-negative integers $n$ such that when $n$ is written in base $4$, every digit is equal to $0$ or $1$. We first note that $T$ satisfies the conditions in the problem. To see this, consider an arbitrary natural number $n$. Let
+\[
+	n = \sum_{k = 0}^{\infty} d_k 4^k
+\]
+be the base $4$ expansion of $n$. For each $k$, if $d_k = 0$, then let $a_k = b_k = 0$. If $d_k = 1$, let $a_k = 1$ and $b_k = 0$. If $d_k = 2$, let $a_k = 0$ and $b_k = 1$, and if $d_k = 3$, let $a_k = b_k = 1$. We see that the natural numbers
+\[
+	a = \sum_{k = 0}^{\infty} a_k 4^k \quad \text{and} \quad b = \sum_{k = 0}^{\infty} b_k 4^k
+\]
+are in $T$ and satisfy $a + 2b = n$. We now show that this representation is unique. Suppose that $a, b \in T$ are such that $a + 2b = n$, and let
+\[
+	a = \sum_{k = 0}^{\infty} a_k 4^k \quad \text{and} \quad b = \sum_{k = 0}^{\infty} b_k 4^k
+\]
+be the base $4$ expansions of $a$ and $b$. We note that there are no carries when calculating $a + 2b$ in base $4$, and so for each $k$ we must have that $a_k + 2b_k = d_k$. It is easy to check that for each possible value of $d_k$, there is a unique value for $a_k$ and $b_k$ such that this relation holds.
+
+We will now show that $S = T$. We prove by strong induction that for each natural number $n$, that $S \cap \{0, 1, 2, \dots, n\} = T \cap \{0, 1, 2, \dots, n\}$. We note that since we must be able to write $0 = a + 2b$ for some $a, b \in S$, that we must have that $0 \in S$. Thus the claim holds for $n = 0$. Suppose that the claim holds for all natural numbers smaller than $n$. We show that $n$ is in $S$ if and only if $n$ is in $T$.
+
+Suppose that $n \in S$. If $n \not\in T$, then we know that we can write $n = a + 2b$ for some $a, b \in T$. Since $n \not\in T$, we must have that $a, b < n$, and so $a, b \in S$ by the induction hypothesis. But then then we have two ways of writing $n$ as $a + 2b$ with $a, b \in S$: we can write $n = n + 2 \cdot 0$, and $n = a + 2b$, contradicting the uniqueness of this representation. Thus $n \in T$.
+
+Conversely, suppose that $n \not\in S$, but $n \in T$. Since $n \not\in S$, we must be able to write $n = a + 2b$ with $a, b \in S$ and $a, b < n$. (Since we can not represent $n$ as $n + 2 \cdot 0$.) Since $a, b < n$, this implies that $a, b \in T$, and so this representation holds in $T$ as well. But we then have two ways of expressing $n$ as $a + 2b$ where $a, b \in T$: as $n = n + 2 \cdot 0$, and as $n = a + 2b$. We thus have that $n \not\in T$, and so the claim follows by induction.
+
+The elements of $S$ are thus precisely those where each digit in base $4$ is either $0$ or $1$. Since $2018$ in base $4$ is ${133202}_{4}$, we deduce that the number of elements in $S$ smaller than $2018$ is $2^6 = 64$.
+
+
 
 \vspace{6pt}
 \item % DB-2012-3
