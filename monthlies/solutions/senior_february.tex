@@ -18,6 +18,16 @@
 \item % SW-2013-3
 {\itshape Let $n$ be a positive integer. Both $n$ and $n^2$ only contain the digits $1$, $2$ and $3$ (not necessarily all of them). Determine all possible values of $n$.}
 
+If $n \equiv 2 \text{ or } 3 \pmod{10}$, then we have that $n^2 \equiv 4 \text{ or } 9 \pmod{10}$, and so $n$ is not a solution. We thus require that $n \equiv 1 \pmod{10}$.
+
+If $n > 10$, then we have that $n \equiv 11 \text{ or } 21 \text{ or } 31 \pmod{100}$. If $n \equiv 21 \pmod{100}$, then $n^2 \equiv 41 \pmod{100}$, and so $n$ is not a solution. Similarly, if $n \equiv 31 \pmod{100}$, then $n^2 \equiv 61 \pmod{100}$, and so $n$ is not a solution. We thus require that $n \equiv 11 \pmod{100}$.
+
+If $n > 100$, then $n \equiv 111 \text{ or } 211 \text{ or } 311 \pmod{1000}$. If $n \equiv 211 \pmod{1000}$, then we have that $n^2 \equiv 521 \pmod{1000}$, and so $n$ is not a solution. Similarly, if $n \equiv 321 \pmod{1000}$, then $n^2 \equiv 41 \pmod{1000}$, and so $n$ is not a solution. We thus require that $n \equiv 111 \pmod{1000}$.
+
+Finally, if $n > 1000$, then we must have that $n \equiv 1111 \text{ or } 2111 \text{ or } 3111 \pmod{10000}$. If $n \equiv 1111 \pmod{10000}$, then we have that $n^2 \equiv 4321 \pmod{10000}$, and so $n$ is not a solution. If $n \equiv 2111 \pmod{10000}$, then $n^2 \equiv 6321 \pmod{10000}$, and if $n \equiv 3111 \pmod{10000}$, then $n^2 \equiv 8321 \pmod{10000}$. In each case we find that $n$ is not a solution.
+
+We see that the only possible values for $n$ are $1$, $11$, and $111$.
+
 
 \vspace{6pt}
 \item % DB-2012-2
