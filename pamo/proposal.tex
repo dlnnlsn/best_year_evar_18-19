@@ -1,0 +1,95 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newif\ifsolutions{}
+\solutionstrue
+
+\newcommand{\problem}[1]{%
+\ifsolutions%
+	\textit{#1}
+\else
+	#1
+\fi
+}
+
+\newcommand{\solution}[1]{%
+\ifsolutions%
+	\textbf{Solution: } #1
+\fi
+}
+
+\title{PAMO Problem Proposals}
+\author{Dylan Nelson --- South Africa}
+\date{February 2019}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+\item %DB-2013-1
+\problem{Find the $2019^\text{th}$ natural number $n$ such that $\binom{2n}{n}$ is not divisible by $5$.}
+
+\solution{For a natural number $n$, let $\nu_5(n)$ denote the exponent of the largest power of $5$ which divides $n$. We recall that
+\[
+	\binom{2n}{n} = \frac{(2n)!}{n! \cdot n!}
+\]
+and so we require that $\nu_5((2n)!) - 2\nu_5(n!) = 0$. Using Legendre's formula, this is equivalent to
+\[
+	\sum_{k = 1}^{\infty} \left( \left\lfloor \frac{2n}{5^k} \right\rfloor - 2 \left\lfloor \frac{n}{5^k} \right\rfloor \right) = 0.
+\]
+
+We note that for any real number $x$, we have that $\lfloor 2x \rfloor \geq 2 \lfloor x \rfloor$, with equality if and only if $\{x\} < \frac{1}{2}$, where $\{x\}$ denotes the fractional part of $x$. We are thus seeking those $n$ such that
+\[
+	\left\{ \frac{n}{5^k} \right\} < \frac{1}{2}
+\]
+for all $k$.
+
+Let
+\[
+	n = \sum_{m = 0}^{\infty} d_m \cdot 5^m
+\]
+be the expansion of $n$ in base $5$. We claim that $n$ satifies the conditions of the problem if and only if $d_m \in \{0, 1, 2\}$ for each $m$.
+
+Suppose first that $n$ satisfies the conditions of the problem. Then for each $k$, we have that
+\[
+	\frac{1}{2} > \left\{ \frac{n}{5^k} \right\} = \sum_{m = 0}^{k - 1} d_m \cdot 5^{m - k} \geq d_{k - 1} \cdot 5^{-1}
+\]
+and so $d_{k - 1} < \frac{5}{2}$.
+
+Conversely, suppose that $d_m \leq 2$ for each $m$. Then for every $k$, we have that
+\[
+	\left\{ \frac{n}{5^k} \right\} = \sum_{m = 0}^{k - 1} d_m \cdot 5^{m - k} \leq 2 \sum_{m = 1}^{k} 5^{-m} < 2 \sum_{m = 1}^{\infty} 5^{-m} = \frac{1}{2}
+\]
+and so $n$ satisfies the conditions of the problem.
+
+We thus wish to find the $2019^\text{th}$ natural number $n$ such that the digits of $n$ in base $5$ are each $0, 1$ or $2$. Now the $2019^\text{th}$ string of digits $0, 1, 2$ (at least one of which is not $0$) is in fact given by the base $3$ expansion of the number $2019$, which is equal to ${2202210}_3$, and so the number $n$ which we seek is given by ${2202210}_5$, which is equal to $37805$ in base $10$.}
+
+
+\item %Malwande
+\problem{Find all functions $f : \mathbb{R} \to \mathbb{R}$ such that
+\[
+	f(x^2)- yf(y) = f(x + y)(f(x) - y)
+\]
+for all real numbers $x$ and $y$.}
+
+\solution{Taking $y = 0$ in the functional equation gives us that $f(x^2) = {f(x)}^2$ for all real $x$. In particular, $f(0) = {f(0)}^2$, and so $f(0) \in \{0, 1\}$.
+
+If $f(0) = 1$, then taking $x = 0$ in the functional equation gives us that $1 - yf(y) = f(y)(1 - y) = f(y) - yf(y)$ for all real $y$, and so $f(y) = 1$ for all real numbers $y$. We can check that this does indeed satisfy the functional equation.
+
+Now suppose that $f(0) = 0$.
+
+Since ${f(-x)}^2 = f(x^2) = {f(x)}^2$ for all $x$, we know that for each $x$, either $f(-x) = -f(x)$ or $f(-x) = f(x)$. Now taking $y = -x$ in the functional equation gives us that $f(x^2) + xf(-x) = 0$, and so we derive that ${f(x)}^2 = xf(x)$ or ${f(x)}^2 = -xf(x)$ for each $x$. This shows that $f(x) \in \{0, x, -x\}$ for all real numbers $x$.
+
+Since $f(x^2) = {f(x)}^2$, we in fact have that $f(x) \in \{0, x\}$ for all positive real numbers $x$. Now suppose that there is a positive real number $x$ such that $f(x) = 0$. Then $f(x^2) = 0$, and we find that for all positive $y$, we have $-yf(y) = f(x + y)(-y)$, and so $f(y) = f(x + y)$. Suppose that $f(y) = y$. Then $f(x + y) \neq 0$, and so $f(x + y) = x + y$. But then $y = x + y$, a contradiction. Thus we must have that $f(y) = 0$ for all positive $y$, and since $f(-y) = \pm f(y)$ for all $y$, we have that $f(y) = 0$ for all negative values of $y$ as well. Thus $f$ is identically $0$, but this does not satisfy the functional equation.
+
+We thus have that there is no positive real number $x$ such that $f(x) = 0$, and so $f(x) = x$ for all $x \geq 0$. We now recall that $f(x^2) + xf(-x)$ for all $x$. Since $f(x^2) = x^2$, this gives us that $f(-x) = -x$ for all $x$. We thus find that $f(x) = x$ for all real numbers $x$, which does indeed satisfy the funcational equation. All solutions to the functional equation are thus given by the constant function $f(x) = 1$, and the identity function $f(x) = x$. 
+}
+
+
+\end{enumerate}
+
+\end{document}
