@@ -90,6 +90,37 @@ We thus have that there is no positive real number $x$ such that $f(x) = 0$, and
 }
 
 
+\item %PP-2010-6
+\problem{$ABC$ is an acute-angles triangle. The bisectors of angles $A$ and $B$ meet $BC$ and $AC$ at $D$ and $E$ respectively. $P$ is a point on $DE$ such that the distances from $P$ to $AC$ and $BC$ are $x$ and $y$ respectively. Show that the distance from $P$ to $AB$ is $x + y$. (Alternatively, give specific values for $x$ and $y$ and ask to calculate the distance from $P$ to $AB$.)}
+
+\solution{Let the feet of the perpendiculars from $D$ onto $AB$ and $AC$ respectively be $X$ and $X^\prime$. Let the feet of the perpendiculars from $E$ onto $AB$ and $AC$ respectively be $Y$ and $Y^\prime$. We note that since $AD$ and $BE$ are angle bisectors, we have $DX = DX^\prime$ and $EY = EY^\prime$. Let the foot of the perpendicular from $P$ onto $AB$ be $Z$, so that we are looking for the distance $PZ$.
+
+By similarity, we have that
+\[
+	x = \frac{PE}{DE} \cdot DX^\prime \quad\text{and}\quad y = \frac{DP}{DE} \cdot EY^\prime.
+\]
+
+We thus wish to show that
+\[
+	\frac{PE}{DE} \cdot DX + \frac{DP}{DE} \cdot EY = PZ.
+\]
+
+The area of the trapezoid $XDEY$ is $\frac{1}{2} XY (DX + EY)$. The area of the trapezoids $XDPZ$ and $ZPEY$ are $\frac{1}{2} XZ (DX + PZ)$ and $\frac{1}{2} ZY (PZ + EY)$ respectively. We thus have that
+\[
+	(XZ + ZY)(DX + EY) = XZ (DX + PZ) + ZY (PZ + EY)
+\]
+and so
+\[
+	PZ = \frac{ZY \cdot DX + XZ \cdot EY}{XZ + ZY}.
+\]
+
+The result follows by noting that
+\[
+	\frac{XZ}{XY} = \frac{DP}{DE} \quad\text{and}\quad \frac{ZY}{XY} = \frac{PE}{DE}.
+\]
+}
+
+
 \end{enumerate}
 
 \end{document}
