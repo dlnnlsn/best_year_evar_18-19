@@ -177,9 +177,10 @@ for all $m$, contradicting that fact that
 We thus have that $h$ is bounded, and so there is a bounded function $b_{f} : \mathbb{N} \to \mathbb{R}$ such that $f(n) = \alpha n + b_{f} (n)$ for all $n$. Similarly, there is a real number $\beta$ and a bounded function $b_{g} : \mathbb{N} \to \mathbb{R}$ such that $g(n) = \beta n + b_{g} (n)$ for all $n$.
 
 We thus have that
-\[
-	f(g(n)) - g(f(n)) = \alpha g(n) + b_{f} (g(n)) - \beta f(n) - b_{g} (f(n)) = \alpha \beta n + \alpha b_{g} (n) + b_{f} (g(n)) - \alpha \beta n - \beta b_{f} (n) - b_{g} (f(n)).
-\]
+\begin{align*}
+	f(g(n)) - g(f(n)) &= \alpha g(n) + b_{f} (g(n)) - \beta f(n) - b_{g} (f(n)) \\
+	&= \alpha \beta n + \alpha b_{g} (n) + b_{f} (g(n)) - \alpha \beta n - \beta b_{f} (n) - b_{g} (f(n)).
+\end{align*}
 
 Since 
 \[
