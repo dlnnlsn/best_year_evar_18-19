@@ -144,6 +144,64 @@ pawns on the chessboard, as claimed.
 \]
 }}
 
+\item %DL-2008-2
+\problem{A subset $S$ of the set $T_m = \{1, 2, \dots, m - 1\}$ is called \emph{cosy} if for every $x \in S$, either $2x$ or $2x - m$ is also in $S$. Find the smallest odd number $m$ such that $T_m$ has a cosy subset with exactly $2009$ members.}
+
+\solution{Let $C_x = \{ 2^n \cdot x \,\mid\, n \in \mathbb{N}_0 \}$. We note that $\{ C_x \,\mid\, x \in T_m \}$ is a partition of $T_m$. We also note that if $S$ is a cosy subset of $T_m$ and $x \in S$, then in fact $C_x \subseteq S$. We see that the cosy subsets of $T_m$ are precisely those which are a union of sets of the form $C_x$, and also that the complement of a cosy subset is also a cosy subset.
+
+We note that $T_{2015}$ has a cosy subset of size $2009$. This cosy subset is the complement of $C_{65}$, which has $5$ elements. We thus need only show that $T_{2011}$ and $T_{2013}$ do not have cosy subsets with $2009$ elements.
+
+If $T_{2011}$ has a cosy subset with $2009$ elements, then its complement has $1$ element. The complement is thus the cosy subset $\{ x \}$ for some $x$ which satisfies $2x \equiv x \pmod{2011}$. But this is equivalent to $x \equiv 0 \pmod{2011}$, which is impossible if $x \in T_m$.
+
+If $T_{2013}$ has a cosy subset with $2009$ elements, then it also has a cosy subset with $3$ elements. We know that this is a union of sets of the form $C_x$ with $x \in T_m$. The argument above shows that no set of the form $C_x$ has only $1$ element, and so this cosy subset must in fact be of the form $\{x, 2x, 4x\}$ for some $x \in T_m$ satisfying $8x \equiv x \pmod{2013}$. But this implies that $7 \mid 2013$, which is a contradiction. Thus $m = 2015$ is indeed the smallest value of $m$ such that $T_m$ has a cosy subset with exactly $2009$ elements.}
+
+
+\item %SW-2010-6
+\problem{Let $ABCD$ be a parallelogram. The angle bisectors of $\angle BAD$ and $\angle BCD$ intersect $BD$ at $E$ and $G$ respectively. Then angle bisectors of $\angle ABC$ and $\angle ADC$ intersect $AC$ at $F$ and $H$ respectively. Prove that
+\[
+	{AE}^2 + {BH}^2 = {AG}^2 + {BF}^2.
+\]}
+
+\solution{Let $D$ be the origin. Let $|\vec{A}| = |DA| = a$, and $|\vec{C}| = |DC| = c$. As a consequence of the angle bisector theorem in triangle $BCD$, we have that
+\[
+	\vec{G} = \frac{c}{a + c} \vec{B} = \frac{c}{a + c} (\vec{A} + \vec{C}).
+\]
+Simiarly, we have that
+\[
+	\vec{E} = \frac{a}{a + c} (\vec{A} + \vec{C}).
+\]
+
+We also find that
+\[
+	\vec{F} = A + \frac{c}{a + c} (\vec{C} - \vec{A}) = \frac{a}{a + c} \vec{A} + \frac{c}{a + c} \vec{C}
+\]
+and similarly,
+\[
+	\vec{H} = \frac{c}{a + c} \vec{A} + \frac{a}{a + c} \vec{C}.
+\]
+
+We thus have that
+\[
+	{AE}^2 = {|A - E|}^2 = {\left| \frac{c}{a + c} \vec{A} - \frac{a}{a + c} \vec{C} \right|}^2,
+\]
+and
+\[
+	{BH}^2 = {|A + C - H|}^2 = {\left| \frac{a}{a + c} \vec{A} + \frac{c}{a + c} \vec{C} \right|}^2
+\]
+so that
+\[
+	{AE}^2 + {BH}^2 = \frac{a^2 + c^2}{{(a + c)}^2} \left({|\vec{A}|}^2 + {|\vec{C}|}^2 \right).
+\]
+
+A similar calculation shows that
+\begin{align*}
+	{AG}^2 + {BF}^2 & = {\left| \frac{a}{a + c} \vec{A} - \frac{c}{a + c} \vec{C} \right|}^2 + {\left| \frac{c}{a + c} \vec{A} + \frac{a}{a + c} \vec{C} \right|}^2 \\
+	& = \frac{a^2 + c^2}{{(a + c)}^2} \left( {|\vec{A}|}^2 + {|\vec{C}|}^2 \right),
+\end{align*}
+and the result follows.
+}
+
+
 
 \end{enumerate}
 
