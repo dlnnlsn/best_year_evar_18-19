@@ -122,7 +122,7 @@ The result follows by noting that
 
 
 \item %Dylan and Brandon (but probably exists elsewhere)
-\problem{A pawn is a chess piece which attacks the two squares diagonally in front of it. What is the maximum number of pawns which can be placed on an $n \times n$ chessboard such that no two pawns attack each other?}
+\problem{A pawn is a chess piece which attacks the two squares diagonally in front of it. What is the maximum number of pawns which can be placed on an $n \times n$ chessboard such that no two pawns attack each other? (\textit{Alternatively, ask for the maximum number of pawns which can be placed on an $a \times b$ chessboard.})}
 
 \solution{We claim that the maximum number of pawns which can be placed is given by $n \left\lfloor \frac{n+1}{2} \right\rfloor$. Note that this pawns that we place if we fill every second row of the chessboard with pawns, and so this number is attainable.
 
@@ -137,7 +137,12 @@ Summing up over all of the diagonals, we see that we can place at most
 	& = \frac{n + 1}{2} + \frac{n^2 - 1}{2} = n \left\lfloor \frac{n + 1}{2} \right\rfloor
 \end{align*}
 pawns on the chessboard, as claimed.
-}
+
+\textit{A similar argument to the above shows that the maximum number of pawns which can be placed on an $a \times b$ chessboard is gien by
+\[
+	\max\left\{ a \left\lfloor \frac{b + 1}{2} \right\rfloor, b \left\lfloor \frac{a + 1}{2} \right\rfloor \right\}.
+\]
+}}
 
 
 \end{enumerate}
