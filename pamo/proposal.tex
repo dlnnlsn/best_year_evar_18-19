@@ -121,6 +121,25 @@ The result follows by noting that
 }
 
 
+\item %Dylan and Brandon (but probably exists elsewhere)
+\problem{A pawn is a chess piece which attacks the two squares diagonally in front of it. What is the maximum number of pawns which can be placed on an $n \times n$ chessboard such that no two pawns attack each other?}
+
+\solution{We claim that the maximum number of pawns which can be placed is given by $n \left\lfloor \frac{n+1}{2} \right\rfloor$. Note that this pawns that we place if we fill every second row of the chessboard with pawns, and so this number is attainable.
+
+First suppose that $n$ is even. In this case, we can divide the board into $\frac{n^2}{4}$ $2 \times 2$ squares. In each such square, we can place at most $2$ pawns, as otherwise two pawns will fall on the same diagonal of the square and thus one would attack the other. We can thus place at most $2 \cdot \frac{n^2}{4} = n \left\lfloor \frac{n + 1}{2} \right\rfloor$ pawns on the chess board, as claimed.
+
+Now suppose that $n$ is odd. Consider one of the diagonals of the chessboard. (Not necessarily one of the main diagonals.) If the diagonal has length $2m$, then we can divide it into $m$ pairs of squares that are diagonally adjacent. In each pair, we can place at most one pawn, and so we can place at most $m$ pawns along this diagonal. Similarly, if the diagonal has length $2m + 1$, then we can divide the diagonal into $m$ pairs of diagonally adjacent squares, and one extra square. In this case, we can place at most one pawn in each of the pairs, and at most one pawn in the extra square for a total of $m + 1$ pawns.
+
+Summing up over all of the diagonals, we see that we can place at most
+\begin{align*}
+	& \left\lfloor \frac{n + 1}{2} \right\rfloor + 2 \left( \sum_{1 \leq 2m \leq n - 1} m \right) + 2 \left( \sum_{1 \leq 2m + 1 \leq n - 1} (m + 1) \right) \\
+	& = \frac{n + 1}{2} + \frac{n - 1}{2} \left( \frac{n - 1}{2} + 1 \right) + \frac{n - 1}{2} \left( \frac{n - 1}{2} + 1 \right) \\
+	& = \frac{n + 1}{2} + \frac{n^2 - 1}{2} = n \left\lfloor \frac{n + 1}{2} \right\rfloor
+\end{align*}
+pawns on the chessboard, as claimed.
+}
+
+
 \end{enumerate}
 
 \end{document}
