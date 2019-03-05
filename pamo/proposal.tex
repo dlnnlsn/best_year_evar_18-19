@@ -4,7 +4,7 @@
 \usepackage{amssymb}
 
 \newif\ifsolutions{}
-\solutionstrue
+\solutionstrue{}
 
 \newcommand{\problem}[1]{%
 \ifsolutions%
@@ -52,7 +52,7 @@ Let
 \[
 	n = \sum_{m = 0}^{\infty} d_m \cdot 5^m
 \]
-be the expansion of $n$ in base $5$. We claim that $n$ satifies the conditions of the problem if and only if $d_m \in \{0, 1, 2\}$ for each $m$.
+be the expansion of $n$ in base $5$. We claim that $n$ satisfies the conditions of the problem if and only if $d_m \in \{0, 1, 2\}$ for each $m$.
 
 Suppose first that $n$ satisfies the conditions of the problem. Then for each $k$, we have that
 \[
@@ -86,12 +86,12 @@ Since ${f(-x)}^2 = f(x^2) = {f(x)}^2$ for all $x$, we know that for each $x$, ei
 
 Since $f(x^2) = {f(x)}^2$, we in fact have that $f(x) \in \{0, x\}$ for all positive real numbers $x$. Now suppose that there is a positive real number $x$ such that $f(x) = 0$. Then $f(x^2) = 0$, and we find that for all positive $y$, we have $-yf(y) = f(x + y)(-y)$, and so $f(y) = f(x + y)$. Suppose that $f(y) = y$. Then $f(x + y) \neq 0$, and so $f(x + y) = x + y$. But then $y = x + y$, a contradiction. Thus we must have that $f(y) = 0$ for all positive $y$, and since $f(-y) = \pm f(y)$ for all $y$, we have that $f(y) = 0$ for all negative values of $y$ as well. Thus $f$ is identically $0$, but this does not satisfy the functional equation.
 
-We thus have that there is no positive real number $x$ such that $f(x) = 0$, and so $f(x) = x$ for all $x \geq 0$. We now recall that $f(x^2) + xf(-x)$ for all $x$. Since $f(x^2) = x^2$, this gives us that $f(-x) = -x$ for all $x$. We thus find that $f(x) = x$ for all real numbers $x$, which does indeed satisfy the funcational equation. All solutions to the functional equation are thus given by the constant function $f(x) = 1$, and the identity function $f(x) = x$. 
+We thus have that there is no positive real number $x$ such that $f(x) = 0$, and so $f(x) = x$ for all $x \geq 0$. We now recall that $f(x^2) + xf(-x)$ for all $x$. Since $f(x^2) = x^2$, this gives us that $f(-x) = -x$ for all $x$. We thus find that $f(x) = x$ for all real numbers $x$, which does indeed satisfy the functional equation. All solutions to the functional equation are thus given by the constant function $f(x) = 1$, and the identity function $f(x) = x$. 
 }
 
 
 \item %PP-2010-6
-\problem{$ABC$ is an acute-angles triangle. The bisectors of angles $A$ and $B$ meet $BC$ and $AC$ at $D$ and $E$ respectively. $P$ is a point on $DE$ such that the distances from $P$ to $AC$ and $BC$ are $x$ and $y$ respectively. Show that the distance from $P$ to $AB$ is $x + y$. (Alternatively, give specific values for $x$ and $y$ and ask to calculate the distance from $P$ to $AB$.)}
+\problem{$ABC$ is an acute-angled triangle. The bisectors of angles $A$ and $B$ meet $BC$ and $AC$ at $D$ and $E$ respectively. $P$ is a point on $DE$ such that the distances from $P$ to $AC$ and $BC$ are $x$ and $y$ respectively. Show that the distance from $P$ to $AB$ is $x + y$. (Alternatively, give specific values for $x$ and $y$ and ask to calculate the distance from $P$ to $AB$.)}
 
 \solution{Let the feet of the perpendiculars from $D$ onto $AB$ and $AC$ respectively be $X$ and $X^\prime$. Let the feet of the perpendiculars from $E$ onto $AB$ and $AC$ respectively be $Y$ and $Y^\prime$. We note that since $AD$ and $BE$ are angle bisectors, we have $DX = DX^\prime$ and $EY = EY^\prime$. Let the foot of the perpendicular from $P$ onto $AB$ be $Z$, so that we are looking for the distance $PZ$.
 
@@ -138,7 +138,7 @@ Summing up over all of the diagonals, we see that we can place at most
 \end{align*}
 pawns on the chessboard, as claimed.
 
-\textit{A similar argument to the above shows that the maximum number of pawns which can be placed on an $a \times b$ chessboard is gien by
+\textit{A similar argument to the above shows that the maximum number of pawns which can be placed on an $a \times b$ chessboard is given by
 \[
 	\max\left\{ a \left\lfloor \frac{b + 1}{2} \right\rfloor, b \left\lfloor \frac{a + 1}{2} \right\rfloor \right\}.
 \]
@@ -166,7 +166,7 @@ If $T_{2013}$ has a cosy subset with $2009$ elements, then it also has a cosy su
 \[
 	\vec{G} = \frac{c}{a + c} \vec{B} = \frac{c}{a + c} (\vec{A} + \vec{C}).
 \]
-Simiarly, we have that
+Similarly, we have that
 \[
 	\vec{E} = \frac{a}{a + c} (\vec{A} + \vec{C}).
 \]
