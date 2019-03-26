@@ -175,6 +175,7 @@ One can show by induction on $m$ that for any natural numbers $m$ and $n$, we ha
 \[
 	-mM + mf(n) \leq f(mn) \leq mf(n) + mM.
 \]
+We note that this is still true even if $f$ is allowed to take values in the integers, rather than in the natural numbers. The only condition that $f$ needs to satisfy is that $f(m + n) - f(m) - f(n)$ is bounded.
 
 We will now show that the sequence $\frac{1}{n} f(n)$ is Cauchy. We note that
 \[
@@ -184,7 +185,7 @@ which can be made arbitrarily small by taking $m$ and $n$ large enough. We thus 
 \[
 	\lim_{n \to \infty} \frac{f(n)}{n}
 \]
-exists. Let this limit equal $\alpha$. We now note that the function $h(n) = f(n) - \lfloor \alpha n \rfloor$ is a almost-linear function such that $\lim_{n \to \infty} \frac{1}{n} h(n) = 0$. We claim that $h(n)$ is bounded.
+exists. Let this limit equal $\alpha$. We now note that the function $h(n) = f(n) - \lfloor \alpha n \rfloor$ is a function such that $h(m + n) - h(m) - h(n)$ is bounded, and such that $\lim_{n \to \infty} \frac{1}{n} h(n) = 0$. We claim that $h(n)$ is bounded.
 
 Suppose that $h(n)$ is not bounded. Let $K$ be a natural number such that
 \[
@@ -192,16 +193,16 @@ Suppose that $h(n)$ is not bounded. Let $K$ be a natural number such that
 \]
 for all natural numbers $x$ and $y$. Since $h$ is not bounded, there is a natural number $n$ such that $h(n) - K > 0$.
 
-Note that by a earlier result, we have that $h(mn) \geq -mK + mf(n) = m(f(n) - K)$ for all $m$. We thus have that
+Note that by a earlier result, we have that $h(mn) \geq -mK + mh(n) = m(h(n) - K)$ for all $m$. We thus have that
 \[
-	\frac{h(mn)}{mn} > \frac{f(n) - K}{n}
+	\frac{h(mn)}{mn} > \frac{h(n) - K}{n}
 \]
 for all $m$, contradicting that fact that
 \[
 	\lim_{m \to \infty} \frac{h(mn)}{mn} = 0.
 \]
 
-We thus have that $h$ is bounded, and so there is a bounded function $b_{f} : \mathbb{N} \to \mathbb{R}$ such that $f(n) = \alpha n + b_{f} (n)$ for all $n$. Similarly, there is a real number $\beta$ and a bounded function $b_{g} : \mathbb{N} \to \mathbb{R}$ such that $g(n) = \beta n + b_{g} (n)$ for all $n$.
+We thus have that $h$ is bounded. Noting that $\lfloor \alpha n \rfloor - \alpha n$ is bounded, we find that there is a bounded function $b_{f} : \mathbb{N} \to \mathbb{R}$ such that $f(n) = \alpha n + b_{f} (n)$ for all $n$. Similarly, there is a real number $\beta$ and a bounded function $b_{g} : \mathbb{N} \to \mathbb{R}$ such that $g(n) = \beta n + b_{g} (n)$ for all $n$.
 
 We thus have that
 \begin{align*}
