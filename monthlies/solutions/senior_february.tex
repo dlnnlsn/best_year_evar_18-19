@@ -32,8 +32,28 @@ We see that the only possible values for $n$ are $1$, $11$, and $111$.
 
 
 \vspace{6pt}
-\item % DB-2012-2
+\item\label{prob:areal_centre} % DB-2012-2
 {\itshape Given a (not necessarily convex) quadrilateral $ABCD$, call a point $P$ in the same plane as $ABCD$ an \emph{areal centre} for $ABCD$, if any line through $P$ divides $ABCD$ into two parts of equal area. What are necessary and sufficient conditions on $ABCD$ for it to possess an areal centre?}
+
+Suppose that $P$ is an areal centre for $ABCD$. Let $XX^\prime$, $YY^\prime$, and $ZZ^\prime$ be three lines passing through $P$ such that $X$, $Y$, and $Z$ lie on $AB$, and $X^\prime$, $Y^\prime$, and $Z^\prime$ lie on $CD$. Let $a$, $b$, $x$, $y$, $z$, and $w$ be the areas of $AZPX^\prime D$, $BXPZ^\prime C$, $XPY$, $YPZ$, $X^\prime PY^\prime$, and $Y^\prime PZ^\prime$ respectively. Since $P$ is an areal centre, we find that
+\begin{align*}
+	a + x + y & = b + z + w &
+	a + y + z & = b + x + w & \text{and} &&
+	a + z + w & = b + x + y.
+\end{align*}
+Solving these equations, we find that $a = b$, $x = z$, and $y = w$. These relations then allow us to deduce that
+\begin{align*}
+	PX \cdot PY & = PX^\prime \cdot PY^\prime & 
+	PY \cdot PZ & = PY^\prime \cdot PZ^\prime & \text{and} &&
+	PX \cdot PZ & = PX^\prime \cdot PZ^\prime,
+\end{align*}
+which upon solving gives us that $PX = PX^\prime$, $PY = PY^\prime$, and $PZ = PZ^\prime$. This gives us that, for example, $PXY \equiv PX^\prime PY^\prime$, and so $\angle PXY = \angle PX^\prime Y^\prime$, giving us that $AB \parallel CD$. A similar argument shows that $BC \parallel DA$, and so $ABCD$ is a parallelogram. Conversely, one can verify that if $ABCD$ is a parallelogram, then the intersection of the diagonals $AC$ and $BD$ is an areal centre for $ABCD$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{senior_february_q2.mps}
+\caption{Problem \ref{prob:areal_centre}}
+\end{figure}
 
 
 \vspace{6pt}
