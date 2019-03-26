@@ -1,0 +1,195 @@
+\documentclass[a4paper, 12pt]{article}
+%\documentclass{book}
+
+% Important Packages:
+ \usepackage{amsmath}    % need for subequations
+ \usepackage{amsfonts}
+ \usepackage{amsthm}
+ \usepackage{graphicx}   % need for figures
+ \usepackage{verbatim}   % useful for program listings
+ \usepackage{tikz,tkz-euclide}
+ \usepackage{amssymb}
+ 
+ \usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\def\deg{^{\circ}}
+\newcommand\heading[1]{\ \\\large{\textbf{#1}}}
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+\def\thm{Th\textsuperscript{\underline{m}}}
+
+%------------------end---preamble--------------------
+ 
+ % Useful macros 
+ \def\tcb#1{\color{blue}{#1}}
+ \def\tcr#1{\color{red}{#1}}	
+ \def\tcg#1{\color{green}{#1}}
+ \def\be{\begin{eqnarray}}	 	\def\ee{\end{eqnarray}}
+ \def\bea{\begin{eqnarray}}	 	\def\eea{\end{eqnarray}}
+ \def\bean{\begin{eqnarray*}}	\def\eean{\end{eqnarray*}}
+ 
+ \def\D{\displaystyle}
+ \def\T{\textstyle}
+ \def\l{\left}
+ \def\r{\right}
+ \def\nf{n_{\!f}} % quark flavours
+ \def\pa{\partial}
+ \def\eg{e.\,g.}
+ \def\ie{i.\,e.}
+
+ \def\be{\begin{equation}}
+ \def\ee{\end{equation}}
+ \def\bea{\begin{eqnarray}}
+ \def\eea{\end{eqnarray}}
+ \def\bean{\begin{eqnarray*}}
+ \def\eean{\end{eqnarray*}}
+ \def\gsim{\mathrel{\rlap{\lower0.2em\hbox{$\sim$}}\raise0.2em\hbox{$>$}}}
+ \def\ksim{\mathrel{\rlap{\lower0.2em\hbox{$\sim$}}\raise0.2em\hbox{$<$}}}
+ \def\kg{\mathrel{\rlap{\lower0.25em\hbox{$>$}}\raise0.25em\hbox{$<$}}}
+ 
+ \def\AA{${\buildrel_{\circ} \over {\mathrm{A}}}$}
+ \def\bm#1{\mbox{\boldmath$#1$}}
+ \newcommand{\eq}[1]{(\ref{#1})} 
+ \def\pd{\partial}
+ \def\d{\textrm{d}} 
+ \def\T{\textstyle}
+ \def\eg{e.\,g.}	% exempli gratia (for the sake of example)
+ \def\ie{i.\,e.}	% id est (that is)
+
+
+ % Page configuration:
+ \topmargin -2.0cm
+ \oddsidemargin -0.85cm
+ \evensidemargin -0.85cm
+ \textwidth 18cm
+ \textheight 24cm
+ 
+\begin{document}
+\begin{center}
+\textbf{April Camp 2019 \\ Senior Test 1} \\
+\textbf{Solutions}
+\end{center}
+\vspace{5mm}
+
+\begin{enumerate}
+
+%  2018 shortlist A1
+\item[1.]  \textit{Let $\mathbb{Q}_{> 0}$ denote the set of all positive rational numbers. Determine all functions $f: \mathbb{Q}_{> 0} \to \mathbb{Q}_{> 0}$ satisfying
+$$
+f \left( x^2 f(y)^2\right) = f(x)^2 f(y) $$
+for all $x, y \in \mathbb{Q}_{> 0}$.}
+\vspace{5mm}
+
+\textbf{Answer:} $f(x) = 1$ for all $x \in \mathbb{Q}_{> 0}$
+
+\textbf{Solution:} Take any $a, b \in \mathbb{Q}_{> 0}$. By substituting $x = f(a)$, $y = b$, and $x = f(b)$, $y = a$ into the given equation, we get
+$$ f(f(a))^2 f(b) = f(f(a)^2 f(b)^2 ) = f(f(b))^2 f(a) $$
+which yields
+$$
+\frac{f(f(a))^2}{f(a)} = \frac{f(f(b))^2}{f(b)} \qquad \textrm{ for all } a, b \in \mathbb{Q}_{> 0}
+$$
+In other words, this shows that there exists a constant $C \in \mathbb{Q}_{> 0}$ such that $f(f(a))^2 = C f(a)$, or
+\begin{equation}  \label{a11}
+    \left( \frac{f(f(a))}{C}  \right)^2 = \frac{f(a)}{C} \qquad \textrm{ for all } a \in \mathbb{Q}_{> 0}
+\end{equation}
+
+Denote by $f^n(x) = f(f(\dots(f(x))\dots))$ the $n$th iteration of $f$. Equality (\ref{a11}) yields
+$$
+\frac{f(a)}{C} = \left( \frac{f^2(a)}{C}  \right)^2 = \left( \frac{f^3(a)}{C}  \right)^4 = \dots = \left( \frac{f^{n+1}(a)}{C}  \right)^{2^n}
+$$
+for all positive integer $n$. So, $f(a)/C$ is the $2^n$-th power of a rational number for all positive integer $n$. This is impossible unless $f(a)/C = 1$, since otherwise the exponent of some prime in the prime decomposition of $f(a)/C$ is not divisible by sufficiently large powers of 2. Therefore, $f(a) = C$ for all $a \in \mathbb{Q}_{> 0}$.
+
+Finally, after substituting $f \equiv C$ into the given condition, we get $C = C^3$, whence $C = 1$. So $f(x) \equiv 1$ is the unique function satisfying the given equation.
+\qed
+
+
+\vspace{5mm}
+\item[2.]  \textit{Let $n > 1$ be a positive integer. Each cell of an $n \times n$ table contains an integer. Suppose that the following conditions are satisfied:}
+
+\begin{enumerate}
+    \item[(i)] \textit{Each number in the table is congruent to $1$ modulo $n$;}
+    
+    \item[(ii)] \textit{The sum of numbers in any row, as well as the sum of numbers in any column is congruent to $n$ modulo $n^2$.}
+    
+\end{enumerate}
+
+ \textit{Let $R_i$ be the product of the numbers in the $i$-th row, and $C_j$ be the product of the numbers in the $j$-th column. Prove that the sums $R_1 + \dots + R_n$ and $C_1 + \dots + C_n$ are congruent modulo $n^4$.}
+ \vspace{5mm}
+
+\textbf{Proof: } Let $A_{i,j}$ be the entry in the $i$th row and the $j$th column; let $P$ be the product of all $n^2$ entries. For convenience, denote $a_{i, j} = A_{i,j}-1$ and $r_i = R_i - 1$. We show that
+$$
+\sum_{i=1}^n R_i \equiv (n-1) + P \quad (\textrm{mod } n^4).
+$$
+Due to symmetry of the problem conditions, the sum of all the $C_j$ is also congruent to $(n-1) + P$ modulo $n^4$, whence the conclusion.
+
+By condition (i), the number $n$ divides $a_{i, j}$ for all $i$ and $j$. So, every product of at least two of the $a_{i,j}$ is divisible by $n^2$, hence
+\begin{equation*}
+    R_i = \prod_{j=1}^n (1 + a_{i,j}) = 1 + \prod_{j=1}^n a_{i,j} + \sum_{1 \leq j_1 < j_2 \leq n} a_{i, j_1} a_{i, j_2} + \dots \equiv 1 - n + \sum_{j=1}^n A_{i,j} \quad (\textrm{mod } n^2)
+\end{equation*}
+for every index $i$. Using condition (ii), we obtain $R_i \equiv 1$ (mod $n^2$), and so $n^2 \,|\, r_i$.
+
+Therefore, every product of at least two of the $r_i$ is divisible by $n^4$. Repeating the same argument, we obtain
+$$
+P = \prod_{i=1}^n R_i = \prod_{i=1}^n (1 + r_i) \equiv 1 + \sum_{i=1}^n r_i \quad (\textrm{mod } n^4)
+$$
+whence
+$$
+\sum_{i=1}^n R_i = n + \sum_{i=1}^n r_i \equiv n + (P-1) \quad (\textrm{mod } n^4)
+$$
+as desired.
+
+\qed
+
+
+\vspace{5mm}
+\item[3.]  \textit{A point $T$ is chosen inside a triangle $ABC$. Let $A_1$, $B_1$, and $C_1$ be the reflections of $T$ in $BC$, $CA$, and $AB$, respectively. Let $\Omega$ be the circumcircle of the triangle $A_1 B_1 C_1$. The lines $A_1 T$, $B_1 T$, and $C_1 T$ meet $\Omega$ again at $A_2$, $B_2$, and $C_2$, respectively. Prove that the lines $AA_2$, $BB_2$, and $CC_2$ are concurrent on $\Omega$.}
+ \vspace{5mm}
+
+\textbf{Proof: } By $\sphericalangle (\ell, n)$ we always mean the directed angle of the lines $\ell$ and $n$, taken modulo $180^\circ$.
+
+Let $CC_2$ meet $\Omega$ again at $K$ (as usual, if $CC_2$ is tangent to $\Omega$, we set $T = C_2$). We show that the line $BB_2$ contains $K$; similarly, $AA_2$ will also pass through $K$. For this purpose, it suffices to prove that
+\begin{equation} \label{g41}
+    \sphericalangle (C_2C, C_2A_1) = \sphericalangle (B_2 B, B_2A_1)
+\end{equation}
+
+By the problem condition, $CB$ and $CA$ are the perpendicular bisectors of $TA_1$ and $TB_1$, respectively. Hence $C$ is the circumcentre of the triangle $A_1 T B_1$. Therefore,
+$$
+\sphericalangle (CA_1, CB) = \sphericalangle (CB, CT) = \sphericalangle (B_1 A_1, B_1T) = \sphericalangle (B_1 A_1, B_1 B_2).
+$$
+In circle $\Omega$, we have $\sphericalangle (B_1 A_1, B_1 B_2) = \sphericalangle (C_2 A_1, C_2 B_2)$. Thus,
+$$
+\sphericalangle(CA_1, CB) = \sphericalangle(B_1 A_1, B_1 B_2) = \sphericalangle(C_2 A_1, C_2 B_2).
+$$
+Similarly, we get
+$$
+\sphericalangle (BA_1, BC) = \sphericalangle (C_1 A_1, C_1 C_2) = \sphericalangle (B_2 A_1, B_2 C_2).
+$$
+The two obtained relations yield that the triangles $A_1 BC$ and $A_1 B_2 C_2$ are similar and equioriented, hence
+$$
+\frac{A_1 B_2}{A_1 B} = \frac{A_1 C_2}{A_1 C} \quad 
+\textrm{ and } \quad 
+\sphericalangle(A_1 B, A_1 C) = \sphericalangle (A_1 B_2, A_1 C_2).
+$$
+
+The second equality may be rewritten as $\sphericalangle(A_1 B, A_1 B_2) = \sphericalangle (A_1 C, A_1 C_2)$, so the triangles $A_1 B B_2$ and $A_1 C C_2$ are also similar and equioriented. This establishes (\ref{g41}).
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.7\textwidth]{2018_G4}
+\end{figure}
+
+
+\qed
+\vspace{6mm}
+
+
+    
+
+\end{enumerate}
+\end{document}
+
+
+
+
