@@ -1,0 +1,83 @@
+\documentclass[a4paper, 12pt]{article}
+% \usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amsfonts}
+\usepackage{amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
+\usepackage{fullpage}
+\usepackage{fancyvrb}
+\usepackage{float}
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\title{PAMO Stream Test 1 --- Solutions}
+\author{April Camp 2019}
+\date{}
+
+\begin{document} \maketitle
+
+\begin{enumerate}
+
+\item\label{problem:geometry_common_point} % SW-2009-5
+{\itshape In a triangle $ABC$, let $D$ and $E$ be the midpoints of $AB$ and $AC$, respectively, and let $F$ be the foot of the altitude through $A$. Show that the line $DE$, the angle bisector of $\angle ACB$ and the circumcircle of $ACF$ pass through a common point.}
+
+Let the intersection of $DE$ and the angle bisector of $\angle ACB$ be $G$. Note that $E$ is the centre of the circumcircle of $\triangle AFC$ since it is the midpoint of the diameter $AC$. We wish to show that the circumcircle of $\triangle AFC$ passes through $G$, so it is enough to show that $EG = EC$. Note that $DE \parallel BC$ by the midpoint theorem. We thus have that $\angle CGE = \angle GCB$ (alternating angles) $ = \angle ECG$ (since $CG$ is the angle bisector of $\angle ACB$). Thus $\triangle EGC$ is isosceles, and $EG = EC$, are required.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{pamo_test1_problem1.mps}
+\caption{Problem 1}
+\end{figure}
+
+
+\item {\itshape Let $f(n) = n + \lfloor \sqrt{n} \rfloor$. Prove that for every positive integer $m$, the integer sequence $m$, $f(m)$, $f(f(m))$, $\dots$ contains at least one square of an integer.}
+
+Let the $m$'s be of the form $m = k^2 + j$, where $0 \leq j \leq 2k$. Split them into two sets, the set $A$ of all the $m$ with excess $j$, where $0 \leq j \leq k$ and the set $B$ with all those $m$'s with excess $j$, where $k < j < 2k + 1$. Then $\lfloor \sqrt{m} \rfloor = k$ since $k^2 \leq m \leq k^2 + 2k < k^2 + 2k + 1 = {(k + 1)}^2$. If $j = 0$, we have nothing to prove.
+
+Assume that $m \in B$. As $\lfloor \sqrt{m} \rfloor = k$, we have $f(m) = m + \lfloor \sqrt{m} \rfloor = (k^2 + j) + k = {(k + 1)}^2 + j - k - 1$ with $0 \leq j - k - 1 \leq k  - 1 < k + 1$. So either $f(m)$ is a square or $f(m) \in A$. 
+We consider the case where $m \in A$. So $f(m) = m + \lfloor \sqrt{m} \rfloor = m + k$, and $\lfloor \sqrt{m + k} \rfloor = k$ since $m + k = k^2 + j + k \leq k^2 + 2k < {(k + 1)}^2$. So $f(f(m)) = f(m + k) = m + k + \lfloor \sqrt{m + k} \rfloor = m + 2k = k^2 + j + 2k = {(k + 1)}^2 + j - 1$. So $f(f(m))$ is either a square or $f(f(m)) \in A$ with an excess $j - 1$ less than the excess $j$ of $m$. At each iteration, the excess will reduce and eventually it will hit $0$, whence we reach a square.
+
+
+\item {\itshape A game is played on an $m \times n$ chessboard. At the beginning, there is a coin on one of the squares. Two players take turns to move the coin to an adjacent square (horizontally or vertically). The coin may never be moved to a square that has been occupied before. If a player cannot move any more, he loses. Prove:
+\begin{enumerate}
+
+\item If the size (number of squares) of the board is even, then the player to move first has a winning strategy, regardless of the initial position.
+
+\item If the size of the board is odd, then the player to move first has a winning strategy if and only if the coin is initially placed on a square whose colour is not the same as the colour of the corners.
+
+\end{enumerate}}
+
+\begin{enumerate}
+
+\item If the number of squares on the board, $m \times n$, is even, without loss of generality let $m$ be even. Then the board can be tiled with $2 \times 1$ tiles, by dividing the board into $\frac{m}{2} 2 \times n$ parallel sections and then dividing each further into $n$ parallel $2 \times 1$ tiles. Using this tiling, each square is paired up with another square which is adjacent to it.
+
+The first player's winning strategy is as follows: in each move, she should move the coin from the square in which the coin currently is (let us call this square $A$) to the square which is paired up with that square (let us call this square $B$). This is possible in the first move, since at that point all squares are available except for the one in which the coin starts, and assuming that the first player continues with this strategy it will be possible at each point thereafter; indeed, the only way that it would not be possible is if square $B$ had already been occupied at some point in the past, either by her (which since she has been following this strategy would only happen if the second player had already occupied square $A$ at some point in the past, which is impossible) or by the second player (in which case the first player would have already occupied square $A$ in the past, so the second player could not now have moved into square $A$). So the first player can always make a valid move, and so she cannot lose; but since the game must end, with the number of unoccupied squares always decreasing, the second player must eventually not be able to move, in which case the first player will win.
+
+\item In this case, $m$ and $n$ must both be odd. Without loss of generality let the corner squares, which must all be the same colour, be black and the other colour be white (as in a chessboard). Let us refer to the squares by coordinates, starting from $(1, 1)$ up until $(m, n)$.
+
+In the case that the coin is initially placed on a black square, having coordinates $(a, b)$ where $a + b$ is even, then we can divide the res of the board into four rectangular regios, giving opposite corners' coordinates as follows: $(1, 1)$ to $(a, b - 1)$, $(a + 1, 1)$ to $(m, b)$, $(1, b)$ to $(a - 1, n)$, and $(a, b + 1)$ to $(m, n)$. Each of these rectangles has an even number of squares, and so can be tiled with $2 \times 1$ tiles. So the entire board excluding $(a, b)$ can be tiled with $2 \times 1$ tiles; so the second player has the winning strategy of at each point moving the coin to the square with which the square to which the first player has moved the coin is paired up in this tiling. As in part a), this is a winning strategy.
+
+In the case that the coin is initially placed on a white square, having coordinates $(a, b)$ with $a + b$ odd, we can choose to exclude any one of the corner black squares and then tile the remaining $mn - 1$ squares, including the square on which the coin is initially placed, with $2 \times 1$ tiles. The first player's winning strategy is then to at each point move the coin to the square which is paired up with the square which it either started at or to which the second player has move it. A similar argument to that in a) shows that this is a winning strategy. (Note that the excluded corner square will never be moved to, since it would only be moved to by the first player, who will not do so if she follows this strategy since the excluded square is not paired up with any other square.)
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\vfill
+
+\centering
+%\begin{BVerbatim}
+%     |\_/|                  
+%     | @ @   Woof! 
+%     |   <>              _  
+%     |  _/\------____ ((| |))
+%     |               `--' |   
+% ____|_       ___|   |___.' 
+%/_/_____/____/_______|
+%\end{BVerbatim}
+
+\vspace{12mm}
+
+
+\end{document}
