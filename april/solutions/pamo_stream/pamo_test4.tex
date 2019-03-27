@@ -1,0 +1,162 @@
+\documentclass[a4paper, 12pt]{article}
+% \usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amsfonts}
+\usepackage{amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
+\usepackage{fullpage}
+\usepackage{fancyvrb}
+\usepackage{enumerate}
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\title{PAMO Stream Test 4}
+\author{April Camp 2019}
+\date{Time: $4 \frac{1}{2}$ hours}
+
+\begin{document} \maketitle
+
+\begin{enumerate}
+
+\item {\itshape Find all quadruplets $(a, b, c, d)$ of positive integers such that
+\[
+    \left( 1 + \frac{1}{a} \right) \left( 1 + \frac{1}{b} \right) \left( 1 + \frac{1}{c} \right) \left( 1 + \frac{1}{d} \right) = 4.
+\]}
+
+We may assume that $a \geq b \geq c \geq d$. The given conditions leads to $4 \leq {\left( 1 + \frac{1}{d} \right)}^4$. If $d \geq 3$ then
+\[
+    {\left( 1 + \frac{1}{d} \right)}^4 \leq {\left( 1 + \frac{1}{3} \right)}^4 = \frac{256}{81} < 4.
+\]
+We conclude that $d = 1$ or $2$.
+
+\begin{itemize}
+
+\item Consider the case $d = 1$. We obtain
+\[
+    \left( 1 + \frac{1}{a} \right) \left( 1 + \frac{1}{b} \right) \left( 1 + \frac{1}{c} \right) = 2.
+\]
+
+If $c \geq 4$ then
+\[
+    2 \leq {\left( 1 + \frac{1}{c} \right)}^3 \leq {\left( 1 + \frac{1}{4} \right)}^3 = \frac{125}{64} < 2.
+\]
+So $c = 3, 2$ or $1$.
+\begin{itemize}
+
+\item If $c = 3$ then
+\[
+    \left( 1 + \frac{1}{a} \right) \left( 1 + \frac{1}{b} \right) = \frac{3}{2}.
+\]
+
+This simplifies to $ab - 2a - 2b - 2 = 0$ that can be written in the form $(a - 2)(b - 2) = 6$. We get $\begin{cases} a - 2 = 6 \\ b - 2 = 1 \end{cases}$ or $\begin{cases} a - 2 = 3 \\ b - 2 = 2 \end{cases}$ which leads to $\begin{cases} a = 8 \\ b = 3 \end{cases}$ or $\begin{cases} a = 5 \\ b = 4 \end{cases}$.
+
+\item In the subcase $c = 2$, we similarly obtain $(a - 3)(b - 3) = 12$. Solving this equation in positive integers, we get $\begin{cases} a = 15 \\ b = 4 \end{cases}$, $\begin{cases} a = 9 \\ b = 5 \end{cases}$ or $\begin{cases} a = 7 \\ b = 6 \end{cases}$.
+
+\item If $c = 1$ then $\left( 1 + \frac{1}{a} \right) \left( 1 + \frac{1}{b} \right) = 1$ which is impossible since $\left( 1 + \frac{1}{a} \right) > 1$ and $\left( 1 + \frac{1}{b} \right) > 1$, so there are no solutions in this subcase.
+
+\end{itemize}
+
+\item If $d = 2$. We get
+\[
+    \left( 1 + \frac{1}{a} \right) \left( 1 + \frac{1}{b} \right) \left( 1 + \frac{1}{c} \right) = \frac{8}{3}.
+\]
+
+If $c \geq 3$ then
+\[
+    \frac{8}{3} \leq {\left( 1 + \frac{1}{c} \right)}^3 \leq {\left( 1 + \frac{1}{3} \right)}^3 = \frac{64}{27} < \frac{8}{3}.
+\]
+So $c = 2$ and hence
+\[
+    \left( 1 + \frac{1}{a} \right) \left( 1 + \frac{1}{b} \right) = \frac{16}{9}.
+\]
+
+If $b \geq 4$ then
+\[
+    \frac{16}{9} \leq {\left( 1 + \frac{1}{b} \right)}^2 \leq {\left( 1 + \frac{1}{4} \right)}^2 = \frac{25}{16} < \frac{16}{9}.
+\]
+Thus $b = 3$ or $2$.
+
+\begin{itemize}
+    
+\item If $b = 3$ then $a = 3$.
+
+\item If $b = 2$ then $5a = 27$ so we do not get a solution in this subcase.
+
+\end{itemize}
+
+In conclusion, the solutions are $(8, 3, 3, 1)$, $(5, 4, 3, 1)$, $(15, 4, 2, 1)$, $(9, 5, 2, 1)$, $(7, 6, 2, 1)$, $(3, 3, 2, 2)$ and all their permutations.
+
+\end{itemize}
+
+
+\item {\itshape Akello divides a square up into finitely many white and red rectangles, each (rectangle) with sides parallel to the sides of the paren square. Within each white rectangle, she writes down the value of its width divided by its height, while within each red rectangle, she writes down the value of its height divided by its width. Finally, she calculates $x$, the sum of these numbers. If the total are of the white rectangles equals the total area of the red rectangles, what is the least possible value of $x$ she can get?}
+
+Let $a_i$ and $b_i$ denote the width and height of each white rectangle, and $c_i$ and $d_i$ denote the width and height of each red rectangle. Also, let $\ell$ denote the side length of the original square. We claim that, either $\sum a_i \geq \ell$ or $\sum d_i \geq l$. We prove this as follows: \textit{suppose there exists a horizontal line across the square that is covered entirely with white rectangles. Then, the total width of these rectangles is at least $\ell$, and the claim is proven. Otherwise, there is a red rectangle intersecting every horizontal line, and hence the total height of these rectangles is at least $\ell$.} Without loss of generality, assume $\sum a_i \geq \ell$. By the Cauchy-Schwarz inequality, $\sum \frac{a_i}{b_i} \sum{a_i b_i} \geq {(\sum a_i)}^2 \geq \ell^2$. The total area of the white rectangles is half of that of the square, so $\sum a_i b_i = \frac{1}{2} \ell^2$, and so $\sum \frac{a_i}{b_i} \geq 2$. Furthermore, each $x_i \leq \ell$, so $\sum{d_i}{c_i} \geq \frac{1}{\ell} \sum d_i \geq \frac{1}{\ell^2} \sum c_i d_i = \frac{1}{2}$. Therefore, $x$ is at least $2.5$. Conversely, $x = 2.5$ can be achieved by making the top half of the square one colour, and the bottom half the other colour.
+
+
+\item\label{problem:geometry_incircle} % JM-2013-4
+{\itshape Let $ABC$ be a triangle with $AB \neq AC$. The incircle of $ABC$ touches the sides $BC$, $CA$, $AB$ at $X$, $Y$, $Z$ respectively. The line through $Z$ and $Y$ intersects $BC$ extended in $X^\prime$. The lines through $B$ that are parallel to $AX$ and $AC$ intersect $AX^\prime$ in $K$ and $L$ respectively. Prove that $AK = KL$.}
+
+We wish to prove that $AL = 2AK$. Note that since $AX \parallel KB$, we have that
+\[
+  \frac{AK}{AX^\prime} = \frac{BX}{X^\prime X}.
+\]
+Similarly, since $AC \parallel LB$, we have that
+\[
+  \frac{AL}{AX^\prime} = \frac{BC}{X^\prime C}.
+\]
+
+We thus wish to prove that
+\[
+  \frac{BC}{X^\prime C} = 2 \frac{BX}{X^\prime X}
+\]
+
+This is equivalent to
+\[
+  BC \cdot X^\prime X = 2 BX \cdot X^\prime C
+\]
+which is equivalent to
+\[
+  (BX + XC) (X^\prime B + BX) = 2 BX (X^\prime B + BX + XC)
+\]
+which simplifies to
+\[
+  XC \cdot X^\prime B = BX \cdot X^\prime C.
+\]
+
+Now note that Menelaus' Theorem applied to the line $YZX$ in $\triangle ABC$ gives us that
+\[
+  \frac{AZ}{ZB} \cdot \frac{BX^\prime}{X^\prime C} \cdot \frac{CY}{YA} = -1.
+\]
+Since $AZ = YA$, $ZB = BX$, and $CY = XC$, this is equivalent to
+\[
+  \frac{X^\prime B \cdot XC}{BX \cdot X^\prime C} = 1
+\]
+which is what we wanted.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.75\textwidth]{pamo_test4_problem3.mps}
+\caption{Problem~\ref{problem:geometry_incircle}}\label{fig:geometry_incircle}
+\end{figure}
+
+
+\end{enumerate}
+
+\vfill
+
+\centering
+%\begin{BVerbatim}
+%     |\_/|                  
+%     | @ @   Woof! 
+%     |   <>              _  
+%     |  _/\------____ ((| |))
+%     |               `--' |   
+% ____|_       ___|   |___.' 
+%/_/_____/____/_______|
+%\end{BVerbatim}
+
+\vspace{12mm}
+
+
+\end{document}
