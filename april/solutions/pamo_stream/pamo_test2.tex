@@ -1,0 +1,102 @@
+\documentclass[a4paper, 12pt]{article}
+% \usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amsfonts}
+\usepackage{amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
+\usepackage{fullpage}
+\usepackage{fancyvrb}
+\usepackage{enumerate}
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\title{PAMO Stream Test 2}
+\author{April Camp 2019}
+\date{Time: $4 \frac{1}{2}$ hours}
+
+\begin{document} \maketitle
+
+\begin{enumerate}
+
+\item {\itshape Let $\Gamma$ be the circumcircle of an acute triangle $ABC$. The perpendicular line to $AB$ passing by $C$ cuts $AB$ in $D$ and $\Gamma$ again in $E$. The bisector of the angle $C$ cuts $AB$ in $F$ and $\Gamma$ again in $G$. The line $GD$ meets again $\Gamma$ in $H$ and the line $HF$ meets it again in $I$. Prove that $AI = EB$.}
+
+As $CG$ is the bisector of the angle $\angle ACB$, we have $\angle AHG = \angle ACG = \angle GCB$. We have $\angle HAB = \angle HCB$ as these angles intersect the same arc $HB$. Considering the triangle $ADH$, we have
+\begin{align*}
+    \angle HDB & = \angle HAB + \angle AHG \\
+        & = \angle HCB + \angle GCB \\
+        & = \angle GCH.
+\end{align*}
+
+We have $\angle FDH = 180^\circ - \angle HDB = 180^\circ - \angle CGH$. So the quadrilateral $CFDH$ has two of its opposite angles that are supplementary and so the points $C$, $F$, $D$ and $H$ are concyclic. Subsequently $\angle GCE = \angle FCD = \angle FHD = \angle IHG = \angle ICG$. Furthermore
+\begin{align*}
+    \angle ACI & = \angle ACG - \angle ICG \\
+        & = \angle GCB - \angle GCE \\
+        & = \angle ECB.
+\end{align*}
+
+Consequently, $AI = BE$.
+
+
+\item {\itshape Find all non-negative integers $n$ for which the equation
+\[
+    {\left( x^2 + y^2 \right)}^n = {(xy)}^{2018}
+\]
+admits positive integral solutions.}
+
+Let $n$, $x$ and $y$ be such that ${(x^2 + y^2)}^n = {(xy)}^{2018}$. According to the AM-GM, we have $x^2 + y^2 \geq 2xy > xy$. So $n < 2018$. Let $d = \gcd(x, y)$ and set $a = \frac{x}{d}$, $b = \frac{y}{d}$. Then
+\begin{eqnarray*}
+    d^{2n} {(a^2 + b^2)}^n = d^{2 \times 2018} {(ab)}^{2018} \\
+    {(a^2 + b^2)}^n = d^{2(2018 - n)} {(ab)}^{2018}.
+\end{eqnarray*}
+
+As $b$ divides ${(ab)}^{2018}$, then $b$ sivides ${(a^2 + b^2)}^n$. But $\gcd(a, b) = 1$ then $\gcd(a^2, b) = 1$ and so $\gcd(a^2 + b^2, b) = 1$. Consequently, $b = 1$. The same argument shows that $a = 1$. Hence we get
+\[
+    2^n = d^{2(2018 - n)}
+\]
+consequently, $d = 2^k$ with $2^n = 2^{4036k - 2nk}$ and $n = 4036k - 2nk$. Then $n(2k + 1) = 4k \cdot 1009$. Since $\gcd(2k + 1, 4k) = 1$, we have that $2k + 1$ divides $1009$ which is a prime, then $2k + 1 = 1009$. Hence $k = 504$ and $n = 2016$. Conversely, we check that $x = y = 2^{504}$ satisfies
+\[
+    {( 2^{1008} + 2^{1008} )}^{2016} = {( 2^{504} \times 2^{504} )}^{2018} = 2^{2034144}.
+\]
+
+
+\item {\itshape Adamu and Afaafa choose, each in his turn, positive integers as coefficients of a polynomial of degree $n$. Adamu wins if the polynomial obtained has an integer root; otherwise, Afaafa wins. Afaafa plays first if $n$ is odd; otherwise Adamu plays first. Prove that:
+\begin{enumerate}[i)]
+
+\item Adamu has a winning strategy if $n$ is odd.
+
+\item Afaafa has a winning strategy if $n$ is even.
+
+\end{enumerate}}
+
+\begin{enumerate}[i)]
+
+\item Assume that $n$ is odd so the polynomial is of the form $a_{2k + 1} x^{2k + 1} + a_{2k} x^{2k} + \cdots + a_1 x + a_0$ for some nonnegative integer $k$. Afaafa plays first choosing $a_i$ for some $i \in \{ 0, 1, \dots, 2k + 1 \}$. Next, Adamu chooses $a_{2k + 1 - i}$ equal to $a_i$. Using the same process in the next choices we obtain a polynomial having $-1$ as root so that Adamu wins.
+
+\item Assume that $n$ is even then the polynomial is of the form $a_{2k} x^{2k} + a_{2k - 1} x^{2k - 1} + \cdots + a_1 x + a_0$ for some positive integer $k$. Adamu plays first, if he chooses some $a_{2i}$ or $a_{2i - 1}$ (for $i \in \{ 1, \dots, k \}$), then Afaafa chooses respectively $a_{2i - 1} = a_{2i}$ or $a_{2i} = a_{2i - 1}$; if he writes $a_0$ she writes $a_{2j - 1} = 1$ for any remaining $j \in \{ 1, \dots, k \}$ (the least possible choice). In this way Afaafa is able to get $a_{2i - 1} \leq a_{2i} \forall i \in \{ 1, \dots, k \}$ after her last move. Suppose that the polynomial obtained has an integer root $-\alpha$ (where $\alpha \geq 1$) then
+\[
+    a_0 = \alpha^{2k - 1} ( a_{2k - 1} - a_{2k} \alpha ) + \cdots + \alpha (a_1 - a_2 \alpha) \leq 0,
+\]
+which is a contradiction. So Afaafa wins.
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\vfill
+
+\centering
+%\begin{BVerbatim}
+%     |\_/|                  
+%     | @ @   Woof! 
+%     |   <>              _  
+%     |  _/\------____ ((| |))
+%     |               `--' |   
+% ____|_       ___|   |___.' 
+%/_/_____/____/_______|
+%\end{BVerbatim}
+
+\vspace{12mm}
+
+
+\end{document}
