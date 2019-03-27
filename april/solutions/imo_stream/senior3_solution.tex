@@ -1,0 +1,166 @@
+\documentclass[a4paper, 12pt]{article}
+%\documentclass{book}
+
+% Important Packages:
+ \usepackage{amsmath}    % need for subequations
+ \usepackage{amsfonts}
+ \usepackage{amsthm}
+ \usepackage{graphicx}   % need for figures
+ \usepackage{verbatim}   % useful for program listings
+ \usepackage{tikz,tkz-euclide}
+ \usepackage{amssymb}
+ 
+ \usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\def\deg{^{\circ}}
+\newcommand\heading[1]{\ \\\large{\textbf{#1}}}
+\newcommand\ora[1]{\overrightarrow{#1}}
+
+\def\thm{Th\textsuperscript{\underline{m}}}
+
+%------------------end---preamble--------------------
+ 
+ % Useful macros 
+ \def\tcb#1{\color{blue}{#1}}
+ \def\tcr#1{\color{red}{#1}}	
+ \def\tcg#1{\color{green}{#1}}
+ \def\be{\begin{eqnarray}}	 	\def\ee{\end{eqnarray}}
+ \def\bea{\begin{eqnarray}}	 	\def\eea{\end{eqnarray}}
+ \def\bean{\begin{eqnarray*}}	\def\eean{\end{eqnarray*}}
+ 
+ \def\D{\displaystyle}
+ \def\T{\textstyle}
+ \def\l{\left}
+ \def\r{\right}
+ \def\nf{n_{\!f}} % quark flavours
+ \def\pa{\partial}
+ \def\eg{e.\,g.}
+ \def\ie{i.\,e.}
+
+ \def\be{\begin{equation}}
+ \def\ee{\end{equation}}
+ \def\bea{\begin{eqnarray}}
+ \def\eea{\end{eqnarray}}
+ \def\bean{\begin{eqnarray*}}
+ \def\eean{\end{eqnarray*}}
+ \def\gsim{\mathrel{\rlap{\lower0.2em\hbox{$\sim$}}\raise0.2em\hbox{$>$}}}
+ \def\ksim{\mathrel{\rlap{\lower0.2em\hbox{$\sim$}}\raise0.2em\hbox{$<$}}}
+ \def\kg{\mathrel{\rlap{\lower0.25em\hbox{$>$}}\raise0.25em\hbox{$<$}}}
+ 
+ \def\AA{${\buildrel_{\circ} \over {\mathrm{A}}}$}
+ \def\bm#1{\mbox{\boldmath$#1$}}
+ \newcommand{\eq}[1]{(\ref{#1})} 
+ \def\pd{\partial}
+ \def\d{\textrm{d}} 
+ \def\T{\textstyle}
+ \def\eg{e.\,g.}	% exempli gratia (for the sake of example)
+ \def\ie{i.\,e.}	% id est (that is)
+
+
+ % Page configuration:
+ \topmargin -2.0cm
+ \oddsidemargin -0.85cm
+ \evensidemargin -0.85cm
+ \textwidth 18cm
+ \textheight 24cm
+ 
+\begin{document}
+\begin{center}
+\textbf{April Camp 2019 \\ Senior Test 3} \\
+\textbf{Solutions}
+\end{center}
+\vspace{5mm}
+
+\begin{enumerate}
+
+%  2018 shortlist N1
+\item[1.]  \textit{ Determine all pairs $(n, k)$ of distinct positive integers such that there exists a positive integer $s$ for which the numbers of divisors of $sn$ and of $sk$ are equal.
+}
+\vspace{5mm}
+
+\textbf{Answer:} All pairs $(n, k)$ such that $n \not |\, k$ and $k \not |\, n$. \\
+
+\textbf{Solution:}  As usual, the number of divisors os a posiive integer $n$ is denoted by $d(n)$. If $n = \prod_i p_i^{\alpha_i}$ is the prime factorisation of $n$, then $d(n) = \prod_i(\alpha_i + 1)$.
+
+We start by showing that one cannot ind an suitable number $s$ if $k \,|\, n$ or $n \,|\, k$ (and $k \not = n$). Suppose that $n | k$, and choose any positive integer $s$. Then the set of divisors of $sn$ is a proper subset of that of $sk$, hence $d(sn) < d(sk)$. Therefore, the pair $(n, k)$ does not satisfy the problem requirements. The case $k \,|\, n$ is similar.
+
+Now assume that $n \not |\, k$ and $k \not |\, n$. Let $p_1, \dots, p_k$ be all primes divising $nk$, and consider the prime factorisations
+$$
+n = \prod_{i=1}^t p_i^{\alpha_i} \quad \textrm{and} \quad 
+k = \prod_{i=1}^t p_i^{\beta_i}
+$$
+
+It is reasonable to search for the number $s$ having the form
+$$
+s = \prod_{i=1}^t p_i^{\gamma_i}
+$$
+
+The (nonnegative integer) exponents $\gamma_i$ should be chosen so as to satisfy
+\begin{equation} \label{n11}
+    \frac{d(sn)}{d(sk)} = \prod_{i=1}^t  \frac{\alpha_i + \gamma_i + 1}{\beta_i + \gamma_i + 1} = 1    
+\end{equation}
+
+First of all, if $\alpha_i = \beta_i$ for some $i$, then, regardless of the value of $\gamma_i$, the corresponding factor in (\ref{n11}) equals 1 and does not affect the product. So we may assume that there is no such index $i$. For the other factors in (\ref{n11}), the following lemma is useful.
+
+\textit{Lemma.} Let $\alpha > \beta$ be nonnegative integers. Then, for every integer $M \geq \beta + 1$, there exists a nonnegative integer $\gamma$ such that
+$$
+\frac{\alpha + \gamma + 1}{\beta + \gamma + 1} = 1 + \frac{1}{M} = \frac{M+1}{M}
+$$
+\textit{Proof:}
+
+$$
+\frac{\alpha + \gamma + 1}{\beta + \gamma + 1} = 1 + \frac{1}{M} \iff \frac{\alpha - \beta}{\beta + \gamma + 1} = \frac{1}{M} \iff \gamma = M(\alpha-\beta) - (\beta + 1) \geq 0
+$$
+\qed
+
+Now we can finish the solution.  Without loss of generality, there exists an index $n$ such that $\alpha_i > \beta_i$ for $i = 1, 2, \dots, u$ and $\alpha_i < \beta_i$ for $i = u+1, \dots, t$. The conditions $n \not |\, k$ and $k \not |\, n$ mean that $1 \leq u \leq t-1$.
+
+Choose an integer $X$ greater than all the $\alpha_i$ and $\beta_i$. By the lemma, we can define the numbers $\gamma_i$ so as to satisfy
+\begin{align*}
+    \frac{\alpha_i + \gamma_i + 1}{\beta_i + \gamma_i + 1} &= \frac{uX + i}{uX + i - 1} \qquad \hspace{10mm} \textrm{for } i = 1, 2, \dots, u, \textrm{ and} \\
+    \frac{\beta_{u+i} + \gamma_{u+i} + 1}{\alpha_{u+i} + \gamma_{u+i} +1} &= \frac{(t-u)X + i}{(t-u)X + i - 1} \qquad \textrm{for } i = 1, 2, \dots, t-u
+\end{align*}
+Then we will have
+$$
+\frac{d(sn)}{d(sk)} = \prod_{i=1}^u \frac{uX + i}{uX + i - 1} \cdot \prod_{i=1}^{t-u} \frac{(t-u)X + i  - 1}{(t-u)X + i} = \frac{u(X+1)}{uX} \cdot \frac{(t-u)X}{(t-u)(X+1)} = 1,
+$$
+as required. \\
+
+\textbf{Comment. }  The lemma can be used in various ways, in order to provide a suitable value of $s$. In particular, one may apply induction on the number $t$ of prime factors, using identities like
+$$
+\frac{n}{n-1} = \frac{n^2}{n^2 - 1} \cdot \frac{n+1}{n}
+$$
+
+
+% 2018 shortlist A3
+\vspace{5mm}
+\item[2.]  \textit{Given any set $S$ of positive integers, show that at least one of the following two assertions holds:}
+
+\begin{enumerate}
+    \item \textit{There exists distinct finite subsets $F$ and $G$ of $S$ such that $\sum_{x \in F} 1/x = \sum_{x \in G} 1/x$;}
+    
+    \item \textit{There exists a positive rational number $r<1$ such that $\sum_{x \in F} 1/x \not = r$ for all finite subsets $F$ of $S$.}
+\end{enumerate} \\
+
+
+
+\vspace{5mm}
+
+% 2018 shortlist C5
+\item[3.]  \textit{Let $k$ be a positive integer. The organising committee of a tennis tournament is to schedule the matches for $2k$ players so that every two players play once, each day exactly one match is played, and each player arrives to the tournament site the day of his first match, and departs the day of his last match. For every day a player is present on the tournament the committee has to pay 1 coin to the hotel. The organisers want to design the schedule so as to minimise the total cost of all players' stays. Determine this minimum cost.
+}
+ \vspace{5mm}
+
+
+\vspace{6mm}
+
+
+    
+
+\end{enumerate}
+\end{document}
+
+
+
+
