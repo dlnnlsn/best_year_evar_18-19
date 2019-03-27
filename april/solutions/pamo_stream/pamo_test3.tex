@@ -1,0 +1,86 @@
+\documentclass[a4paper, 12pt]{article}
+% \usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amsfonts}
+\usepackage{amssymb,amsthm}
+\usepackage{tikz,tkz-euclide}
+\usepackage{fullpage}
+\usepackage{fancyvrb}
+\usepackage{enumerate}
+
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetkzobj{all}
+
+\title{PAMO Stream Test 3}
+\author{April Camp 2019}
+\date{Time: $4 \frac{1}{2}$ hours}
+
+\begin{document} \maketitle
+
+\begin{enumerate}
+
+\item {\itshape Find a non-zero polynomial $f(x, y)$ such that $f(\lfloor 3t \rfloor, \lfloor 5t \rfloor) = 0$ for every $t \in \mathbb{R}$.}
+
+Let $x = \lfloor 3t \rfloor$ and $y = \lfloor 5t \rfloor$, where $t \in \mathbb{R}$ and define $g(x, y) = 5x - 3y$. We claim that $g(x, y) = 0, \pm 1, \pm 2, -3, -4$. For any integer $k$, we have $5 \lfloor 3(t + k) \rfloor - 3 \lfloor 5(t + k) \rfloor = 5(\lfloor 3t \rfloor + 3k) - 3(\lfloor 5t \rfloor + 5k) = 5 \lfloor 3t \rfloor - 3 \lfloor 5t \rfloor$. So $g(\lfloor 3t \rfloor, \lfloor 5t \rfloor) = 5 \lfloor 3t \rfloor - 3 \lfloor 5t \rfloor$ is periodic function with period $1$. It suffices to consider $t \in [0, 1]$. We now partition $[0, 1)$ as follows: $[0, 1) = [0, \frac{1}{5}) \cup [\frac{1}{5}, \frac{1}{3}) \cup [\frac{1}{3}, \frac{2}{5}) \cup [\frac{2}{5}, \frac{3}{5}) \cup [\frac{3}{5}, \frac{2}{3}) \cup [\frac{2}{3}, \frac{4}{5}) \cup [\frac{4}{5}, 1)$. So,
+\[
+    g(x, y) = 5x - 3y = 5 \lfloor 3t \rfloor - 3 \lfloor 5t \rfloor =
+    \begin{cases}
+        0,      & t \in \left[0, \frac{1}{5}\right), \\
+        -3,     & t \in \left[\frac{1}{5}, \frac{1}{3}\right), \\
+        2,      & t \in \left[\frac{1}{3}, \frac{2}{5}\right), \\
+        -1,     & t \in \left[\frac{2}{5}, \frac{3}{5}\right), \\
+        -4,     & t \in \left[\frac{3}{5}, \frac{2}{3}\right), \\
+        1,      & t \in \left[\frac{2}{3}, \frac{4}{5}\right), \\
+        -2,     & t \in \left[\frac{4}{5}, 1\right].
+    \end{cases}
+\]
+
+So we can take $f(x, y) = (5x - 3y)({(5x - 3y)}^2 - 1)({(5x - 3y)}^2 - 4)(5x - 3y + 3)(5x - 3y + 4)$.
+
+
+\item {\itshape Let $ABC$ be a triangle and $\Gamma$ be the circle of diameter $[AB]$. The bisectors of $\angle BAC$ and $\angle ABC$ cut the circle $\Gamma$ again in $D$ and $E$, respectively. The incicrcle of the triangle $ABC$ cuts the lines $BC$ and $AC$ in $F$ and $G$, respectively. Show that the points $D, E, F$ and $G$ lie on the same line.}
+
+
+\item {\itshape A positive integer is called special if its digits can be arranged to form an integer divisible by $4$. How many of the integers from $1$ to $2018$ are special?}
+
+We characterise the integers which are not special. Recall that a natural number $n$ is divisible by $4$ if and only if the number formed by the last two digits of $n$ is divisible by $4$.
+
+Suppose that $n$ is not special. First we consider the case where all of the digits of $n$ are even. If $n$ contains a digit, say $a$, which is divisible by $4$, then if $b$ is any other digit of $n$, we know that $10b + a \equiv a \equiv 0 \pmod 4$, and so the digits of $n$ can be rearranged to form a number divisible by $4$. (i.e. The one that ends in $ba$.) We see that there are no non-special numbers all of whose digits are even and which contain a $0, 4$, or $8$. (If $n$ does not contain another digit other than $a$, then $n$ itself is equal to $0$, $4$, or $8$, and so is special.)
+
+Thus if $n$ contains only even digits, then $n$ consists only of the digits $2$ and $6$. Conversely, since none of $22$, $26$, $62$, and $66$ are divisible by $4$, we see that any natural number containing only the digits $2$ and $6$ is not special. It follows that the number of $m$ digit numbers which are not special and which contain only even digits is equal to $2^m$.
+
+We now consider the case where $m$ contains an odd digit. Let this odd digit be $a$. Note that $10a \equiv 2 \pmod 4$, and so if $n$ contains a $2$ or a $6$, then the digits of $n$ can be rearranged to end in $a2$ or $a6$ both of which are divisible by $4$, and so $n$ would be special. We see that if $n$ is not special, then the only even digits which $n$ can contain are $0, 4$, and $8$.
+
+Now suppose that $n$ contains two even digits. Then the digits of $n$ can be rearranged to form the number ending in those two digits. This number is divisible by $4$, and so $n$ is special. It follows that if $n$ is not special, then $n$ contains either only odd digits, or exactly one even digit which has to be a $0, 4$, or $8$. Conversely, we see that any such number is not special.
+
+The number of $m$ digit numbers containing only odd digits is equal to $5^m$. The number of $m$ digit numbers containing exactly one $0, 4$, or $8$ and having the rest of its digits odd is equal to $2 \cdot 5^{m-1} + 3(m - 1) \cdot 5^{m - 1}$. This is because if the number starts with $0, 4$, or $8$, then it starts with a $4$, or $8$, and so there are $2$ options for the first digit, and $5$ options for each of the remaining digits. Otherwise, there are $(m - 1)$ options for which digit is equal to $0, 4$, or $8$, and $3$ options for what that digit is equal to. There are then again $5$ options for each of the remaining digits. We also note that this formula requires $m > 1$, since a one-digit number can not contain a $0, 4$ or $8$, and also contain an odd digit.
+
+For $m > 1$, we thus have that there are $2^m + 5^m + 2 \cdot 5^{m-1} + 3(m-1) \cdot 5^{m-1}$ non-special numbers.
+
+Using the above, we see that there are $7$ one-digit non-special numbers, $54$ two-digit non-special numbers, and $333$ three-digit non-special numbers. This gives a total of $394$ non-special numbers below $1000$.
+
+We now consider the non-special numbers $n$ such that $1000 \leq n < 2000$. We note that these all start with a $1$, and so are a non-special number containing an odd digit. As before, we see that the remaining digits are either all odd, or exactly one of them is equal to a $0, 4$, or $8$. There are $5^3$ numbers where the remaining digits are all odd, and $3 \cdot 3 \cdot 5^2$ numbers which contain a $0, 4$, or $8$. There are thus $350$ non-special numbers between $1000$ and $2000$.
+
+Finally, note that there are no non-special numbers from $2001$ to $2018$ since the digits of these numbers can all be rearranged to form a number ending in $20$. The number $2000$ is also special since it is already a multiple of $4$.
+
+We thus see that the number of positive integers less than or equal $2018$ which are not special is equal to $394 + 350 = 744$. There are thus $2018 - 744 = 1274$ special natural numbers from $1$ to $2018$.}
+
+
+\end{enumerate}
+
+\vfill
+
+\centering
+%\begin{BVerbatim}
+%     |\_/|                  
+%     | @ @   Woof! 
+%     |   <>              _  
+%     |  _/\------____ ((| |))
+%     |               `--' |   
+% ____|_       ___|   |___.' 
+%/_/_____/____/_______|
+%\end{BVerbatim}
+
+\vspace{12mm}
+
+
+\end{document}
