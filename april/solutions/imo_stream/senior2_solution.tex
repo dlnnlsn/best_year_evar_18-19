@@ -150,6 +150,10 @@ Construct inductively an $(n+2)$-gon $BA_1 A_2 \dots A_n C$ inscribed in $\omega
 
 
 % Sketch
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{2018_G3}
+\end{figure}
 
 
 We proceed by showing that no $t > 4$ satisfies the conditions of the problem.  To this end, we assume that there exists a good collection $T$ of $n$ triangles, each of perimeter greater than $t$, and then bound $n$ from above.
@@ -165,7 +169,7 @@ Now we see that the total area $S$ of all triangles from $T$ is at least $n \sig
 
 \textbf{Comment 1.}  One may prove the Claim using the formula $S  = \frac{abc}{4R}$ instead of Heron's formula. \\
 
-\textbf{Comment 2.}  In the statement of the problem condition (i) could be replaced by a wekaer one; each traignel from $T$ lies within $\omega$. This does not affect the solution above, but reduces the number of ways to prove the Claim.
+\textbf{Comment 2.}  In the statement of the problem condition (i) could be replaced by a weaker one; each triangle from $T$ lies within $\omega$. This does not affect the solution above, but reduces the number of ways to prove the Claim.
 
 
 
@@ -185,8 +189,8 @@ for all $x,y > 0$.
 \textbf{Solution 1: } Fix a real number $a > 1$, and take a new variable $t$. For the values $f(t), f(t^2)$, $f(at)$, and $f(a^2 t^2)$, the given relation provides a system of linear equations:
 
 \begin{align}
-    x = y = 1: \hspace{4mm} \qquad \left(t + \frac{1}{t} \right) f(t) &= f(t^2) + f(1) \label{a52a} \\
-    x = \frac{t}{a}, y = at:  \hspace{2mm} \qquad \left( \frac{t}{a} + \frac{a}{t} \right)  f(at) &= f(t^2) + f(a^2) \label{a52b} \\
+    x = y = 1: \hspace{7.4mm} \qquad \left(t + \frac{1}{t} \right) f(t) &= f(t^2) + f(1) \label{a52a} \\
+    x = \frac{t}{a}, y = at:  \hspace{3.5mm} \qquad \left( \frac{t}{a} + \frac{a}{t} \right)  f(at) &= f(t^2) + f(a^2) \label{a52b} \\
     x = a^2t, y = t:  \qquad  \left( a^2t + \frac{1}{a^2t}  \right) f(t) &= f(a^2t^2) + f\left( \frac{1}{a^2}  \right) \label{a52c} \\
     x = y = at: \hspace{1mm} \qquad \left( at + \frac{1}{at}  \right) f(at) &= f(a^2 t^2) + f(1) \label{a52d}
 \end{align}
@@ -221,7 +225,6 @@ $$ \\
 
 
 \textbf{Solution 2:}  We start with an observation.  If we substitute $x = a \not = 1$ and $y = a^n$ in the given, we obtain
-
 $$
 f(a^{n+1}) - \left(a + \frac{1}{a} \right)  f(a^n) + f(a^{n-1}) = 0
 $$
@@ -253,7 +256,6 @@ Now take two numbers $a > b > 1$ arbitrarily and substitute $x = (a/b)^n$ and $y
 By dividing (\ref{a55}) by $a^{2n}$ and then taking limit with $n \to + \infty$, we get $K(ab) = K(a)$. Then (\ref{a55}) reduced to $K(a) = K(b)$. Hence, $K(a) = K(b)$ for all $a > b > 1$.
 
 Fix $a > 1$. For every $x > 0$, there is some $b$ and an integer $n$ such that $1 < b < a$ and $x = b^n$. Then
-
 $$
 f_0(x) = f_0(b^n) = K(b) \left(b^n - \frac{1}{b^n} \right) = K(a) \left(  x  - \frac{1}{x} \right).
 $$
