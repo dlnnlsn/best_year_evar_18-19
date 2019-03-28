@@ -143,6 +143,45 @@ $$
     \item \textit{There exists a positive rational number $r<1$ such that $\sum_{x \in F} 1/x \not = r$ for all finite subsets $F$ of $S$.}
 \end{enumerate} \\
 
+\textbf{Solution 1.} Argue indirectly. Agree, as usual, that the empty sum is 0 to consider rationals in $[0, 1)$; adjoining 0 causes no harm, since $\sum_{x \in F} 1/x = 0$ for no nonempty finite subset $F$ of $S$. For every rational $r$ in $[0, 1)$, let $F_r$ be the unique finite subset of $S$ such that $\sum_{x \in F_r} 1/x = r$.  The argument hinges on the lemma below.
+
+\textit{Lemma. } If $x$ is a member of $S$ and $q$ and $r$ are rationals in $[0, 1)$ such that $q-r = 1/x$, then $x$ is a member of $F_q$ if and only if it is not one of $F_r$.
+
+\textit{Proof. } If $x$ is a member of $F_q$, then
+$$
+\sum_{y \in F_q \backslash \{x\}} \frac{1}{y} = \sum_{y \in F_q} \frac{1}{y} - \frac{1}{x} = q - \frac{1}{x} = r = \sum_{y \in F_r} \frac{1}{y},
+$$
+so $F_r = F_q \backslash \{x\}$, and $x$ is not a member of $F_r$. Conversely, if $x$ is not a member of $F_r$, then
+$$
+\sum_{y \in F_r \cup \{x\}} \frac{1}{y} = \sum_{y \in F_r} \frac{1}{y} + \frac{1}{x} = r + \frac{1}{x} = q = \sum_{y \in F_q} \frac{1}{y},
+$$
+so $F_q = F_r \cup \{x\} $, and $x$ is a member of $F_q$.
+
+Consider now an element $x$ of $S$ and a positive rational $r < 1$. Let $n = \lfloor rx \rfloor$ and consider the sets $F_{r-k/x}, k = 0, \dots, n$. Since $0 \leq r - n/x < 1/x$, the set $F_{r-n/x}$ does not contain $x$, and a repeated application of the lemma shows that the $F_{r-(n-2k)/x}$ do not contain $x$, whereas the $F_{r-(n-2k-1)/x}$ do. Consequently, $x$ is a member of $F_r$ if and only if $n$ is odd.
+
+Finally, consider $F_{2/3}$. By the preceding, $\lfloor 2x/3 \rfloor$ is odd for each $x$ in $F_{2/3}$, so $2x/3$ is not integral. Since $F_{2/3}$ is finite, there exists a positive rational $\epsilon$ such that $\lfloor (2/3 - \epsilon) x \rfloor = \lfloor 2x/3 \rfloor$ for all $x$ in $F_{2/3}$. This implies that $F_{2/3}$ is a subset of $F_{2/3 - \epsilon}$ which is impossible. \\
+
+\textbf{Comment. } The solution above can be adapted to show that the problem statement still holds, if the condition $r < 1$ in (b) is replaced with $r < \delta$, for an arbitrary positive $\delta$. This yields that, if $S$ does not satisfy (a), then there exist \textit{infinitely many} positive rational numbers $r < 1$ such that $\sum_{x \in F} 1/x \not = r$ for all finite subsets $F$ of $S$. \\
+
+
+\textbf{Solution 2. } A finite $S$ clearly satisfies (b), so let $S$ be infinite. If $S$ fails both conditions, so does $S \backslash \{1\}$. We may and will therefore assume that $S$ consists of integers greater than 1. Label the elements of $S$ increasingly $x_1 < x_2 < \dots$, where $x_1 \geq 2$.
+
+We first show that $S$ satisfies (b) if $x_{n+1} \geq 2x_n$ for all $n$. In this case $x_n \geq 2^{n-1} x_1$ for all $n$, so
+$$
+s = \sum_{n \geq 1} \frac{1}{x_n} \leq \sum_{n \geq 1} \frac{1}{2^{n-1} x_1} = \frac{2}{x_1}.
+$$
+
+If $x_1 \geq 3$, or $x_1 = 2$ and $x_{n+1} > 2 x_n$ for some $n$, then $\sum_{x \in F} 1/x < s < 1$ for every finite subset $F$ of $S$, so $S$ satisfies (b); and if $x_1 = 2$ and $x_{n+1} = 2 x_n$ for all $n$, that is, $x_n = 2^n$ for all $n$, then every finite subset $F$ of $S$ consists of powers of 2, so $\sum_{x \in F} 1/x \not = 1/3$ and again $S$ satifies (b).
+
+Finally, we deal with the case where $x_{n+1} < 2 x_n$ for some $n$. Consider the positive rational $r = 1/x_n - 1/x_{n+1} < 1/x_{n+1}$. If $r = \sum_{x \in F} 1/x$ for no finite subset $F$ of $S$, then $S$ satisfies (b).
+
+We now assume that $r = \sum_{x \in F_0} 1/x$ for some finite subset $F_0$ of $S$, and show that $S$ satisfies (a). Since $\sum_{x \in F_0} 1/x = r < 1/x_{n+1}$, it follows that $x_{n+1}$ is not a member of $F_0$, so
+$$
+\sum_{x \in F_0 \cup \{x_{n+1}\}} \frac{1}{x} = \sum_{x \in F_0} \frac{1}{x} + \frac{1}{x_{n+1}} = r + \frac{1}{x_{n+1}} = \frac{1}{x_n}
+$$
+
+Consequently, $F = F_0 \cup \{x_{n+1} \}$ and $G = \{x_n\}$ are distinct finite subsets of $S$ such that $\sum_{x \in F} 1/x = \sum_{x \in G} 1/x$, and $S$ satisfies (a). \\
+
 
 
 \vspace{5mm}
@@ -151,7 +190,76 @@ $$
 \item[3.]  \textit{Let $k$ be a positive integer. The organising committee of a tennis tournament is to schedule the matches for $2k$ players so that every two players play once, each day exactly one match is played, and each player arrives to the tournament site the day of his first match, and departs the day of his last match. For every day a player is present on the tournament the committee has to pay 1 coin to the hotel. The organisers want to design the schedule so as to minimise the total cost of all players' stays. Determine this minimum cost.
 }
  \vspace{5mm}
+ 
+ \textbf{Answer: } The required minimum is $k(4k^2 + k - 1)/2$.
+ 
+ \textbf{Solution 1.} Enumerate the days of the tournament $1, 2, \dots, \binom{2k}{2}$. Let $b_1 \leq b_2 \leq \dots \leq b_{2k}$ be the days the players arrive to the tournament, arranged in \textit{nondecreasing} order; similarly, let $e_1 \geq \dots e_{2k}$ be the days they depart arranged in \textit{nonincreasing} order (it may happen that a player arrives on day $b_i$ and departs on day $e_j$, where $i \not = j$). If a player arrives on day $b$ and departs of day $e$, then his stay cost is $e-b+1$. Therefore, the total stay cost is
+ $$
+ \Sigma = \sum_{i=1}^{2k} e_i - \sum_{i=1}^{2k} b_i + n = \sum_{i=1}^{2k} (e_i - b_i + 1)
+ $$
+\textit{Bounding the total cost from below:} To this end, estimate $e_{i+1} - b_{i+1} + 1$. Before day $b_{i+1}$, only $i$ players were present, so at most $\binom{i}{2}$ matches could played. Therefore $b_{i+1} \leq \binom{i}{2} + 1$. Similarly, at most $\binom{i}{2}$ matches could be played after day $e_{i+1}$, so $e_i \geq \binom{2k}{2} - \binom{i}{2}$. Thus,
 
+$$
+e_{i+1} - b_{i+1} + 1 \geq \binom{2k}{2} - 2 \binom{i}{2} = k(2k-1) - i(i-1)
+$$
+
+This lower bound can be improved fr $i > k$: List the $i$ players who arrived first, and the $i$ players who departed last; at least $2i-2k$ players appear in both lists. The matches between these players were counted twice, though the players in each pair have played only once. Therefore, if $i > k$, then
+$$
+e_{i+1} - b_{i+1} + 1 \geq \binom{2k}{2} - 2 \binom{i}{2} + \binom{2i-2k}{2} = (2k-i)^2
+$$
+
+\textit{An optimal tournament}, We now described a schedule in which the lower bounds above are all achieved simultaneously. Split players into two groups $X$ and $Y$, each of cardinality $k$. Next, partition the schedule into three parts.  During the first part, the players from $X$ arrive one by one, and each newly arrived player immediately plays with everyone already present. During the third part (after all players from $X$ have already departed) the players from $Y$ depart one by one, each playing with everyone still present just before departing.
+
+In the middle part, everyone from $X$ should play with everyone from $Y$. Let $S_1, S_2, \dots, S_k$ be the players in $X$, and let $T_1, T_2, \dots, T_k$ be the players in $Y$. Let $T_1, T_2, \dots, T_k$ arrive in this order; after $T_j$ arrives; he immediately plays with all the $S_i$, $i > j$. Afterwards, players $S_k, S_{k-1}, \dots, S_1$ depart in this order; each $S_i$ plays with all the $T_{j}$, $i \leq j$, just before his departure, and $S_k$ departs the days $T_k$ arrives. For $0 \leq s \leq k-1$, the number of matches player between $T_{k-s}$'s arrival and $S_{k-s}$'s departure is
+$$
+\sum_{j=k-s}^{k-1} (k-j) + 1 + \sum_{j=k-s}^{k-1} (k-j+1) = \frac{1}{2} s(s+1) + 1 + \frac{1}{2}s(s+3) = (s+1)^2.
+$$
+
+Thus, if $i > k$, then the number of matches that have been played between $T_{i-k+1}$'s arrival, which is $b_{i+1}$, and $S_{i-k+1}$'s departure, which is $e_{i+1}$, is $(2k-i)^2$; that is, $e_{i+1} - b_{i+1} +1 = (2k-i)^2$, showing the second lower bound achieved for all $i > k$.
+
+If $i \leq k$, then the matches between the $i$ players present before before $b_{i+1}$ all fall in the first part f the schedule, so there are $\binom{i}{2}$ such, and $b_{i+1} = \binom{i}{2} + 1$. Similarly, after $e_{i+1}$, there are $i$ players left, all $\binom{i}{2}$ matches now fall in the third part of the schedule, and $e_{i+1} = \binom{2k}{2} - \binom{i}{2}$. The first lower bond is therefore also achieved for all $i \leq k$.
+
+Consequently, all lower bonds are achieved simultaneously, and the schedule is indeed optimal.
+
+\textit{Evaluation.} Finally evaluate the total cost for the optimal schedule:
+
+\begin{align*}
+    \Sigma &= \sum_{i=0}^k (k(2k-1) - i(i-1)) + \sum_{i=k+1}^{2k-1} (2k-i)^2 = (k+1)k(2k-1) - \sum_{i=0}^k i(i-1) + \sum_{j=1}^{k-1} j^2 \\
+    &= k(k+1)(2k-1) - k^2 + \frac{1}{2} k (k+1) = \frac{1}{2} k (4k^2 + k - 1).
+\end{align*}
+\vspace{4mm}
+
+\textbf{Solution 2. }  Consider any tournament schedule. Label players $P_1, P_2, \dots, P_{2k}$ in order of their arrival, and label them again $Q_{2k}, Q_{2k-1}, \dots, Q_1$ in order of their departure, to define a permutation $a_1, a_2, \dots, a_{2k}$ of $1, 2, \dots, 2k$ by $P_i = Q_{a_i}$.
+
+We first describe an optimal tournament for any given permutation $a_1, a_2, \dots, a_{2k}$ of the indices $1, 2, \dots, 2k$. Next, we find an optimal permutation and an optimal tournament.
+
+\textit{Optimisation for a fixed $a_1, \dots, a_{2k}$.} We say that the \textit{cost} of the match between $P_i$ and $P_j$ is the number of layers present at the tournament when this match is played. Clearly, the Committee pays for each day the cost of the match of that day.  Hence, we are to minimise the total cost of all matches.
+
+Notice that $Q_{2k}$'s departure does not precede $P_{2k}$'s arrival. Hence, the number of players at the tournament monotonically increase (non-strictly) until it reaches $2k$, and then monotonically decrease (non-strictly). So, the best time to schedule the match between $P_i$ and $P_j$ is either when $P_{\textrm{max}(i, j)}$ arrives, or when $Q_{\textrm{max}(i, j)}$ departs, in which case the cost is min(max($i, j$), max($a_i, a_j$)).
+
+Conversely. assuming that $i > j$, if this match is scheduled between the arrivals of $P_i$ and $P_{i+1}$, then its cost will be exactly $i = \textrm{max}(i, j)$. Similarly one can make it cost max($a_i, a_j$). Obviously, these conditions can all be simultaneously satisfied, so the minimal cost for a fixed sequence $a_1, a_2, \dots, a_{2k}$ is
+\begin{equation} \label{c51}
+    \Sigma(a_1, \dots, a_{2k}) = \sum_{1 \leq i < j \leq 2k} \textrm{min}(\textrm{max}(i, j), \textrm{max}(a_i, a_j))
+\end{equation}
+
+\textit{Optimising the sequence $(a_i)$}. Optimisation hinges on the lemma below. \\
+
+\textit{Lemma. } If $a \leq b$ and $c \leq d$, then
+\begin{align*}
+    \textrm{min}(\textrm{max}(a, x), \textrm{max}(c, y)) +\textrm{min}&(\textrm{max}(b, x), \textrm{max}(d, y))  \\
+    &\geq \textrm{min}(\textrm{max}(a, x), \textrm{max}(d, y)) + \textrm{min}(\textrm{max}(b, x), \textrm{max}(c, y)) 
+\end{align*}
+
+\textit{Proof. } Write $a' = \textrm{max}(a, x) \leq \textrm{max}(b, x) = b'$ and $c'  = \textrm{max}(c, y) \leq \textrm{max}(d, y) = d' $ and check that $\textrm{min}(a', c') + \textrm{min}(b', d') \geq \textrm{min}(a', d') + \textrm{min}(b', c') $.
+
+Consider a permutation $a_1, a_2, \dots, a_{2k}$ such that $a_i < a_j$ for some $i < j$. Swapping $a_i$ and $a_j$ does not change the $(i, j)$th summand in (\ref{c51}), and for $\ell \not \in \{i, j\}$ the sum of the $(i, \ell)$th and the $(j, \ell)$th summands does not increase by the Lemma. Hence the optimal value does not increase, but the number of disorders in the permutation increase. This process stops when $a_i = 2k+1-i$ for all $i$, so the required minimum is
+\begin{align*}
+    S(2k, 2k-1 \dots, 1) &= \sum_{1 \leq i < j \leq 2k} \textrm{min} (\textrm{max} (i, j), \textrm{max} (2k+1-i, 2k+1-j)) \\
+    &= \sum_{1 \leq i < j \leq 2k} \textrm{min} (j, 2k+1-i)
+\end{align*}
+The latter sum is fairly tractable and yields the stated result; we omit the details. \\
+
+\textbf{Comment. } If the number of players is odd, say, $2k-1$, the required minimum is $k(k-1)(4k-1)/2$. In this case, $|X| = k$, $|Y| = k-1$. the argument goes along the same lines, but some additional technicalities are to be taken care of.
 
 \vspace{6mm}
 
