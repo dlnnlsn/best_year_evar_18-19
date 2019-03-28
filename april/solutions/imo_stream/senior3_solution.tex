@@ -81,11 +81,11 @@
 
 \textbf{Answer:} All pairs $(n, k)$ such that $n \not |\, k$ and $k \not |\, n$. \\
 
-\textbf{Solution:}  As usual, the number of divisors os a posiive integer $n$ is denoted by $d(n)$. If $n = \prod_i p_i^{\alpha_i}$ is the prime factorisation of $n$, then $d(n) = \prod_i(\alpha_i + 1)$.
+\textbf{Solution:}  As usual, the number of divisors of a positive integer $n$ is denoted by $d(n)$. If $n = \prod_i p_i^{\alpha_i}$ is the prime factorisation of $n$, then $d(n) = \prod_i(\alpha_i + 1)$.
 
 We start by showing that one cannot ind an suitable number $s$ if $k \,|\, n$ or $n \,|\, k$ (and $k \not = n$). Suppose that $n | k$, and choose any positive integer $s$. Then the set of divisors of $sn$ is a proper subset of that of $sk$, hence $d(sn) < d(sk)$. Therefore, the pair $(n, k)$ does not satisfy the problem requirements. The case $k \,|\, n$ is similar.
 
-Now assume that $n \not |\, k$ and $k \not |\, n$. Let $p_1, \dots, p_k$ be all primes divising $nk$, and consider the prime factorisations
+Now assume that $n \not |\, k$ and $k \not |\, n$. Let $p_1, \dots, p_k$ be all primes dividing $nk$, and consider the prime factorisations
 $$
 n = \prod_{i=1}^t p_i^{\alpha_i} \quad \textrm{and} \quad 
 k = \prod_{i=1}^t p_i^{\beta_i}
