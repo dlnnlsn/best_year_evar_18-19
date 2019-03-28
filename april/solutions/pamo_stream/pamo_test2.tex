@@ -49,15 +49,15 @@ Let $n$, $x$ and $y$ be such that ${(x^2 + y^2)}^n = {(xy)}^{2018}$. According t
     {(a^2 + b^2)}^n = d^{2(2018 - n)} {(ab)}^{2018}.
 \end{eqnarray*}
 
-As $b$ divides ${(ab)}^{2018}$, then $b$ sivides ${(a^2 + b^2)}^n$. But $\gcd(a, b) = 1$ then $\gcd(a^2, b) = 1$ and so $\gcd(a^2 + b^2, b) = 1$. Consequently, $b = 1$. The same argument shows that $a = 1$. Hence we get
+As $b$ divides ${(ab)}^{2018}$, then $b$ divides ${(a^2 + b^2)}^n$. But $\gcd(a, b) = 1$ so $\gcd(a^2, b) = 1$ and so $\gcd(a^2 + b^2, b) = 1$. Consequently, $b = 1$. The same argument shows that $a = 1$. Hence we get
 \[
-    2^n = d^{2(2018 - n)}
+    2^n = d^{2(2018 - n)}.
 \]
-consequently, $d = 2^k$ with $2^n = 2^{4036k - 2nk}$ and $n = 4036k - 2nk$. Then $n(2k + 1) = 4k \cdot 1009$. Since $\gcd(2k + 1, 4k) = 1$, we have that $2k + 1$ divides $1009$ which is a prime, then $2k + 1 = 1009$. Hence $k = 504$ and $n = 2016$. Conversely, we check that $x = y = 2^{504}$ satisfies
+Consequently, $d = 2^k$ with $2^n = 2^{4036k - 2nk}$ and $n = 4036k - 2nk$. Then $n(2k + 1) = 4k \cdot 1009$. Since $\gcd(2k + 1, 4k) = 1$, we have that $2k + 1$ divides $1009$ which is a prime, and so $2k + 1 = 1009$ or $2k + 1 = 1$. Hence $k = 504$ or $k = 0$, and $n = 2016$ or $n = 0$, respectively. Conversely, we check that $x = y = 2^{504}$ satisfies
 \[
-    {( 2^{1008} + 2^{1008} )}^{2016} = {( 2^{504} \times 2^{504} )}^{2018} = 2^{2034144}.
+    {( 2^{1008} + 2^{1008} )}^{2016} = {( 2^{504} \times 2^{504} )}^{2018} = 2^{2034144},
 \]
-
+and so $n = 2016$ is a solution. A solution for $n = 0$ is provided by $x = 1 = 1$.
 
 \item {\itshape Adamu and Afaafa choose, each in his turn, positive integers as coefficients of a polynomial of degree $n$. Adamu wins if the polynomial obtained has an integer root; otherwise, Afaafa wins. Afaafa plays first if $n$ is odd; otherwise Adamu plays first. Prove that:
 \begin{enumerate}[i)]
