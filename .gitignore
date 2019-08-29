@@ -250,3 +250,4 @@ TSWLatexianTemp*
 # generated if using elsarticle.cls
 *.spl
 desktop.ini
+.vscode/spellright.dict
