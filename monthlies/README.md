@@ -8,13 +8,13 @@ Following the [Stellenbosch Camp](../stellenbosch), students are sent a set of a
 
   | Month | Problems | Solutions |
   | ----- | -------- | --------- |
-  | January | [January Problem Set](./problems/pdfs/beginner_january.pdf) | [January Problem Set Solutions](./solutions/pdfs/Beginner_January.pdf) |
+  | January | [January Problem Set](./problems/pdfs/junior_january.pdf) | Not available |
 
 * ## Intermediate Problem Sets
 
   | Month | Problems | Solutions |
   | ----- | -------- | --------- |
-  | January | [January Problem Set](./problems/pdfs/intermediate_january.pdf) | Not Available |
+  | January | Not available | Not Available |
   | February | [February Problem Set](./problems/pdfs/intermediate_february.pdf) | Not Available |
 
 * ## Advanced Problem Sets
@@ -22,4 +22,5 @@ Following the [Stellenbosch Camp](../stellenbosch), students are sent a set of a
   | Month | Problems | Solutions |
   | ----- | -------- | --------- |
   | January | [January Problem Set](./problems/pdfs/senior_january.pdf) | [January Problem Set Solutions](./solutions/pdfs/senior_january.pdf) |
-  | February | [February Problem Set](./problems/pdfs/senior_february.pdf) | Not Available |
+  | February | [February Problem Set](./problems/pdfs/senior_february.pdf) | [February Problem Set Solutions](./solutions/pdfs/senior_february.pdf) |
+  | March | [March Problem Set](./problems/pdfs/senior_march.pdf) | [March Problem Set Solutions](./solutions/pdfs/senior_march.pdf) |
