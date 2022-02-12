@@ -21,13 +21,15 @@
  \usepackage{tikz,tkz-euclide}
  
  \usetikzlibrary{calc,patterns,angles,quotes}
-\usetkzobj{all}
+% \usetkzobj{all}
 
 \def\deg{^{\circ}}
 \newcommand\heading[1]{\ \\\large{\textbf{#1}}}
 \newcommand\ora[1]{\overrightarrow{#1}}
 
 \def\thm{Th\textsuperscript{\underline{m}}}
+
+\newtheorem*{lemma}{Lemma}
 
 %------------------end---preamble--------------------
  
@@ -193,7 +195,7 @@ To make sure there is at least one pair of losing squares the second player must
 \item[6.]  \textit{Isosceles $\triangle ABC\ (AC=BC)$ is inscribed in a circle $k$. A point $M$ lies on the side $BC$. A point $N$ from the ray $AM$ ($M$ lies between $A$ and $N$) is such that $AN=AC$. The circumcircle of $\triangle MCN$ intersects $k$ at $C$ and $P$, where $P$ is from the arc $BC$ not containing $A$. The lines $AB$ and $CP$ intersect at $Q$. Prove that $\angle QMB = \angle QMN$.}
 
 
-	\\ Denote $\angle MAC=\alpha$ and $\angle ACB=\beta$. Let $J$ the incentre of $\triangle AMC$.
+	Denote $\angle MAC=\alpha$ and $\angle ACB=\beta$. Let $J$ the incentre of $\triangle AMC$.
 	
 	    \vspace{10mm}
 		\begin{figure}[h]
