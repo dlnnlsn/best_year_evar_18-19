@@ -36,7 +36,8 @@ For convenience, links to compiled versions of each test and each set of solutio
   | Test 2 | [Test 2 Problems](./tests/senior/pdfs/senior_test2.pdf) | Compiled version not available |
   | Test 3 | [Test 3 Problems](./tests/senior/pdfs/senior_test3.pdf) | [Test 3 Solutions](./solutions/senior/senior_test3_solution.pdf) |
   | Test 4 | [Test 4 Problems](./tests/senior/pdfs/senior_test4.pdf) | [Test 4 Solutions](./solutions/senior/senior_test4_solution.pdf) |
-  | Test 5 | [Test 5 Problems](./tests/senior/pdfs/senior_test5.pdf) | Compiled version not available |
+  | Test 5 | [Test 5 Problems](./tests/senior/pdfs/senior_test5.pdf) | [Test 5 Solution](./solutions/senior/senior_test5_solution.pdf) |
+
 ## Topic Allocation
 
 ### Beginner
